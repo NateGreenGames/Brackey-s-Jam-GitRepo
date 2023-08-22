@@ -6,14 +6,16 @@ using UnityEngine.Audio;
 
 public enum eSFX
 {
-    //AMBIENCE
+    //Ambience
+    lightHum, engineHum, bubbles,
 
     //SFX
-    buttonClick, none
-    
+    buttonClick, leverPushPull, airHiss, pipeBurst, fusePop, lightOn, lightOff, engineOn, engineOff, powerWarning, 
+    waterMovement, fuseExplode, powerOff, powerOn, hullHit, hullWane, creatureAttack, creatureFlee, creatureApproach, 
+    alarm,none
 }
 
-public enum eMusic { titleMusic, gameplayMusic1 }
+public enum eMusic { titleMusic, gameplayMusicCalm, gameplayMusicDanger, none }
 
 
 public class AudioManager : MonoBehaviour
@@ -254,14 +256,5 @@ public class AudioManager : MonoBehaviour
 
         return standbyMusicSource;
 
-    }
-
-    private class NamedArrayAttribute : Attribute
-    {
-        public Type TargetEnum;
-        public NamedArrayAttribute(Type TargetEnum)
-        {
-            this.TargetEnum = TargetEnum;
-        }
     }
 }
