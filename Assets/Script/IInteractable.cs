@@ -9,5 +9,6 @@ public interface IInteractable
 {
     bool isInteractable {get; set;}
     void OnInteract();
+    void OnInteractHeld();
     void OnLookingAt();
 }

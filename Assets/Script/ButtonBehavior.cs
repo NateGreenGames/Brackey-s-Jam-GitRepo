@@ -47,4 +47,9 @@ public class ButtonBehavior : MonoBehaviour, IInteractable
     {
         //Do nothing
     }
+
+    public void OnInteractHeld()
+    {
+        //Do nothing
+    }
 }
