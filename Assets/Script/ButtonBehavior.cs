@@ -3,29 +3,48 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ButtonBehavior : MonoBehaviour
+public class ButtonBehavior : MonoBehaviour, IInteractable
 {
+    [SerializeField] private InteriorLightBehavior light;
     [SerializeField] private Color onColor, offColor;
 
-    private Image m_buttonimage;
-    private bool isOn;
+    private MeshRenderer m_mr;
+    [SerializeField] bool isOn;
+    public bool isInteractable { get; set; }
+
     void Start()
     {
-        m_buttonimage = GetComponent<Image>();
-        ToggleButtonState();
-
+        isInteractable = true;
+        m_mr = GetComponent<MeshRenderer>();
+        UpdateMaterialColor();
     }
 
     public void ToggleButtonState()
     {
+        light.ToggleLight();
         isOn = !isOn;
+        UpdateMaterialColor();
+    }
+
+    private void UpdateMaterialColor()
+    {
         if (isOn)
         {
-            m_buttonimage.color = onColor;
+            m_mr.material.color = onColor;
         }
         else
         {
-            m_buttonimage.color = offColor;
+            m_mr.material.color = offColor;
         }
+    }
+
+    public void OnInteract()
+    {
+        ToggleButtonState();
+    }
+
+    public void OnLookingAt()
+    {
+        //Do nothing
     }
 }

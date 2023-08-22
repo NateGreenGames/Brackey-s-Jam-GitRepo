@@ -5,9 +5,19 @@ using UnityEngine;
 public class PlayerFreelookCameraBehavior : MonoBehaviour
 {
     // Variables
+    [Header("Camera Movement Settings:")]
     [SerializeField] float mouseSensitivity = 2f;
-    [SerializeField] float minVerticalAngle, maxVerticalAngle;
-    [SerializeField] float minHorizontalAngle, maxHorizontalAngle;
+    [Space]
+    [SerializeField] float minVerticalAngle;
+    [SerializeField] float maxVerticalAngle;
+    [Space]
+    [SerializeField] float minHorizontalAngle;
+    [SerializeField] float maxHorizontalAngle;
+
+    [Space]
+    [Header("Interaction Settings:")]
+    [SerializeField] float maxInteractionDistance;
+    [SerializeField] LayerMask interactionMask;
     private float cameraVerticalRotation;
     private float cameraHorizontalRotation;
 
@@ -23,6 +33,7 @@ public class PlayerFreelookCameraBehavior : MonoBehaviour
     void Update()
     {
         PerformCameraRotation();
+        WhileLooking();
     }
 
     private void PerformCameraRotation()
@@ -41,5 +52,23 @@ public class PlayerFreelookCameraBehavior : MonoBehaviour
 
         //Perform rotation
         transform.localEulerAngles = concatinatedRotation;
+    }
+
+    public void WhileLooking()
+    {
+        // Creates a ray at the center of the camera, shooting outwards
+        Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
+        RaycastHit hitInfo; // Variable to store our collision information
+        if (Physics.Raycast(ray, out hitInfo, maxInteractionDistance, interactionMask))
+        {
+            if (hitInfo.collider.TryGetComponent<IInteractable>(out IInteractable interactable) && interactable.isInteractable)
+            {
+                interactable.OnLookingAt();
+                if (Input.GetMouseButtonDown(0))
+                {
+                    interactable.OnInteract();
+                }
+            }
+        }
     }
 }
