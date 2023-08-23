@@ -4,45 +4,33 @@ using UnityEngine;
 
 public class Lever : MonoBehaviour, IInteractable
 {
-    Animator anim;
+    public Animator anim;
+    [SerializeField] FuseBox fuseBox;
     Vector3 lastMouseCoordinate = Vector3.zero;
     public bool isInteractable { get; set; }
     private void Start()
     {
+        if (!fuseBox)
+        {
+            GameObject _fuseBox = GameObject.Find("BoxFuse_GD");
+            if (_fuseBox != null)
+            {
+                fuseBox = _fuseBox.GetComponent<FuseBox>();
+            }
+        }
         isInteractable = true;
         anim = GetComponent<Animator>();
     }
 
     public void OnInteract()
     {
-        Debug.Log("I'm interacting");
-        /*Vector3 mouseDelta = Input.mousePosition - lastMouseCoordinate;
-        lastMouseCoordinate = Input.mousePosition;
-
-        if (Input.GetKey(KeyCode.Mouse0) && ((mouseDelta.y < 0)))
-        {
-            anim.SetTrigger("Down");
-            isInteractable = false;
-        }*/
         StartCoroutine(HoldingDownLever());
     }
-
-
 
     public void OnLookingAt()
     {
         //None
     }
-    /*public void //OnMouseOver()
-    {
-        Vector3 mouseDelta = Input.mousePosition - lastMouseCoordinate;
-        lastMouseCoordinate = Input.mousePosition;
-
-        if (Input.GetKey(KeyCode.Mouse0) && ((mouseDelta.y < 0)))
-        {
-            anim.SetTrigger("Down");
-        }
-    }*/
 
     public void OnInteractHeld()
     {
@@ -61,6 +49,15 @@ public class Lever : MonoBehaviour, IInteractable
             {
                 anim.SetTrigger("Down");
                 isInteractable = false;
+                fuseBox.submarineLight.SetActive(true);
+                for (int i = fuseBox.tests.Count - 1; i >= 0; i--)
+                {
+                    fuseBox.lightMaterial[i].DisableKeyword("_EMISSION");
+                }
+                for (int i = fuseBox.tests.Count - 1; i >= 0; i--)
+                {
+                    fuseBox.tests.RemoveAt(i);
+                }               
             }
             else
             {
@@ -68,4 +65,13 @@ public class Lever : MonoBehaviour, IInteractable
             }
         }
     }
+
+    /*private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            anim.SetTrigger("Up");
+            isInteractable = true;
+        }
+    }*/
 }
