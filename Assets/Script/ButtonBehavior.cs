@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ButtonBehavior : MonoBehaviour, IInteractable
 {
-    [SerializeField] private InteriorLightBehavior light;
+    [SerializeField] private InteriorLightBehavior[] lights;
     [SerializeField] private Color onColor, offColor;
 
     private MeshRenderer m_mr;
@@ -21,7 +21,10 @@ public class ButtonBehavior : MonoBehaviour, IInteractable
 
     public void ToggleButtonState()
     {
-        light.ToggleLight();
+        foreach (InteriorLightBehavior item in lights)
+        {
+            item.ToggleLight();
+        }
         isOn = !isOn;
         UpdateMaterialColor();
     }
