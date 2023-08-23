@@ -11,4 +11,6 @@ public interface IInteractable
     void OnInteract();
     void OnInteractHeld();
     void OnLookingAt();
+
+    void OnInteractEnd();
 }

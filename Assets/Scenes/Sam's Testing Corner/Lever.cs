@@ -66,6 +66,10 @@ public class Lever : MonoBehaviour, IInteractable
         }
     }
 
+    public void OnInteractEnd()
+    {
+        //do nothing
+    }
     /*private void Update()
     {
         if (Input.GetKeyDown(KeyCode.A))

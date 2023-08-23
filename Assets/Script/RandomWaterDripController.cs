@@ -6,6 +6,7 @@ public class RandomWaterDripController : MonoBehaviour
 {
     [SerializeField] float minTimeBetweenDrips, maxTimeBetweenDrips;
     [SerializeField] AudioClip[] dripSounds;
+    [SerializeField] bool postDebugInformation;
     private AudioSource m_as;
     // Start is called before the first frame update
     void Start()
@@ -17,7 +18,7 @@ public class RandomWaterDripController : MonoBehaviour
     private IEnumerator DripRoutine()
     {
         m_as.PlayOneShot(dripSounds[Random.Range(0, dripSounds.Length)]);
-        Debug.Log("I'm trying to play a drip sound.");
+        if(postDebugInformation) Debug.Log("I'm trying to play a drip sound.");
         yield return new WaitForSeconds(Random.Range(minTimeBetweenDrips, maxTimeBetweenDrips));
         StartCoroutine(DripRoutine());
     }

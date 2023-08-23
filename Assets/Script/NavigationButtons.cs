@@ -5,9 +5,8 @@ using UnityEngine;
 public class NavigationButtons : MonoBehaviour, IInteractable
 {
     [Tooltip("Positive values produce a clockwise rotation, negative values produce a counter-clockwise rotation.")][SerializeField] float rateofChange;
-    [SerializeField] private GameObject audioSource;
+    [SerializeField] private AudioSource audioSource;
     public bool isInteractable { get; set; }
-    public bool isToggled = false;
 
 
     private void Start()
@@ -18,16 +17,24 @@ public class NavigationButtons : MonoBehaviour, IInteractable
     public void OnInteractHeld()
     {
         //The Navigation still works in this state. Audio is glitchy and thus commented out for the time being.
-        ThrusterAudioBehavior tb = audioSource.GetComponent<ThrusterAudioBehavior>();
-        isToggled = !isToggled;
-        if (isToggled)
+        ProgressionManager.AlterPlayerCourse(rateofChange * Time.deltaTime);
+
+        if (!audioSource.isPlaying)
         {
-            ProgressionManager.AlterPlayerCourse(rateofChange * Time.deltaTime);
-            //tb.ToggleAudioSource();
+            //If the clip is not currently playing but this is being called, start it.
+            audioSource.Play();
+        }
+        //If the the clip is playing, don't do anything.
+
+
+        //if rateOfChange is left, pan left, if rate of change is right, pan right.
+        if (rateofChange > 0)
+        {
+            audioSource.panStereo = -1f;
         }
         else
         {
-            //tb.ToggleAudioSource();
+            audioSource.panStereo = 1f;
         }
     }
     public void OnLookingAt()
@@ -37,6 +44,11 @@ public class NavigationButtons : MonoBehaviour, IInteractable
     public void OnInteract()
     {
         //Do nothing
+    }
+
+    public void OnInteractEnd()
+    {
+        audioSource.Stop();
     }
 
 }

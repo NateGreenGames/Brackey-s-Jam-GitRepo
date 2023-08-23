@@ -72,6 +72,10 @@ public class PlayerFreelookCameraBehavior : MonoBehaviour
                 {
                     interactable.OnInteractHeld();
                 }
+                if (Input.GetMouseButtonUp(0))
+                {
+                    interactable.OnInteractEnd();
+                }
             }
         }
     }
