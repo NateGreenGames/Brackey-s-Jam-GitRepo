@@ -7,12 +7,12 @@ using UnityEngine.Audio;
 public enum eSFX
 {
     //Ambience
-    lightHum, engineHum, bubbles,
+    lightHum, engineHum, hum, bubbles,
 
     //SFX
-    buttonClick, leverPushPull, airHiss, pipeBurst, fusePop, lightOn, lightOff, engineOn, engineOff, powerWarning, 
-    waterMovement, fuseExplode, powerOff, powerOn, hullHit, hullWane, creatureAttack, creatureFlee, creatureApproach, 
-    alarm,none
+    buttonClick, leverPushPull, airHiss, pipeBurst, fusePop, fuseExplode, fuseClunk, lightOn, lightOff, 
+    engineOn, engineOff, powerWarning, waterMovement, powerOff, powerOn, hullHit, hullWane, creatureAttack, 
+    creatureFlee, creatureApproach, alarm,none
 }
 
 public enum eMusic { titleMusic, gameplayMusicCalm, gameplayMusicDanger, none }
