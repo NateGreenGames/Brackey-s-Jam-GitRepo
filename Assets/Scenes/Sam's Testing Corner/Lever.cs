@@ -44,6 +44,11 @@ public class Lever : MonoBehaviour, IInteractable
         }
     }*/
 
+    public void OnInteractHeld()
+    {
+        //NONE
+    }
+
     public IEnumerator HoldingDownLever()
     {
         while (Input.GetKey(KeyCode.Mouse0))
