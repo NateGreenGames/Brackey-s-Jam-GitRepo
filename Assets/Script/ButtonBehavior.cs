@@ -9,8 +9,10 @@ public class ButtonBehavior : MonoBehaviour, IInteractable
     [SerializeField][ColorUsage(false,true)] private Color onEmission, offEmission;
     [SerializeField] private InteriorLightBehavior[] lights;
     [SerializeField] private Color onColor, offColor;
+    [SerializeField] private GameObject lightAudio;
 
     private MeshRenderer m_mr;
+
     [SerializeField] bool isOn;
     public bool isInteractable { get; set; }
 
@@ -23,12 +25,14 @@ public class ButtonBehavior : MonoBehaviour, IInteractable
 
     public void ToggleButtonState()
     {
+        LightAmbienceBehavior lb = lightAudio.GetComponent<LightAmbienceBehavior>();
         foreach (InteriorLightBehavior item in lights)
         {
             item.ToggleLight();
         }
         isOn = !isOn;
         UpdateMaterialColor();
+        lb.ToggleAudioSource();
     }
 
     private void UpdateMaterialColor()

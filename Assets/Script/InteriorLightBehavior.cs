@@ -5,6 +5,7 @@ using UnityEngine;
 public class InteriorLightBehavior : ElectricityUser
 {
     private Light m_light;
+
     private void Start()
     {
         m_light = GetComponent<Light>();
