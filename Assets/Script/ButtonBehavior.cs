@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class ButtonBehavior : MonoBehaviour, IInteractable
 {
+    [SerializeField] private MeshRenderer immisives;
+    [SerializeField][ColorUsage(false,true)] private Color onEmission, offEmission;
     [SerializeField] private InteriorLightBehavior[] lights;
     [SerializeField] private Color onColor, offColor;
 
@@ -34,10 +36,12 @@ public class ButtonBehavior : MonoBehaviour, IInteractable
         if (isOn)
         {
             m_mr.material.color = onColor;
+            immisives.material.SetColor("_Emission_Color", onEmission);
         }
         else
         {
             m_mr.material.color = offColor;
+            immisives.material.SetColor("_Emission_Color", offEmission);
         }
     }
 
