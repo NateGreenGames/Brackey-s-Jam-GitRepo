@@ -17,7 +17,6 @@ public enum eSFX
 
 public enum eMusic { titleMusic, gameplayMusicCalm, gameplayMusicDanger, none }
 
-
 public class AudioManager : MonoBehaviour
 {
 
