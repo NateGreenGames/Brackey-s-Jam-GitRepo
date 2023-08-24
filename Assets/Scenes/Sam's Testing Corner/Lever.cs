@@ -42,7 +42,7 @@ public class Lever : MonoBehaviour, IInteractable
         while (Input.GetKey(KeyCode.Mouse0))
         {
             bool buttonIsBeingHeld = true;
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForEndOfFrame();
             Vector3 mouseDelta = Input.mousePosition - lastMouseCoordinate;
             lastMouseCoordinate = Input.mousePosition;
             if (buttonIsBeingHeld && ((mouseDelta.y < 0)))
