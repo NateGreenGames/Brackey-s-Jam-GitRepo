@@ -13,7 +13,8 @@ public class MonsterManager : MonoBehaviour
     public GameObject main;
     public Animator anim;
     public AnimationCurve shakeStrengthSmoothness;
-    public AudioClip[] monsterAudioClips;
+    //public AudioClip[] monsterAudioClips;
+    [SerializeField] AudioManager audioManager;
 
     private void Start()
     {
@@ -40,6 +41,7 @@ public class MonsterManager : MonoBehaviour
     public IEnumerator StartAttackSequence()
     {
         anim.SetTrigger("Open Eye");
+        audioManager.PlaySFX(eSFX.creatureApproach, 1);
         int _randLook = Random.Range(3, 7);
         int _randattack = Random.Range(5, 10);
 
@@ -58,6 +60,7 @@ public class MonsterManager : MonoBehaviour
     IEnumerator ScreenShake()
     {
         Debug.Log("Shaaaaaaake");
+        audioManager.PlaySFX(eSFX.creatureAttack, 1);
         Vector3 startPos = main.transform.position;
         float timeElapsed = 0f;
 
