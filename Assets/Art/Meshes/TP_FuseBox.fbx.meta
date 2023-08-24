@@ -1,9 +1,29 @@
 fileFormatVersion: 2
-guid: 6966518d6b17b6d48849419278948bba
+guid: 8a540f42a549f154dadc5d1cbef1ab75
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TP_FuseBox_Base
+    second: {fileID: 2100000, guid: c46dd53c6c975034b802523cdee41d51, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TP_FuseBox_Light01
+    second: {fileID: 2100000, guid: f4b9d7b0c59c4834594c6918cbc78138, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TP_FuseBox_Light02
+    second: {fileID: 2100000, guid: 3f11202d70071e04f98d943ac6411efa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TP_FuseBox_Light03
+    second: {fileID: 2100000, guid: 24b4c09637ccbc74ba5adfe40e14f553, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
