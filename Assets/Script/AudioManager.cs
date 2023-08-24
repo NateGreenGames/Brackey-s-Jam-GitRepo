@@ -129,11 +129,11 @@ public class AudioManager : MonoBehaviour
     }
 
     // USE THIS TO PLAY ANY SFX FROM ANYWHERE IN 2D
-    public void PlaySFX(eSFX _sfx)
+    public void PlaySFX(eSFX _sfx, float volume)
     {
         //Debug.Log("Playing " + sfx[(int)_sfx]);
         if (sfx[(int)_sfx] != null)
-            sfxSource.PlayOneShot(sfx[(int)_sfx]);
+            sfxSource.PlayOneShot(sfx[(int)_sfx], volume);
         else
             Debug.LogWarning(_sfx.ToString() + " sound effect still needs a clip");
     }

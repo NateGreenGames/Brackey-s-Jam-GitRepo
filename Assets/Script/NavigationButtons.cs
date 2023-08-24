@@ -6,6 +6,9 @@ public class NavigationButtons : MonoBehaviour, IInteractable
 {
     [Tooltip("Positive values produce a clockwise rotation, negative values produce a counter-clockwise rotation.")][SerializeField] float rateofChange;
     [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioManager am;
+
+
     public bool isInteractable { get; set; }
 
 
@@ -43,7 +46,7 @@ public class NavigationButtons : MonoBehaviour, IInteractable
     }
     public void OnInteract()
     {
-        //Do nothing
+        am.PlaySFX(eSFX.buttonClick, .25f);
     }
 
     public void OnInteractEnd()

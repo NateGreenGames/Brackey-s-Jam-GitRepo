@@ -21,7 +21,6 @@ public class PlayerFreelookCameraBehavior : MonoBehaviour
     private float cameraVerticalRotation;
     private float cameraHorizontalRotation;
 
-
     void Start()
     {
         // Lock and Hide the Cursor
