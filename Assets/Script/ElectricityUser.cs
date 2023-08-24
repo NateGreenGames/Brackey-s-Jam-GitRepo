@@ -20,4 +20,18 @@ public class ElectricityUser : MonoBehaviour
             ElectricityManager.ActiveUsers.Remove(this);
         }
     }
+
+    public void SetActiveState(bool _newState)
+    {
+        isOn = _newState;
+        bool onList = ElectricityManager.ActiveUsers.Contains(this);
+        if (!onList && isOn)
+        {
+            ElectricityManager.ActiveUsers.Add(this);
+        }
+        else if (onList && !isOn)
+        {
+            ElectricityManager.ActiveUsers.Remove(this);
+        }
+    }
 }
