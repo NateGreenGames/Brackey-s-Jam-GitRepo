@@ -49,15 +49,6 @@ public class Lever : MonoBehaviour, IInteractable
             {
                 anim.SetTrigger("Down");
                 isInteractable = false;
-                fuseBox.submarineLight.SetActive(true);
-                for (int i = fuseBox.tests.Count - 1; i >= 0; i--)
-                {
-                    fuseBox.lightMaterial[i].DisableKeyword("_EMISSION");
-                }
-                for (int i = fuseBox.tests.Count - 1; i >= 0; i--)
-                {
-                    fuseBox.tests.RemoveAt(i);
-                }               
             }
             else
             {

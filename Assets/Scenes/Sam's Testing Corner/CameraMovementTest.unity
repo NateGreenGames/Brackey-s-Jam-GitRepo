@@ -2321,7 +2321,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   lever: {fileID: 0}
-  tests: []
+  tests:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &932843597
 GameObject:
   m_ObjectHideFlags: 0
@@ -2843,6 +2846,7 @@ MonoBehaviour:
   onColor: {r: 0.4464631, g: 1, b: 0, a: 1}
   offColor: {r: 1, g: 0.2657568, b: 0, a: 1}
   lightAudio: {fileID: 0}
+  am: {fileID: 0}
   isOn: 0
 --- !u!114 &1092658135
 MonoBehaviour:

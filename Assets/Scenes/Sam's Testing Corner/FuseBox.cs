@@ -5,11 +5,10 @@ using UnityEngine;
 public class FuseBox : MonoBehaviour
 {
     public GameObject[] fuseBoxLights;
-    public GameObject submarineLight;
     Renderer materialRenderer;
     public Material[] lightMaterial = new Material[3];
     [SerializeField] Lever lever;
-    public List<GameObject> tests; 
+    //public List<GameObject> tests; 
     private void Start()
     {
         if (!lever)
@@ -24,8 +23,12 @@ public class FuseBox : MonoBehaviour
         {
             lightMaterial[i] = fuseBoxLights[i].GetComponent<Renderer>().material;
         }
-        CheckForLights(tests.Count);
-        Debug.Log(tests.Count);
+    }
+
+    private void Update()
+    {
+        CheckForLights(ElectricityManager.ActiveUsers.Count);
+        Debug.Log(ElectricityManager.ActiveUsers.Count);
     }
 
     public void CheckForLights(int _lightsAmount)
@@ -45,6 +48,7 @@ public class FuseBox : MonoBehaviour
                 TurnLightsOn(_lightsAmount);
                 break;
             default:
+                //Overload();
                 break;
         }
     }
@@ -57,7 +61,6 @@ public class FuseBox : MonoBehaviour
         }
         if (_lightsAmount == 3)
         {
-            submarineLight.SetActive(false);
             lever.anim.SetTrigger("Up");
             lever.isInteractable = true;
             return;
@@ -68,18 +71,11 @@ public class FuseBox : MonoBehaviour
         }
     }
 
-
-    private void Update()
+    void Overload()
     {
-        if (Input.GetKeyDown(KeyCode.A))
+        for (int i = 0; i < ElectricityManager.ActiveUsers.Count; i++)
         {
-            tests.Add(new GameObject());
-            CheckForLights(tests.Count);
-        }
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            tests.RemoveAt(tests.Count - 1);
-            CheckForLights(tests.Count);
+            ElectricityManager.ActiveUsers[i].ToggleActiveState();
         }
     }
 }
