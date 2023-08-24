@@ -3024,13 +3024,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fuseBoxLights:
-  - {fileID: 1859569956}
-  - {fileID: 1859569957}
   - {fileID: 1859569958}
+  - {fileID: 1859569957}
+  - {fileID: 1859569956}
   lightMaterial:
-  - {fileID: 2100000, guid: f4b9d7b0c59c4834594c6918cbc78138, type: 2}
-  - {fileID: 2100000, guid: 3f11202d70071e04f98d943ac6411efa, type: 2}
   - {fileID: 2100000, guid: 24b4c09637ccbc74ba5adfe40e14f553, type: 2}
+  - {fileID: 2100000, guid: 3f11202d70071e04f98d943ac6411efa, type: 2}
+  - {fileID: 2100000, guid: f4b9d7b0c59c4834594c6918cbc78138, type: 2}
   lever: {fileID: 0}
 --- !u!1 &1097393723
 GameObject:

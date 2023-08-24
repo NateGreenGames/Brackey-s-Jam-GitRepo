@@ -48,7 +48,7 @@ public class FuseBox : MonoBehaviour
                 TurnLightsOn(_lightsAmount);
                 break;
             default:
-                //Overload();
+                Overload();
                 break;
         }
     }
@@ -57,14 +57,15 @@ public class FuseBox : MonoBehaviour
     {
         for (int i = 0; i < _lightsAmount; i++)
         {
+            Debug.Log("Looping " + _lightsAmount);
             lightMaterial[i].EnableKeyword("_EMISSION");
         }
-        if (_lightsAmount == 3)
+        /*if (_lightsAmount == 3)
         {
             lever.anim.SetTrigger("Up");
             lever.isInteractable = true;
             return;
-        }
+        }*/
         for (int i = _lightsAmount; i > _lightsAmount - 1; i--)
         {
             lightMaterial[i].DisableKeyword("_EMISSION");
@@ -76,6 +77,9 @@ public class FuseBox : MonoBehaviour
         for (int i = 0; i < ElectricityManager.ActiveUsers.Count; i++)
         {
             ElectricityManager.ActiveUsers[i].ToggleActiveState();
+            lever.anim.SetTrigger("Up");
+            lever.isInteractable = true;
+            return;
         }
     }
 }
