@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class InteriorLightBehavior : ElectricityUser
 {
-    private Light m_light;
+    [SerializeField] private Light[] lights;
 
     private void Start()
     {
-        m_light = GetComponent<Light>();
-
         if (isOn)
         {
             bool onList = ElectricityManager.ActiveUsers.Contains(this);
@@ -28,6 +26,9 @@ public class InteriorLightBehavior : ElectricityUser
     public void ToggleLight()
     {
         ToggleActiveState();
-        m_light.enabled = isOn;
+        for (int i = 0; i < lights.Length; i++)
+        {
+            lights[i].enabled = isOn;
+        }
     }
 }
