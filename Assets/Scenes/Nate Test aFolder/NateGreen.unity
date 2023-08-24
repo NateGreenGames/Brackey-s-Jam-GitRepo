@@ -709,21 +709,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8547813171810091561, guid: 6733c96e4a73847479b033be98c9ee45,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 4.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 8547813171810091561, guid: 6733c96e4a73847479b033be98c9ee45,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 4.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 8547813171810091561, guid: 6733c96e4a73847479b033be98c9ee45,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 4.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 8547813171810091561, guid: 6733c96e4a73847479b033be98c9ee45,
-        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.04
       objectReference: {fileID: 0}
@@ -772,10 +757,35 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8547813171810091561, guid: 6733c96e4a73847479b033be98c9ee45,
+    - target: {fileID: 8997772953615033508, guid: 6733c96e4a73847479b033be98c9ee45,
         type: 3}
-      propertyPath: m_ConstrainProportionsScale
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 1097393728}
+    - target: {fileID: 8997772953615033508, guid: 6733c96e4a73847479b033be98c9ee45,
+        type: 3}
+      propertyPath: shakeDuration
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8997772953615033508, guid: 6733c96e4a73847479b033be98c9ee45,
+        type: 3}
+      propertyPath: shakeStrengthSmoothness.m_Curve.Array.data[1].time
+      value: 0.18707907
+      objectReference: {fileID: 0}
+    - target: {fileID: 8997772953615033508, guid: 6733c96e4a73847479b033be98c9ee45,
+        type: 3}
+      propertyPath: shakeStrengthSmoothness.m_Curve.Array.data[2].time
+      value: 0.4596654
+      objectReference: {fileID: 0}
+    - target: {fileID: 8997772953615033508, guid: 6733c96e4a73847479b033be98c9ee45,
+        type: 3}
+      propertyPath: shakeStrengthSmoothness.m_Curve.Array.data[1].value
+      value: 0.080370724
+      objectReference: {fileID: 0}
+    - target: {fileID: 8997772953615033508, guid: 6733c96e4a73847479b033be98c9ee45,
+        type: 3}
+      propertyPath: shakeStrengthSmoothness.m_Curve.Array.data[2].value
+      value: 0.05881699
       objectReference: {fileID: 0}
     - target: {fileID: 9066940558594087059, guid: 6733c96e4a73847479b033be98c9ee45,
         type: 3}
@@ -785,11 +795,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 9066940558594087059, guid: 6733c96e4a73847479b033be98c9ee45,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 523784166}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6733c96e4a73847479b033be98c9ee45, type: 3}
 --- !u!1 &170842540
 GameObject:
@@ -2318,40 +2324,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
   fuseBox: {fileID: 0}
---- !u!1 &523784162 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9066940558594087059, guid: 6733c96e4a73847479b033be98c9ee45,
-    type: 3}
-  m_PrefabInstance: {fileID: 110331707}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &523784166
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 523784162}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ecf1735a915625e46af28b6d5bf7cbc2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackRate: 0
-  attackRateIncrease: 3
-  attackDamage: 25
-  submarineHealth: 100
-  shakeDuration: 3
-  main: {fileID: 0}
-  anim: {fileID: 0}
-  shakeStrengthSmoothness:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  monsterAudioClips:
-  - {fileID: 8300000, guid: 9189e17c16d4957448b8144768531ec9, type: 3}
-  - {fileID: 8300000, guid: 449bc4a158547d343a1ed1896eaa0c59, type: 3}
 --- !u!1 &652513415 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8227571817042855485, guid: 6b6540804c012e34499eeeeaadb281b7,
@@ -3274,6 +3246,25 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 8300000, guid: 7c4c5abdfb6f6c241a35258295f0c479, type: 3}
+  - {fileID: 8300000, guid: 7c4c5abdfb6f6c241a35258295f0c479, type: 3}
+  - {fileID: 8300000, guid: 7c4c5abdfb6f6c241a35258295f0c479, type: 3}
+  - {fileID: 8300000, guid: 7c4c5abdfb6f6c241a35258295f0c479, type: 3}
+  - {fileID: 8300000, guid: 7c4c5abdfb6f6c241a35258295f0c479, type: 3}
+  - {fileID: 8300000, guid: 7c4c5abdfb6f6c241a35258295f0c479, type: 3}
+  - {fileID: 8300000, guid: 7c4c5abdfb6f6c241a35258295f0c479, type: 3}
+  - {fileID: 8300000, guid: 7c4c5abdfb6f6c241a35258295f0c479, type: 3}
+  - {fileID: 8300000, guid: 7c4c5abdfb6f6c241a35258295f0c479, type: 3}
+  - {fileID: 8300000, guid: 7c4c5abdfb6f6c241a35258295f0c479, type: 3}
+  - {fileID: 8300000, guid: 7c4c5abdfb6f6c241a35258295f0c479, type: 3}
+  - {fileID: 8300000, guid: 7c4c5abdfb6f6c241a35258295f0c479, type: 3}
+  - {fileID: 8300000, guid: 7c4c5abdfb6f6c241a35258295f0c479, type: 3}
+  - {fileID: 8300000, guid: 7c4c5abdfb6f6c241a35258295f0c479, type: 3}
+  - {fileID: 8300000, guid: 7c4c5abdfb6f6c241a35258295f0c479, type: 3}
+  - {fileID: 8300000, guid: 7c4c5abdfb6f6c241a35258295f0c479, type: 3}
+  - {fileID: 8300000, guid: 7c4c5abdfb6f6c241a35258295f0c479, type: 3}
+  - {fileID: 8300000, guid: 449bc4a158547d343a1ed1896eaa0c59, type: 3}
+  - {fileID: 8300000, guid: 7c4c5abdfb6f6c241a35258295f0c479, type: 3}
+  - {fileID: 8300000, guid: 9189e17c16d4957448b8144768531ec9, type: 3}
   sfxSource: {fileID: 392254505}
   musicSource1: {fileID: 0}
   musicSource2: {fileID: 0}

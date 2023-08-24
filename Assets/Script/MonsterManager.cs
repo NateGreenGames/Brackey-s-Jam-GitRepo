@@ -41,7 +41,7 @@ public class MonsterManager : MonoBehaviour
     public IEnumerator StartAttackSequence()
     {
         anim.SetTrigger("Open Eye");
-        audioManager.PlaySFX(eSFX.creatureApproach, 1);
+        audioManager.PlaySFX(eSFX.creatureApproach, 0.3f);
         int _randLook = Random.Range(3, 7);
         int _randattack = Random.Range(5, 10);
 

@@ -2315,16 +2315,11 @@ MonoBehaviour:
   - {fileID: 367008724}
   - {fileID: 488625882}
   - {fileID: 1736412239}
-  submarineLight: {fileID: 1305357230}
   lightMaterial:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   lever: {fileID: 0}
-  tests:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!1 &932843597
 GameObject:
   m_ObjectHideFlags: 0
@@ -3433,6 +3428,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   electricityUsedPerSecond: 0.5
   isOn: 1
+  lights: []
 --- !u!114 &1305357232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4865,126 +4861,6 @@ PrefabInstance:
     - target: {fileID: 8547813171810091561, guid: 6733c96e4a73847479b033be98c9ee45,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8997772953615033508, guid: 6733c96e4a73847479b033be98c9ee45,
-        type: 3}
-      propertyPath: monsterAudioClips.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8997772953615033508, guid: 6733c96e4a73847479b033be98c9ee45,
-        type: 3}
-      propertyPath: monsterAudioClips.Array.data[0]
-      value: 
-      objectReference: {fileID: 8300000, guid: 9189e17c16d4957448b8144768531ec9, type: 3}
-    - target: {fileID: 8997772953615033508, guid: 6733c96e4a73847479b033be98c9ee45,
-        type: 3}
-      propertyPath: shakeStrengthSmoothness.m_Curve.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8997772953615033508, guid: 6733c96e4a73847479b033be98c9ee45,
-        type: 3}
-      propertyPath: shakeStrengthSmoothness.m_Curve.Array.data[0].time
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8997772953615033508, guid: 6733c96e4a73847479b033be98c9ee45,
-        type: 3}
-      propertyPath: shakeStrengthSmoothness.m_Curve.Array.data[1].time
-      value: 0.30872214
-      objectReference: {fileID: 0}
-    - target: {fileID: 8997772953615033508, guid: 6733c96e4a73847479b033be98c9ee45,
-        type: 3}
-      propertyPath: shakeStrengthSmoothness.m_Curve.Array.data[2].time
-      value: 0.5639308
-      objectReference: {fileID: 0}
-    - target: {fileID: 8997772953615033508, guid: 6733c96e4a73847479b033be98c9ee45,
-        type: 3}
-      propertyPath: shakeStrengthSmoothness.m_Curve.Array.data[3].time
-      value: 0.9794922
-      objectReference: {fileID: 0}
-    - target: {fileID: 8997772953615033508, guid: 6733c96e4a73847479b033be98c9ee45,
-        type: 3}
-      propertyPath: shakeStrengthSmoothness.m_Curve.Array.data[0].value
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8997772953615033508, guid: 6733c96e4a73847479b033be98c9ee45,
-        type: 3}
-      propertyPath: shakeStrengthSmoothness.m_Curve.Array.data[1].value
-      value: 0.11711389
-      objectReference: {fileID: 0}
-    - target: {fileID: 8997772953615033508, guid: 6733c96e4a73847479b033be98c9ee45,
-        type: 3}
-      propertyPath: shakeStrengthSmoothness.m_Curve.Array.data[2].value
-      value: 0.08768839
-      objectReference: {fileID: 0}
-    - target: {fileID: 8997772953615033508, guid: 6733c96e4a73847479b033be98c9ee45,
-        type: 3}
-      propertyPath: shakeStrengthSmoothness.m_Curve.Array.data[3].value
-      value: 0.044620514
-      objectReference: {fileID: 0}
-    - target: {fileID: 8997772953615033508, guid: 6733c96e4a73847479b033be98c9ee45,
-        type: 3}
-      propertyPath: shakeStrengthSmoothness.m_Curve.Array.data[0].inSlope
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8997772953615033508, guid: 6733c96e4a73847479b033be98c9ee45,
-        type: 3}
-      propertyPath: shakeStrengthSmoothness.m_Curve.Array.data[1].inSlope
-      value: 0.059720896
-      objectReference: {fileID: 0}
-    - target: {fileID: 8997772953615033508, guid: 6733c96e4a73847479b033be98c9ee45,
-        type: 3}
-      propertyPath: shakeStrengthSmoothness.m_Curve.Array.data[2].inSlope
-      value: -0.38517147
-      objectReference: {fileID: 0}
-    - target: {fileID: 8997772953615033508, guid: 6733c96e4a73847479b033be98c9ee45,
-        type: 3}
-      propertyPath: shakeStrengthSmoothness.m_Curve.Array.data[0].outSlope
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8997772953615033508, guid: 6733c96e4a73847479b033be98c9ee45,
-        type: 3}
-      propertyPath: shakeStrengthSmoothness.m_Curve.Array.data[1].inWeight
-      value: 0.33333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 8997772953615033508, guid: 6733c96e4a73847479b033be98c9ee45,
-        type: 3}
-      propertyPath: shakeStrengthSmoothness.m_Curve.Array.data[1].outSlope
-      value: 0.059720896
-      objectReference: {fileID: 0}
-    - target: {fileID: 8997772953615033508, guid: 6733c96e4a73847479b033be98c9ee45,
-        type: 3}
-      propertyPath: shakeStrengthSmoothness.m_Curve.Array.data[2].inWeight
-      value: 0.33333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 8997772953615033508, guid: 6733c96e4a73847479b033be98c9ee45,
-        type: 3}
-      propertyPath: shakeStrengthSmoothness.m_Curve.Array.data[2].outSlope
-      value: -0.38517147
-      objectReference: {fileID: 0}
-    - target: {fileID: 8997772953615033508, guid: 6733c96e4a73847479b033be98c9ee45,
-        type: 3}
-      propertyPath: shakeStrengthSmoothness.m_Curve.Array.data[0].outWeight
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8997772953615033508, guid: 6733c96e4a73847479b033be98c9ee45,
-        type: 3}
-      propertyPath: shakeStrengthSmoothness.m_Curve.Array.data[1].outWeight
-      value: 0.33333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 8997772953615033508, guid: 6733c96e4a73847479b033be98c9ee45,
-        type: 3}
-      propertyPath: shakeStrengthSmoothness.m_Curve.Array.data[2].outWeight
-      value: 0.33333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 8997772953615033508, guid: 6733c96e4a73847479b033be98c9ee45,
-        type: 3}
-      propertyPath: shakeStrengthSmoothness.m_Curve.Array.data[0].tangentMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8997772953615033508, guid: 6733c96e4a73847479b033be98c9ee45,
-        type: 3}
-      propertyPath: shakeStrengthSmoothness.m_Curve.Array.data[1].tangentMode
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9066940558594087059, guid: 6733c96e4a73847479b033be98c9ee45,
