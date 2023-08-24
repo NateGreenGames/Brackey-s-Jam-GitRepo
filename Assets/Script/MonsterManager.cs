@@ -51,6 +51,10 @@ public class MonsterManager : MonoBehaviour
         {
             yield return new WaitForSeconds(_randattack);
             submarineHealth -= attackDamage;
+            if (submarineHealth <= 0)
+            {
+                Debug.Log("You died...");
+            }
             StartCoroutine(ScreenShake());
 
         }
