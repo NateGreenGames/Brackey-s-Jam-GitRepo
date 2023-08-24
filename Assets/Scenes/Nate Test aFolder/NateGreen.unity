@@ -2260,10 +2260,7 @@ MonoBehaviour:
   onEmission: {r: 1.4142135, g: 0, b: 0, a: 0}
   offEmission: {r: 0, g: 0, b: 0, a: 0}
   lights:
-  - {fileID: 1263254060}
-  - {fileID: 688796156}
-  - {fileID: 795344381}
-  - {fileID: 1781464983}
+  - {fileID: 1133023713}
   onColor: {r: 0, g: 1, b: 0.051280737, a: 1}
   offColor: {r: 1, g: 0, b: 0, a: 1}
   lightAudio: {fileID: 214939978}
@@ -2280,7 +2277,6 @@ GameObject:
   - component: {fileID: 688796159}
   - component: {fileID: 688796158}
   - component: {fileID: 688796157}
-  - component: {fileID: 688796156}
   m_Layer: 0
   m_Name: Interior Light (1)
   m_TagString: Untagged
@@ -2288,20 +2284,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &688796156
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 688796155}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea45699577cf5104aaff52c583aad8ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  electricityUsedPerSecond: 0.125
-  isOn: 1
 --- !u!114 &688796157
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2656,7 +2638,6 @@ GameObject:
   - component: {fileID: 795344384}
   - component: {fileID: 795344383}
   - component: {fileID: 795344382}
-  - component: {fileID: 795344381}
   m_Layer: 0
   m_Name: Interior Light (2)
   m_TagString: Untagged
@@ -2664,20 +2645,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &795344381
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 795344380}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea45699577cf5104aaff52c583aad8ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  electricityUsedPerSecond: 0.125
-  isOn: 1
 --- !u!114 &795344382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3184,6 +3151,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1133023712}
+  - component: {fileID: 1133023713}
   m_Layer: 0
   m_Name: Light
   m_TagString: Untagged
@@ -3210,6 +3178,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1133023713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1133023711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea45699577cf5104aaff52c583aad8ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  electricityUsedPerSecond: 0.5
+  isOn: 1
+  lights:
+  - {fileID: 1263254058}
+  - {fileID: 688796158}
+  - {fileID: 795344383}
+  - {fileID: 1781464985}
 --- !u!1 &1186571298
 GameObject:
   m_ObjectHideFlags: 0
@@ -3496,7 +3483,6 @@ GameObject:
   - component: {fileID: 1263254059}
   - component: {fileID: 1263254058}
   - component: {fileID: 1263254057}
-  - component: {fileID: 1263254060}
   m_Layer: 0
   m_Name: Interior Light
   m_TagString: Untagged
@@ -3604,20 +3590,6 @@ Transform:
   m_Father: {fileID: 1133023712}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!114 &1263254060
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1263254056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea45699577cf5104aaff52c583aad8ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  electricityUsedPerSecond: 0.125
-  isOn: 1
 --- !u!1 &1277581177
 GameObject:
   m_ObjectHideFlags: 0
@@ -9022,7 +8994,6 @@ GameObject:
   - component: {fileID: 1781464986}
   - component: {fileID: 1781464985}
   - component: {fileID: 1781464984}
-  - component: {fileID: 1781464983}
   m_Layer: 0
   m_Name: Interior Light (3)
   m_TagString: Untagged
@@ -9030,20 +9001,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1781464983
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1781464982}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea45699577cf5104aaff52c583aad8ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  electricityUsedPerSecond: 0.125
-  isOn: 1
 --- !u!114 &1781464984
 MonoBehaviour:
   m_ObjectHideFlags: 0
