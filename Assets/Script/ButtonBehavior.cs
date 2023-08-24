@@ -66,6 +66,6 @@ public class ButtonBehavior : MonoBehaviour, IInteractable
 
     public void OnInteractEnd()
     {
-        throw new System.NotImplementedException();
+        //Do nothing
     }
 }
