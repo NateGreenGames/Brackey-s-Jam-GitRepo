@@ -60,6 +60,7 @@ public class AudioManager : MonoBehaviour
     private AudioSource standbyMusicSource;
 
     public static int musicOrder = 0;
+    public static AudioManager instance;
 
     AudioLowPassFilter lowPassFilter;
 
@@ -90,6 +91,12 @@ public class AudioManager : MonoBehaviour
 
     }
     */
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
     private void Start()
     {
         masterVolume = PlayerPrefs.GetFloat("MasterVolume", defaultMasterVolume);

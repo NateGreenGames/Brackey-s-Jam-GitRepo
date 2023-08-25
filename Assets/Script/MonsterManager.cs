@@ -16,7 +16,7 @@ public class MonsterManager : MonoBehaviour
     public Material subWindow;
     public float uncrackedBlendValue, crackedBlendValue;
     //public AudioClip[] monsterAudioClips;
-    [SerializeField] AudioManager audioManager;
+    //[SerializeField] AudioManager audioManager;
 
     private void Start()
     {
@@ -44,7 +44,8 @@ public class MonsterManager : MonoBehaviour
     public IEnumerator StartAttackSequence()
     {
         anim.SetTrigger("Open Eye");
-        audioManager.PlaySFX(eSFX.creatureApproach, 0.3f);
+        //audioManager.PlaySFX(eSFX.creatureApproach, 0.3f);
+        AudioManager.instance.PlaySFX(eSFX.creatureApproach, 0.45f);
         int _randLook = Random.Range(3, 7);
         int _randattack = Random.Range(5, 10);
 
@@ -69,7 +70,8 @@ public class MonsterManager : MonoBehaviour
     IEnumerator ScreenShake()
     {
         Debug.Log("Shaaaaaaake");
-        audioManager.PlaySFX(eSFX.creatureAttack, 1);
+        //audioManager.PlaySFX(eSFX.creatureAttack, 1);
+        AudioManager.instance.PlaySFX(eSFX.creatureAttack, 1);
         Vector3 startPos = main.transform.position;
         float timeElapsed = 0f;
 

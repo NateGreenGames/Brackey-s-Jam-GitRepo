@@ -10,7 +10,7 @@ public class ButtonBehavior : MonoBehaviour, IInteractable
     [SerializeField] private InteriorLightBehavior[] lights;
     [SerializeField] private Color onColor, offColor;
     [SerializeField] private GameObject lightAudio;
-    [SerializeField] private AudioManager am;
+    //[SerializeField] private AudioManager am;
 
     
 
@@ -37,7 +37,8 @@ public class ButtonBehavior : MonoBehaviour, IInteractable
         isOn = !isOn;
         UpdateMaterialColor();
         lb.ToggleAudioSource();
-        am.PlaySFX(eSFX.buttonClick, .25f);
+        //am.PlaySFX(eSFX.buttonClick, .25f);
+        AudioManager.instance.PlaySFX(eSFX.buttonClick, .25f);
     }
 
     private void UpdateMaterialColor()
