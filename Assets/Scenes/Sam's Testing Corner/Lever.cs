@@ -7,12 +7,13 @@ public class Lever : MonoBehaviour, IInteractable
     public Animator anim;
     [SerializeField] FuseBox fuseBox;
     Vector3 lastMouseCoordinate = Vector3.zero;
+    [SerializeField] bool hasOverloaded;
     public bool isInteractable { get; set; }
     private void Start()
     {
         if (!fuseBox)
         {
-            GameObject _fuseBox = GameObject.Find("BoxFuse_GD");
+            GameObject _fuseBox = GameObject.Find("TP_FuseBox");
             if (_fuseBox != null)
             {
                 fuseBox = _fuseBox.GetComponent<FuseBox>();
@@ -24,6 +25,8 @@ public class Lever : MonoBehaviour, IInteractable
 
     public void OnInteract()
     {
+        Debug.Log("Interacting");
+        lastMouseCoordinate = Input.mousePosition;
         StartCoroutine(HoldingDownLever());
     }
 
@@ -39,20 +42,51 @@ public class Lever : MonoBehaviour, IInteractable
 
     public IEnumerator HoldingDownLever()
     {
-        while (Input.GetKey(KeyCode.Mouse0))
+        if (hasOverloaded)
         {
-            bool buttonIsBeingHeld = true;
-            yield return new WaitForEndOfFrame();
-            Vector3 mouseDelta = Input.mousePosition - lastMouseCoordinate;
-            lastMouseCoordinate = Input.mousePosition;
-            if (buttonIsBeingHeld && ((mouseDelta.y < 0)))
+            while (Input.GetKey(KeyCode.Mouse0))
             {
-                anim.SetTrigger("Down");
-                isInteractable = false;
+                bool buttonIsBeingHeld = true;
+                yield return new WaitForEndOfFrame();
+                Vector3 mouseDelta = Input.mousePosition - lastMouseCoordinate;
+                lastMouseCoordinate = Input.mousePosition;
+                if (buttonIsBeingHeld && ((mouseDelta.y < 0)))
+                {
+                    anim.SetTrigger("LeverDown");
+                    hasOverloaded = false;
+                    Debug.Log("AnimGoDown");
+                    yield return new WaitForSeconds(2);
+                    break;
+                    //isInteractable = false;
+                }
+                else
+                {
+                    buttonIsBeingHeld = false;
+                }
             }
-            else
+        }
+        else if (!hasOverloaded)
+        {
+            while (Input.GetKey(KeyCode.Mouse0))
             {
-                buttonIsBeingHeld = false;
+                bool buttonIsBeingHeld = true;
+                yield return new WaitForEndOfFrame();
+                Vector3 mouseDelta = Input.mousePosition - lastMouseCoordinate;
+                lastMouseCoordinate = Input.mousePosition;
+                if (buttonIsBeingHeld && ((mouseDelta.y > 0)))
+                {
+                    anim.SetTrigger("LeverUp");
+                    hasOverloaded = true;
+                    fuseBox.Overload();
+                    Debug.Log("AnimGoUp");
+                    yield return new WaitForSeconds(2);
+                    break;
+                    //isInteractable = false;
+                }
+                else
+                {
+                    buttonIsBeingHeld = false;
+                }
             }
         }
     }

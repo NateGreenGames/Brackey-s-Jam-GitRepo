@@ -72,7 +72,7 @@ public class FuseBox : MonoBehaviour
         }
     }
 
-    void Overload()
+    public void Overload()
     {
         for (int i = 0; i < ElectricityManager.ActiveUsers.Count; i++)
         {
