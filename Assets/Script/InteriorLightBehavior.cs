@@ -5,6 +5,8 @@ using UnityEngine;
 public class InteriorLightBehavior : ElectricityUser
 {
     [SerializeField] private Light[] lights;
+    [SerializeField] private MeshRenderer immisives;
+    [SerializeField] [ColorUsage(false, true)] private Color onEmission, offEmission;
 
     private void Start()
     {
@@ -20,15 +22,30 @@ public class InteriorLightBehavior : ElectricityUser
                 ElectricityManager.ActiveUsers.Remove(this);
             }
         }
+        UpdateMaterialColor();
     }
 
-
-    public void ToggleLight()
+    public override void ToggleActiveState()
     {
-        ToggleActiveState();
+        base.ToggleActiveState();
+        UpdateMaterialColor();
         for (int i = 0; i < lights.Length; i++)
         {
             lights[i].enabled = isOn;
         }
     }
+
+
+    private void UpdateMaterialColor()
+    {
+        if (isOn)
+        {
+            immisives.material.SetColor("_Emission_Color", onEmission);
+        }
+        else
+        {
+            immisives.material.SetColor("_Emission_Color", offEmission);
+        }
+    }
+
 }
