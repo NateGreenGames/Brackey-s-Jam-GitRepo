@@ -7,6 +7,7 @@ public class InteriorLightBehavior : ElectricityUser
     [SerializeField] private Light[] lights;
     [SerializeField] private MeshRenderer immisives;
     [SerializeField] [ColorUsage(false, true)] private Color onEmission, offEmission;
+    [SerializeField] private AudioSource lightAudio;
 
     private void Start()
     {
@@ -23,11 +24,13 @@ public class InteriorLightBehavior : ElectricityUser
             }
         }
         UpdateMaterialColor();
+        ToggleAudioSource();
     }
 
     public override void ToggleActiveState()
     {
         base.ToggleActiveState();
+        ToggleAudioSource();
         UpdateMaterialColor();
         for (int i = 0; i < lights.Length; i++)
         {
@@ -48,4 +51,15 @@ public class InteriorLightBehavior : ElectricityUser
         }
     }
 
+    public void ToggleAudioSource()
+    {
+        if (isOn)
+        {
+            lightAudio.Play();
+        }
+        else
+        {
+            lightAudio.Stop();
+        }
+    }
 }

@@ -34,11 +34,11 @@ public class ProgressionPanel : MonoBehaviour
     }
     void Movement(float _magnitudeOfMovement)
     {
-        transform.position = transform.position + (-transform.forward.normalized * _magnitudeOfMovement);
+        transform.position = transform.position + (-transform.up.normalized * _magnitudeOfMovement);
     }
     void Rotate(float _differenceOfRotation)
     {
-        transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y + _differenceOfRotation, transform.localEulerAngles.z);
+        transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y, transform.localEulerAngles.z + _differenceOfRotation);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -52,6 +52,10 @@ public class ProgressionPanel : MonoBehaviour
         {
             //Trigger crash failstate.
             if (postDebugInformation) Debug.Log($"I collided with: {collision.collider.name}. You've sunk.");
+        }
+        else
+        {
+            if (postDebugInformation) Debug.Log("Ugh.");
         }
     }
 }

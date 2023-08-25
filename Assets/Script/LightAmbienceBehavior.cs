@@ -15,16 +15,4 @@ public class LightAmbienceBehavior : MonoBehaviour
     }
 
     // Function to toggle the audio source
-    public void ToggleAudioSource()
-    {
-        if (isPlaying)
-        {
-            audioSource.Stop();
-        }
-        else
-        {
-            audioSource.Play();
-        }
-        isPlaying = !isPlaying;
-    }
 }
