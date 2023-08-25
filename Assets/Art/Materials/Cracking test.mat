@@ -32,8 +32,24 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Crack_Albedo:
+        m_Texture: {fileID: 2800000, guid: 7f116ab81aa415249ac5b8ea2916eb34, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _Crack_Texture:
         m_Texture: {fileID: 2800000, guid: bd93965c5301400439c061846568f599, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Cracked_Metallic:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Cracked_Normal:
+        m_Texture: {fileID: 2800000, guid: 14b62ce22617bd049a669a41be4a9dc2, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Cracked_Smoothness:
+        m_Texture: {fileID: 2800000, guid: ffdb51641911d96409fab4736953026a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -85,6 +101,26 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Uncracked_Albedo:
+        m_Texture: {fileID: 2800000, guid: bd93965c5301400439c061846568f599, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Uncracked_Metallic:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Uncracked_Normal:
+        m_Texture: {fileID: 2800000, guid: 9767b837fd200b843b52234fd238ca46, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Uncracked_Smoothness:
+        m_Texture: {fileID: 2800000, guid: 5ed4803726c367442b2001877c62c36d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Uncracked_Texture:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}

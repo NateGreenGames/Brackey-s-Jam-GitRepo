@@ -13,6 +13,8 @@ public class MonsterManager : MonoBehaviour
     public GameObject main;
     public Animator anim;
     public AnimationCurve shakeStrengthSmoothness;
+    public Material subWindow;
+    public float uncrackedBlendValue, crackedBlendValue;
     //public AudioClip[] monsterAudioClips;
     [SerializeField] AudioManager audioManager;
 
@@ -20,6 +22,7 @@ public class MonsterManager : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         main = GameObject.Find("Virtual Camera");
+        subWindow.SetFloat("_Blend", Mathf.Lerp(uncrackedBlendValue, crackedBlendValue, Mathf.InverseLerp(100, 0, submarineHealth)));
         StartCoroutine(WaitForAttackSequence());
     }
     public IEnumerator WaitForAttackSequence()
@@ -51,6 +54,8 @@ public class MonsterManager : MonoBehaviour
         {
             yield return new WaitForSeconds(_randattack);
             submarineHealth -= attackDamage;
+            //Update window texture blending.
+            subWindow.SetFloat("_Blend", Mathf.Lerp(uncrackedBlendValue, crackedBlendValue, Mathf.InverseLerp(100, 0, submarineHealth)));
             if (submarineHealth <= 0)
             {
                 Debug.Log("You died...");
