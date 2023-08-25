@@ -25,7 +25,6 @@ public class Lever : MonoBehaviour, IInteractable
 
     public void OnInteract()
     {
-        Debug.Log("Interacting");
         lastMouseCoordinate = Input.mousePosition;
         StartCoroutine(HoldingDownLever());
     }
@@ -54,7 +53,6 @@ public class Lever : MonoBehaviour, IInteractable
                 {
                     anim.SetTrigger("LeverDown");
                     hasOverloaded = false;
-                    Debug.Log("AnimGoDown");
                     yield return new WaitForSeconds(2);
                     break;
                     //isInteractable = false;
@@ -78,7 +76,6 @@ public class Lever : MonoBehaviour, IInteractable
                     anim.SetTrigger("LeverUp");
                     hasOverloaded = true;
                     fuseBox.Overload();
-                    Debug.Log("AnimGoUp");
                     yield return new WaitForSeconds(2);
                     break;
                     //isInteractable = false;
