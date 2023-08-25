@@ -1007,7 +1007,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rateofChange: 10
   audioSource: {fileID: 1483160504}
-  am: {fileID: 1097393728}
 --- !u!64 &203281212
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2428,15 +2427,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae2304039985d7a4abfad3f4fd00f993, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  immisives: {fileID: 1908108664}
-  onEmission: {r: 1.4142135, g: 0, b: 0, a: 0}
-  offEmission: {r: 0, g: 0, b: 0, a: 0}
   lights:
   - {fileID: 1133023713}
   onColor: {r: 0, g: 1, b: 0.051280737, a: 1}
   offColor: {r: 1, g: 0, b: 0, a: 1}
   lightAudio: {fileID: 214939978}
-  am: {fileID: 1097393728}
   isOn: 1
 --- !u!1 &688796155
 GameObject:
@@ -3388,6 +3383,9 @@ MonoBehaviour:
   - {fileID: 688796158}
   - {fileID: 795344383}
   - {fileID: 1781464985}
+  immisives: {fileID: 1908108664}
+  onEmission: {r: 1, g: 0, b: 0, a: 0}
+  offEmission: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &1186571298
 GameObject:
   m_ObjectHideFlags: 0
@@ -3512,7 +3510,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rateofChange: -10
   audioSource: {fileID: 1483160504}
-  am: {fileID: 1097393728}
 --- !u!64 &1195537386
 MeshCollider:
   m_ObjectHideFlags: 0
