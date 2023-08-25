@@ -7,8 +7,14 @@ public class FuseBox : MonoBehaviour
     public GameObject[] fuseBoxLights;
     Renderer materialRenderer;
     public Material[] lightMaterial = new Material[3];
+    public static FuseBox fB;
     [SerializeField] Lever lever;
+    public bool isOverloaded;
     //public List<GameObject> tests; 
+    private void Awake()
+    {
+        fB = this;
+    }
     private void Start()
     {
         if (!lever)
@@ -33,7 +39,41 @@ public class FuseBox : MonoBehaviour
 
     public void CheckForLights(int _lightsAmount)
     {
-        switch (_lightsAmount)
+        if (_lightsAmount >= 4)
+        {
+            Overload();
+        }
+        /*for (int i = 0; i < _lightsAmount; i++)
+        {
+            Debug.Log("Looping " + _lightsAmount);
+            lightMaterial[i].EnableKeyword("_EMISSION");
+        }*/
+        for (int i = 0; i < _lightsAmount; i++)
+        {
+            for (int y = 0; y < lightMaterial.Length; y++)
+            {
+                if (_lightsAmount == i)
+                {
+                    lightMaterial[i].EnableKeyword("_EMISSION");
+                }
+                else
+                {
+                    lightMaterial[i].DisableKeyword("_EMISSION");
+                }
+            }
+        }
+        //Foreach active user
+        //foreeach light 
+        //if light idx == active user 
+        //turn it on
+        //else 
+        //turn it off
+
+        /*for (int i = _lightsAmount - 1; i >= 0; i--)
+        {
+            lightMaterial[i].DisableKeyword("_EMISSION");
+        }*/
+        /*switch (_lightsAmount)
         {
             case 0:
                 TurnLightsOn(_lightsAmount);
@@ -50,7 +90,7 @@ public class FuseBox : MonoBehaviour
             default:
                 Overload();
                 break;
-        }
+        }*/
     }
 
     void TurnLightsOn(int _lightsAmount)
@@ -60,13 +100,8 @@ public class FuseBox : MonoBehaviour
             Debug.Log("Looping " + _lightsAmount);
             lightMaterial[i].EnableKeyword("_EMISSION");
         }
-        /*if (_lightsAmount == 3)
-        {
-            lever.anim.SetTrigger("Up");
-            lever.isInteractable = true;
-            return;
-        }*/
-        for (int i = _lightsAmount; i > _lightsAmount - 1; i--)
+
+        for (int i = _lightsAmount - 1; i >= 0; i--)
         {
             lightMaterial[i].DisableKeyword("_EMISSION");
         }
@@ -74,12 +109,11 @@ public class FuseBox : MonoBehaviour
 
     public void Overload()
     {
-        for (int i = 0; i < ElectricityManager.ActiveUsers.Count; i++)
+        for (int i = ElectricityManager.ActiveUsers.Count - 1; i >= 0; i--)
         {
             ElectricityManager.ActiveUsers[i].ToggleActiveState();
-            lever.anim.SetTrigger("Up");
+            lever.anim.SetTrigger("LeverUp");
             lever.isInteractable = true;
-            return;
         }
     }
 }

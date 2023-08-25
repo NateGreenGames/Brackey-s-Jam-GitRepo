@@ -23,6 +23,7 @@ public class ThrottleLevelBehavior : ElectricityUser, IInteractable
     }
     public void OnInteract()
     {
+        if (FuseBox.fB.isOverloaded) return;
         lastMouseCoordinate = Input.mousePosition;
         StartCoroutine(HoldingDownLever());
     }

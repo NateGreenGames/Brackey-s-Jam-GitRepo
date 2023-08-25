@@ -7,7 +7,6 @@ public class Lever : MonoBehaviour, IInteractable
     public Animator anim;
     [SerializeField] FuseBox fuseBox;
     Vector3 lastMouseCoordinate = Vector3.zero;
-    [SerializeField] bool hasOverloaded;
     public bool isInteractable { get; set; }
     private void Start()
     {
@@ -41,7 +40,7 @@ public class Lever : MonoBehaviour, IInteractable
 
     public IEnumerator HoldingDownLever()
     {
-        if (hasOverloaded)
+        if (FuseBox.fB.isOverloaded)
         {
             while (Input.GetKey(KeyCode.Mouse0))
             {
@@ -52,7 +51,7 @@ public class Lever : MonoBehaviour, IInteractable
                 if (buttonIsBeingHeld && ((mouseDelta.y < 0)))
                 {
                     anim.SetTrigger("LeverDown");
-                    hasOverloaded = false;
+                    FuseBox.fB.isOverloaded = false;
                     yield return new WaitForSeconds(2);
                     break;
                     //isInteractable = false;
@@ -63,7 +62,7 @@ public class Lever : MonoBehaviour, IInteractable
                 }
             }
         }
-        else if (!hasOverloaded)
+        else if (!FuseBox.fB.isOverloaded)
         {
             while (Input.GetKey(KeyCode.Mouse0))
             {
@@ -74,7 +73,7 @@ public class Lever : MonoBehaviour, IInteractable
                 if (buttonIsBeingHeld && ((mouseDelta.y > 0)))
                 {
                     anim.SetTrigger("LeverUp");
-                    hasOverloaded = true;
+                    FuseBox.fB.isOverloaded = true;
                     fuseBox.Overload();
                     yield return new WaitForSeconds(2);
                     break;
