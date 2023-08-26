@@ -40,7 +40,7 @@ public class Lever : MonoBehaviour, IInteractable
 
     public IEnumerator HoldingDownLever()
     {
-        if (FuseBox.fB.isOverloaded)
+        if (!FuseBox.fB.isOverloaded)
         {
             while (Input.GetKey(KeyCode.Mouse0))
             {
@@ -51,7 +51,8 @@ public class Lever : MonoBehaviour, IInteractable
                 if (buttonIsBeingHeld && ((mouseDelta.y < 0)))
                 {
                     anim.SetTrigger("LeverDown");
-                    FuseBox.fB.isOverloaded = false;
+                    FuseBox.fB.isOverloaded = true;
+                    fuseBox.Overload();
                     yield return new WaitForSeconds(2);
                     break;
                     //isInteractable = false;
@@ -62,7 +63,7 @@ public class Lever : MonoBehaviour, IInteractable
                 }
             }
         }
-        else if (!FuseBox.fB.isOverloaded)
+        else if (FuseBox.fB.isOverloaded)
         {
             while (Input.GetKey(KeyCode.Mouse0))
             {
@@ -73,8 +74,7 @@ public class Lever : MonoBehaviour, IInteractable
                 if (buttonIsBeingHeld && ((mouseDelta.y > 0)))
                 {
                     anim.SetTrigger("LeverUp");
-                    FuseBox.fB.isOverloaded = true;
-                    fuseBox.Overload();
+                    FuseBox.fB.isOverloaded = false;
                     yield return new WaitForSeconds(2);
                     break;
                     //isInteractable = false;

@@ -63,7 +63,7 @@ public class FuseBox : MonoBehaviour
         for (int i = ElectricityManager.ActiveUsers.Count - 1; i >= 0; i--)
         {
             ElectricityManager.ActiveUsers[i].ToggleActiveState();
-            lever.anim.SetTrigger("LeverUp");
+            lever.anim.SetTrigger("LeverDown");
             lever.isInteractable = true;
             isOverloaded = true;
         }
