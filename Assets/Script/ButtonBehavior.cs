@@ -24,7 +24,7 @@ public class ButtonBehavior : MonoBehaviour, IInteractable
     {
         isInteractable = true;
         m_mr = GetComponent<MeshRenderer>();
-        UpdateMaterialColor();
+        //UpdateMaterialColor();
     }
 
     public void ToggleButtonState(int _idx)
@@ -33,13 +33,13 @@ public class ButtonBehavior : MonoBehaviour, IInteractable
         if (FuseBox.fB.isOverloaded) return;
         switch (_idx)
         {
-            case 0:
+            case 0:                
                 foreach (InteriorLightBehavior item in lights)
                 {
                     item.ToggleActiveState();
                 }
                 isOn = !isOn;
-                UpdateMaterialColor();
+                //UpdateMaterialColor();
                 //am.PlaySFX(eSFX.buttonClick, .25f);
                 break;
             case 1:
@@ -65,7 +65,7 @@ public class ButtonBehavior : MonoBehaviour, IInteractable
         AudioManager.instance.PlaySFX(eSFX.buttonClick, .25f);*/
     }
 
-    private void UpdateMaterialColor()
+    /*private void UpdateMaterialColor()
     {
         if (isOn)
         {
@@ -75,7 +75,7 @@ public class ButtonBehavior : MonoBehaviour, IInteractable
         {
             m_mr.material.color = offColor;
         }
-    }
+    }*/
 
     public void OnInteract()
     {

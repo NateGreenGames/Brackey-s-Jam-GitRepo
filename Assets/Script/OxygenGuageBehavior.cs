@@ -6,7 +6,7 @@ public class OxygenGuageBehavior : MonoBehaviour
 {
 
     [SerializeField] float emptyRotation, fullRotation;
-    [SerializeField] float oxygenPercentage;
+    public float oxygenPercentage;
 
     // Start is called before the first frame update
     void Start()

@@ -7,7 +7,19 @@ public class JerryBehavior : ElectricityUser
     public float jerryGivesOxygen = 1.33f;
     public bool isActive;
     public Material[] lightMaterial;
+    [SerializeField] OxygenGuageBehavior guageBehavior;
 
+    private void Start()
+    {
+        if (!guageBehavior)
+        {
+            GameObject _guage = GameObject.Find("TP_OxygenGaugeArrow");
+            if (_guage != null)
+            {
+                guageBehavior = _guage.GetComponent<OxygenGuageBehavior>();
+            }
+        }
+    }
     public override void ToggleActiveState()
     {
         isActive = !isActive;
@@ -31,6 +43,11 @@ public class JerryBehavior : ElectricityUser
         while (isActive == true)
         {
             yield return new WaitForEndOfFrame();
+            if (guageBehavior.oxygenPercentage >= 100)
+            {
+                guageBehavior.oxygenPercentage = 100;
+                //SOUND EFFECT?
+            }
             OxygenManagement.ChangeOxygenAmount(jerryGivesOxygen * Time.deltaTime);
             Debug.Log("Kissing Jerry");
         }
