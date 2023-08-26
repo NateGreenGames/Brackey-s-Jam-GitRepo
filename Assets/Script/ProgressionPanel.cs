@@ -9,13 +9,15 @@ public class ProgressionPanel : MonoBehaviour
 
     private MeshRenderer m_mr;
 
+
+    
     private void Start()
     {
         m_mr = GetComponent<MeshRenderer>();
-        StartCoroutine(BlinkRoutine(true));
     }
     private void OnEnable()
     {
+        StartCoroutine(BlinkRoutine(true));
         ProgressionManager.onCourseChangeEvent += Rotate;
         ProgressionManager.onMovmentTick += Movement;
     }
