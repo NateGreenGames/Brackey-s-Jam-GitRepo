@@ -7,6 +7,7 @@ public class ButtonBehavior : MonoBehaviour, IInteractable
 {
     [SerializeField] private InteriorLightBehavior[] lights;
     [SerializeField] private ExteriorLightBehavior outsideLight;
+    [SerializeField] private JerryBehavior jerry;
     [SerializeField] private Color onColor, offColor;
     [SerializeField] private int buttonIdx = 0;
     //[SerializeField] private AudioManager am;
@@ -43,6 +44,10 @@ public class ButtonBehavior : MonoBehaviour, IInteractable
                 break;
             case 1:
                 outsideLight.ToggleActiveState();
+                isOn = !isOn;
+                break;
+            case 3:
+                jerry.ToggleActiveState();
                 isOn = !isOn;
                 break;
             default:

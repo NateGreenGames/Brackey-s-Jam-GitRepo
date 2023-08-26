@@ -1032,6 +1032,31 @@ Transform:
   m_Father: {fileID: 326782432}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &242104627 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6243660826782809279, guid: c742b6e3b1c813540a25bf35ee3fb228,
+    type: 3}
+  m_PrefabInstance: {fileID: 1205148534}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &242104631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 242104627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae2304039985d7a4abfad3f4fd00f993, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lights: []
+  outsideLight: {fileID: 0}
+  jerry: {fileID: 532148549}
+  onColor: {r: 0, g: 0, b: 0, a: 0}
+  offColor: {r: 0, g: 0, b: 0, a: 0}
+  buttonIdx: 3
+  isOn: 0
 --- !u!1 &293767324
 GameObject:
   m_ObjectHideFlags: 0
@@ -2153,6 +2178,27 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &532148547 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c742b6e3b1c813540a25bf35ee3fb228,
+    type: 3}
+  m_PrefabInstance: {fileID: 1205148534}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &532148549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 532148547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62c5e62d1887c53498fe74eeec226a3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  electricityUsedPerSecond: 0
+  isOn: 0
+  jerryGivesOxygen: 1.33
 --- !u!1001 &547885923
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2512,6 +2558,7 @@ MonoBehaviour:
   lights:
   - {fileID: 1133023713}
   outsideLight: {fileID: 0}
+  jerry: {fileID: 0}
   onColor: {r: 0, g: 1, b: 0.051280737, a: 1}
   offColor: {r: 1, g: 0, b: 0, a: 1}
   buttonIdx: 0
@@ -4113,7 +4160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0596fe9f9e7d06f4cbce7aa03c754bf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  oxygenUsedPerSecond: 1
+  oxygenUsedPerSecond: 0.66
   ticksPerSecond: 500
 --- !u!4 &1097393725
 Transform:
@@ -4694,6 +4741,14 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c742b6e3b1c813540a25bf35ee3fb228,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 532148549}
+    - targetCorrespondingSourceObject: {fileID: 6243660826782809279, guid: c742b6e3b1c813540a25bf35ee3fb228,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 242104631}
     - targetCorrespondingSourceObject: {fileID: -8197486888988613241, guid: c742b6e3b1c813540a25bf35ee3fb228,
         type: 3}
       insertIndex: -1
@@ -11250,6 +11305,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lights: []
   outsideLight: {fileID: 1505980464}
+  jerry: {fileID: 0}
   onColor: {r: 0, g: 0, b: 0, a: 0}
   offColor: {r: 0, g: 0, b: 0, a: 0}
   buttonIdx: 1
