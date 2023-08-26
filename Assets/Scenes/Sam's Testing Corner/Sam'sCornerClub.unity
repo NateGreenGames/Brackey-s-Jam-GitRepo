@@ -812,6 +812,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TP_Eyeball 1 Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 9066940558594087059, guid: 6733c96e4a73847479b033be98c9ee45,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -834,7 +839,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &170842541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -945,7 +950,7 @@ RectTransform:
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.602, y: 1}
   m_AnchoredPosition: {x: -3.5, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1005,8 +1010,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db0fe08446aba784fb481c153662d085, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  electricityUsedPerSecond: 0
+  isOn: 0
   rateofChange: 10
   audioSource: {fileID: 1483160504}
+  isActive: 0
 --- !u!64 &203281212
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1339,7 +1347,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &293767325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2169,7 +2177,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &456888535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2332,6 +2340,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TP_Console_Full
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6b6540804c012e34499eeeeaadb281b7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2461,6 +2474,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
   fuseBox: {fileID: 0}
+  lightButtonBacklight: {fileID: 0}
 --- !u!64 &520257681
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2544,11 +2558,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae2304039985d7a4abfad3f4fd00f993, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lights:
-  - {fileID: 1133023713}
-  onColor: {r: 0, g: 1, b: 0.051280737, a: 1}
-  offColor: {r: 1, g: 0, b: 0, a: 1}
-  lightAudio: {fileID: 214939978}
+  lights: {fileID: 0}
+  outsideLight: {fileID: 0}
+  jerry: {fileID: 0}
+  buttonIdx: 0
   isOn: 1
 --- !u!1 &688796155
 GameObject:
@@ -2684,7 +2697,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!167 &759019160
 AudioReverbZone:
   m_ObjectHideFlags: 0
@@ -3173,7 +3186,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &832575518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3315,8 +3328,11 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 24b4c09637ccbc74ba5adfe40e14f553, type: 2}
   - {fileID: 2100000, guid: 3f11202d70071e04f98d943ac6411efa, type: 2}
   - {fileID: 2100000, guid: f4b9d7b0c59c4834594c6918cbc78138, type: 2}
+  objectsToHideDuringOverload: []
   lever: {fileID: 0}
   isOverloaded: 0
+  overloadLight: {fileID: 0}
+  valueToOverload: 0
 --- !u!1 &1097393723
 GameObject:
   m_ObjectHideFlags: 0
@@ -3336,7 +3352,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1097393724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3462,7 +3478,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1133023712
 Transform:
   m_ObjectHideFlags: 0
@@ -3501,9 +3517,12 @@ MonoBehaviour:
   - {fileID: 688796158}
   - {fileID: 795344383}
   - {fileID: 1781464985}
+  thingsToHideWhileLightIsOff: []
   immisives: {fileID: 0}
+  buttonBacking: {fileID: 0}
   onEmission: {r: 0, g: 0, b: 0, a: 0}
   offEmission: {r: 0, g: 0, b: 0, a: 0}
+  lightAudio: {fileID: 0}
 --- !u!1 &1186571298
 GameObject:
   m_ObjectHideFlags: 0
@@ -3522,7 +3541,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1186571299
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3626,8 +3645,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db0fe08446aba784fb481c153662d085, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  electricityUsedPerSecond: 0
+  isOn: 0
   rateofChange: -10
   audioSource: {fileID: 1483160504}
+  isActive: 0
 --- !u!64 &1195537386
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3846,6 +3868,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TP_OxygenTank
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c742b6e3b1c813540a25bf35ee3fb228,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3988,7 +4015,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1277581178
 Transform:
   m_ObjectHideFlags: 0
@@ -4485,7 +4512,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!199 &1534995041
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -9311,7 +9338,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1542450831
 Transform:
   m_ObjectHideFlags: 0
@@ -9468,7 +9495,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1704038618
 Transform:
   m_ObjectHideFlags: 0
@@ -9785,6 +9812,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TP_FuseBox
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8a540f42a549f154dadc5d1cbef1ab75,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10024,6 +10056,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TP_Submarine
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: acba14878464d4646a3be495e8f65efa,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10289,6 +10326,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TP_Chair
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 853ced356f824f9419bd3b45e1f097ea,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
