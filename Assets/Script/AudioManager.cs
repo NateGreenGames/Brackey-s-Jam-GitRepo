@@ -108,7 +108,6 @@ public class AudioManager : MonoBehaviour
         ChangeMusicVolume(musicVolume);
         ChangeSFXVolume(sfxVolume);
     }
-
     // USE THIS FUNCTION TO SWITCH UP THE AUDIOCLIP FOR MUSIC
     public void ChangeMusicClip(AudioSource _source, eMusic _music)
     {
