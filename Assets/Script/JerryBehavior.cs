@@ -6,6 +6,7 @@ public class JerryBehavior : ElectricityUser
 {
     public float jerryGivesOxygen = 1.33f;
     public bool isActive;
+    public Material[] lightMaterial;
 
     public override void ToggleActiveState()
     {
@@ -17,6 +18,16 @@ public class JerryBehavior : ElectricityUser
 
     IEnumerator KissJerry(float _jerryGivesThisMuch)
     {
+        if (isActive)
+        {
+            lightMaterial[0].EnableKeyword("_EMISSION");
+            lightMaterial[1].DisableKeyword("_EMISSION");
+        }
+        else
+        {
+            lightMaterial[1].EnableKeyword("_EMISSION");
+            lightMaterial[0].DisableKeyword("_EMISSION");
+        }
         while (isActive == true)
         {
             yield return new WaitForEndOfFrame();

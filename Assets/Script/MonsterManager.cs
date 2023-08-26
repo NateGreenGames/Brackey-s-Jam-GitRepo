@@ -69,7 +69,7 @@ public class MonsterManager : MonoBehaviour
             {
                 Debug.Log("You died...");
             }
-            //ProgressionManager.AlterPlayerCourse(Random.Range(-10f * Time.deltaTime, 10f * Time.deltaTime));
+            ProgressionManager.AlterPlayerCourse(Random.Range(-10f * Time.deltaTime, 10f * Time.deltaTime));
             StartCoroutine(ScreenShake());
         }
         yield return null;
