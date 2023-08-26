@@ -11,6 +11,7 @@ public class FuseBox : MonoBehaviour
     [SerializeField] Lever lever;
     public bool isOverloaded = false;
     public Light overloadLight;
+    public int valueToOverload;
     //public List<GameObject> tests; 
     private void Awake()
     {
@@ -48,7 +49,7 @@ public class FuseBox : MonoBehaviour
         {
             overloadLight.enabled = false;
         }
-        if (_lightsAmount >= 4)
+        if (_lightsAmount >= valueToOverload)
         {
             Overload();
         }

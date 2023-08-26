@@ -6,12 +6,13 @@ public class MonsterManager : MonoBehaviour
 {
     public static MonsterManager mM;
     public float attackRate = 0;
-    public float swingTime = 75;
+    public float swingTime = 0;
     public float attackRateIncrease = 3f;
-    public int attackDamage = 25;
+    public float attackDamage;
     public float wardOffRate = 6;
-    public int submarineHealth = 100;
+    public float submarineHealth = 100;
     public float shakeDuration = 3f;
+    public float rotationLowEnd, rotationHighEnd;
     bool isAttacking;
     public bool isBeingWardedOff;
     public GameObject main;
@@ -52,24 +53,25 @@ public class MonsterManager : MonoBehaviour
     public IEnumerator StartAttackSequence()
     {
         anim.SetTrigger("Open Eye");
+        swingTime = Random.Range(0, 60);
         //audioManager.PlaySFX(eSFX.creatureApproach, 0.3f);
         AudioManager.instance.PlaySFX(eSFX.creatureApproach, 0.45f);
-        int _randLook = Random.Range(3, 7);
-        int _randattack = Random.Range(5, 10);
-
+        int _randLook = Random.Range(1, 4);
+        int _randattack = Random.Range(3, 7);
         yield return new WaitForSeconds(_randLook);
         anim.SetTrigger("LookAround");
+        StartCoroutine(TakingDamage());
         while (isAttacking == true)
         {
             yield return new WaitForSeconds(_randattack);
-            submarineHealth -= attackDamage;
             //Update window texture blending.
             subWindow.SetFloat("_Blend", Mathf.Lerp(uncrackedBlendValue, crackedBlendValue, Mathf.InverseLerp(100, 0, submarineHealth)));
             if (submarineHealth <= 0)
             {
                 Debug.Log("You died...");
             }
-            ProgressionManager.AlterPlayerCourse(Random.Range(-10f * Time.deltaTime, 10f * Time.deltaTime));
+            GetRandomOffset();
+
             StartCoroutine(ScreenShake());
         }
         yield return null;
@@ -79,7 +81,7 @@ public class MonsterManager : MonoBehaviour
     {
         Debug.Log("Shaaaaaaake");
         //audioManager.PlaySFX(eSFX.creatureAttack, 1);
-        AudioManager.instance.PlaySFX(eSFX.creatureAttack, 1);
+        AudioManager.instance.PlaySFX(eSFX.creatureAttack, 0.5f);
         Vector3 startPos = main.transform.position;
         float timeElapsed = 0f;
 
@@ -107,17 +109,20 @@ public class MonsterManager : MonoBehaviour
             {
                 yield return new WaitForEndOfFrame();
                 attackRate -= wardOffRate * Time.deltaTime;                
-                if (attackRate <= 0)
+                /*if (attackRate <= 0)
                 {
                     anim.SetTrigger("Close Eye");
                     StartCoroutine(WaitForAttackSequence());
                     attackRate = 0;
                     yield break;
-                }
+                }*/
                 if (attackRate < swingTime)
                 {
                     StopAllCoroutines();
+                    anim.SetTrigger("Close Eye");
+                    StartCoroutine(WaitForAttackSequence());
                     isAttacking = false;
+                    yield break;
                 }
             }
             if (attackRate > swingTime)
@@ -129,5 +134,24 @@ public class MonsterManager : MonoBehaviour
             anim.SetTrigger("Close Eye");
             StartCoroutine(WaitForAttackSequence());
         }
+    }
+
+    IEnumerator TakingDamage()
+    {
+        while (isAttacking)
+        {
+            yield return new WaitForEndOfFrame();
+            submarineHealth -= attackDamage * Time.deltaTime;
+            ProgressionManager.AlterPlayerCourse((GetRandomOffset() * Time.deltaTime));
+            yield return null;
+        }
+    }
+
+    float GetRandomOffset()
+    {
+        float randomOffset1 = Random.Range(rotationLowEnd, rotationHighEnd);
+        float randomOffset2 = Random.Range(rotationLowEnd, rotationHighEnd);
+        float trueRandomOffset = Random.Range(randomOffset1, randomOffset2);
+        return trueRandomOffset;
     }
     }

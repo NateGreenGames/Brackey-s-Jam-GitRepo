@@ -325,7 +325,7 @@ PrefabInstance:
     - target: {fileID: 8997772953615033508, guid: 6733c96e4a73847479b033be98c9ee45,
         type: 3}
       propertyPath: attackDamage
-      value: 25
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 8997772953615033508, guid: 6733c96e4a73847479b033be98c9ee45,
         type: 3}
@@ -336,6 +336,21 @@ PrefabInstance:
         type: 3}
       propertyPath: shakeDuration
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8997772953615033508, guid: 6733c96e4a73847479b033be98c9ee45,
+        type: 3}
+      propertyPath: rotationLowEnd
+      value: -100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8997772953615033508, guid: 6733c96e4a73847479b033be98c9ee45,
+        type: 3}
+      propertyPath: rotationHighEnd
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8997772953615033508, guid: 6733c96e4a73847479b033be98c9ee45,
+        type: 3}
+      propertyPath: isBeingWardedOff
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8997772953615033508, guid: 6733c96e4a73847479b033be98c9ee45,
         type: 3}
@@ -350,22 +365,47 @@ PrefabInstance:
     - target: {fileID: 8997772953615033508, guid: 6733c96e4a73847479b033be98c9ee45,
         type: 3}
       propertyPath: shakeStrengthSmoothness.m_Curve.Array.data[1].time
-      value: 0.18707907
+      value: 0.18549216
       objectReference: {fileID: 0}
     - target: {fileID: 8997772953615033508, guid: 6733c96e4a73847479b033be98c9ee45,
         type: 3}
       propertyPath: shakeStrengthSmoothness.m_Curve.Array.data[2].time
-      value: 0.4596654
+      value: 0.47388658
+      objectReference: {fileID: 0}
+    - target: {fileID: 8997772953615033508, guid: 6733c96e4a73847479b033be98c9ee45,
+        type: 3}
+      propertyPath: shakeStrengthSmoothness.m_Curve.Array.data[3].time
+      value: 0.982666
       objectReference: {fileID: 0}
     - target: {fileID: 8997772953615033508, guid: 6733c96e4a73847479b033be98c9ee45,
         type: 3}
       propertyPath: shakeStrengthSmoothness.m_Curve.Array.data[1].value
-      value: 0.080370724
+      value: 0.020006955
       objectReference: {fileID: 0}
     - target: {fileID: 8997772953615033508, guid: 6733c96e4a73847479b033be98c9ee45,
         type: 3}
       propertyPath: shakeStrengthSmoothness.m_Curve.Array.data[2].value
-      value: 0.05881699
+      value: 0.02469834
+      objectReference: {fileID: 0}
+    - target: {fileID: 8997772953615033508, guid: 6733c96e4a73847479b033be98c9ee45,
+        type: 3}
+      propertyPath: shakeStrengthSmoothness.m_Curve.Array.data[3].value
+      value: 0.015750885
+      objectReference: {fileID: 0}
+    - target: {fileID: 8997772953615033508, guid: 6733c96e4a73847479b033be98c9ee45,
+        type: 3}
+      propertyPath: shakeStrengthSmoothness.m_Curve.Array.data[2].inSlope
+      value: -0.083367586
+      objectReference: {fileID: 0}
+    - target: {fileID: 8997772953615033508, guid: 6733c96e4a73847479b033be98c9ee45,
+        type: 3}
+      propertyPath: shakeStrengthSmoothness.m_Curve.Array.data[2].outSlope
+      value: -0.083367586
+      objectReference: {fileID: 0}
+    - target: {fileID: 8997772953615033508, guid: 6733c96e4a73847479b033be98c9ee45,
+        type: 3}
+      propertyPath: shakeStrengthSmoothness.m_Curve.Array.data[2].outWeight
+      value: 0.15007043
       objectReference: {fileID: 0}
     - target: {fileID: 9066940558594087059, guid: 6733c96e4a73847479b033be98c9ee45,
         type: 3}
@@ -4283,6 +4323,7 @@ MonoBehaviour:
   lever: {fileID: 0}
   isOverloaded: 0
   overloadLight: {fileID: 1060507469}
+  valueToOverload: 3
 --- !u!1 &1097393723
 GameObject:
   m_ObjectHideFlags: 0
