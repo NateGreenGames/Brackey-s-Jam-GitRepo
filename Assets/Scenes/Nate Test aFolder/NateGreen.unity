@@ -1968,7 +1968,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62c5e62d1887c53498fe74eeec226a3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  electricityUsedPerSecond: 0
+  electricityUsedPerSecond: 0.5
   isOn: 0
   jerryGivesOxygen: 1.33
   isActive: 0
