@@ -95,6 +95,7 @@ public class AudioManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        DontDestroyOnLoad(this.gameObject);
     }
 
     private void Start()
@@ -155,7 +156,7 @@ public class AudioManager : MonoBehaviour
     {
         _newValue = Mathf.Clamp(_newValue, 0.1f, 1f);
         musicVolume = _newValue;
-        musicMixer.audioMixer.SetFloat("MusicVolume", Mathf.Log10(_newValue) * 20);// Changes as a logarithmic fade
+        musicMixer.audioMixer.SetFloat("MusicVolume", Mathf.Log10(_newValue) * 40);// Changes as a logarithmic fade
 
     }
 
@@ -163,7 +164,7 @@ public class AudioManager : MonoBehaviour
     {
         _newValue = Mathf.Clamp(_newValue, 0.1f, 1f);
         sfxVolume = _newValue;
-        sfxMixer.audioMixer.SetFloat("SFXVolume", Mathf.Log10(_newValue) * 20);
+        sfxMixer.audioMixer.SetFloat("SFXVolume", Mathf.Log10(_newValue) * 40);
 
     }
 
@@ -171,7 +172,7 @@ public class AudioManager : MonoBehaviour
     {
         _newValue = Mathf.Clamp(_newValue, 0.1f, 1f);
         masterVolume = _newValue;
-        masterMixer.audioMixer.SetFloat("MasterVolume", Mathf.Log10(_newValue) * 20);
+        masterMixer.audioMixer.SetFloat("MasterVolume", Mathf.Log10(_newValue) * 40);
 
     }
 
