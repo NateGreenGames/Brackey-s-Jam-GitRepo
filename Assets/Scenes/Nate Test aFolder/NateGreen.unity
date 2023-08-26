@@ -1057,6 +1057,28 @@ MonoBehaviour:
   offColor: {r: 0, g: 0, b: 0, a: 0}
   buttonIdx: 3
   isOn: 0
+--- !u!64 &242104632
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 242104627}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 2781890132543744772, guid: c742b6e3b1c813540a25bf35ee3fb228, type: 3}
 --- !u!1 &293767324
 GameObject:
   m_ObjectHideFlags: 0
@@ -2199,6 +2221,7 @@ MonoBehaviour:
   electricityUsedPerSecond: 0
   isOn: 0
   jerryGivesOxygen: 1.33
+  isActive: 0
 --- !u!1001 &547885923
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4749,6 +4772,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 242104631}
+    - targetCorrespondingSourceObject: {fileID: 6243660826782809279, guid: c742b6e3b1c813540a25bf35ee3fb228,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 242104632}
     - targetCorrespondingSourceObject: {fileID: -8197486888988613241, guid: c742b6e3b1c813540a25bf35ee3fb228,
         type: 3}
       insertIndex: -1
