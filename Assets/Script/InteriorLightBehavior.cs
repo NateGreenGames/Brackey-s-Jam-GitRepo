@@ -5,7 +5,9 @@ using UnityEngine;
 public class InteriorLightBehavior : ElectricityUser
 {
     [SerializeField] private Light[] lights;
+    [SerializeField] private MeshRenderer[] thingsToHideWhileLightIsOff;
     [SerializeField] private MeshRenderer immisives;
+    [SerializeField] private MeshRenderer buttonBacking;
     [SerializeField] [ColorUsage(false, true)] private Color onEmission, offEmission;
     [SerializeField] private AudioSource lightAudio;
 
@@ -27,6 +29,7 @@ public class InteriorLightBehavior : ElectricityUser
         ToggleAudioSource();
     }
 
+
     public override void ToggleActiveState()
     {
         base.ToggleActiveState();
@@ -38,16 +41,33 @@ public class InteriorLightBehavior : ElectricityUser
         }
     }
 
-
     private void UpdateMaterialColor()
     {
         if (isOn)
         {
             immisives.material.SetColor("_Emission_Color", onEmission);
+            for (int i = 0; i < thingsToHideWhileLightIsOff.Length; i++)
+            {
+                thingsToHideWhileLightIsOff[i].material.EnableKeyword("_EMISSION");
+            }
         }
         else
         {
             immisives.material.SetColor("_Emission_Color", offEmission);
+            for (int i = 0; i < thingsToHideWhileLightIsOff.Length; i++)
+            {
+                thingsToHideWhileLightIsOff[i].material.DisableKeyword("_EMISSION");
+            }
+        }
+
+
+        if (!isOn && !FuseBox.fB.isOverloaded)
+        {
+            buttonBacking.material.EnableKeyword("_EMISSION");
+        }
+        else
+        {
+            buttonBacking.material.DisableKeyword("_EMISSION");
         }
     }
 

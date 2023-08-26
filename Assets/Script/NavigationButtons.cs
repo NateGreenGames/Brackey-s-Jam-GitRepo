@@ -20,17 +20,7 @@ public class NavigationButtons : ElectricityUser, IInteractable
  
     public void OnInteractHeld()
     {
-        if (FuseBox.fB.isOverloaded)
-        {
-            audioSource.Stop();
-            return;
-        }
-        if (!isActive)
-        {
-            isActive = true;
-            ToggleActiveState();
-        }
-        StartCoroutine(HoldingButton());
+        //Do Nothing;
     }
     public void OnLookingAt()
     {
@@ -39,29 +29,42 @@ public class NavigationButtons : ElectricityUser, IInteractable
     public void OnInteract()
     {
         //am.PlaySFX(eSFX.buttonClick, .25f);
-        AudioManager.instance.PlaySFX(eSFX.buttonClick, .25f);
+        StartCoroutine(HoldingButton());
     }
 
     public void OnInteractEnd()
     {
-        if (FuseBox.fB.isOverloaded)
-        {
-            audioSource.Stop();
-            return;
-        }
-        audioSource.Stop();
-        isActive = false;
-        ToggleActiveState();
+        //Do nothing;
     }
 
     public override void ToggleActiveState()
     {
         base.ToggleActiveState();
+        isActive = !isActive;
+        AudioManager.instance.PlaySFX(eSFX.buttonClick, .25f);
+        if (isActive)
+        {
+            audioSource.Play();
+        }
+        else
+        {
+            audioSource.Stop();
+        }
+
+        if (rateofChange > 0)
+        {
+            audioSource.panStereo = -1f;
+        }
+        else
+        {
+            audioSource.panStereo = 1f;
+        }
     }
 
     IEnumerator HoldingButton()
     {
-        while (isActive)
+        ToggleActiveState();
+        while (Input.GetMouseButton(0) && isActive)
         {
             yield return new WaitForEndOfFrame();
             if (FuseBox.fB.isOverloaded)
@@ -78,19 +81,7 @@ public class NavigationButtons : ElectricityUser, IInteractable
                 //If the clip is not currently playing but this is being called, start it.
                 audioSource.Play();
             }
-            //If the the clip is playing, don't do anything.
-
-
-            //if rateOfChange is left, pan left, if rate of change is right, pan right.
-            if (rateofChange > 0)
-            {
-                audioSource.panStereo = -1f;
-            }
-            else
-            {
-                audioSource.panStereo = 1f;
-            }
-            break;
         }
+        ToggleActiveState();
     }
 }

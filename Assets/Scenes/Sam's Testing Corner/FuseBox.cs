@@ -5,8 +5,8 @@ using UnityEngine;
 public class FuseBox : MonoBehaviour
 {
     public GameObject[] fuseBoxLights;
-    Renderer materialRenderer;
     public Material[] lightMaterial = new Material[3];
+    public GameObject[] objectsToHideDuringOverload;
     public static FuseBox fB;
     [SerializeField] Lever lever;
     public bool isOverloaded = false;
@@ -65,6 +65,17 @@ public class FuseBox : MonoBehaviour
             }
         }
 
+        for (int i = 0; i < objectsToHideDuringOverload.Length; i++)
+        {
+            if (!isOverloaded && objectsToHideDuringOverload[i].activeInHierarchy == false)
+            {
+                objectsToHideDuringOverload[i].SetActive(true);
+            }
+            else if(isOverloaded && objectsToHideDuringOverload[i].activeInHierarchy == true)
+            {
+                objectsToHideDuringOverload[i].SetActive(false);
+            }
+        }
     }
 
     public void Overload()

@@ -6,6 +6,7 @@ public class Lever : MonoBehaviour, IInteractable
 {
     public Animator anim;
     [SerializeField] FuseBox fuseBox;
+    public MeshRenderer lightButtonBacklight;
     Vector3 lastMouseCoordinate = Vector3.zero;
     public bool isInteractable { get; set; }
     private void Start()
@@ -75,6 +76,7 @@ public class Lever : MonoBehaviour, IInteractable
                 {
                     anim.SetTrigger("LeverUp");
                     FuseBox.fB.isOverloaded = false;
+                    lightButtonBacklight.material.EnableKeyword("_EMISSION");
                     yield return new WaitForSeconds(2);
                     break;
                     //isInteractable = false;
