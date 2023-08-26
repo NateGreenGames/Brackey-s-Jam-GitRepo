@@ -24,9 +24,15 @@ public class ExteriorLightBehavior : ElectricityUser
     }
 
     public override void ToggleActiveState()
-    {
+    {       
         outsideLight.enabled = !outsideLight.enabled;
         base.ToggleActiveState();
         outsideLight.enabled = isOn;
+        MonsterManager.mM.isBeingWardedOff = !MonsterManager.mM.isBeingWardedOff;
+        if (!MonsterManager.mM.isBeingWardedOff)
+        {
+            return;
+        }
+        StartCoroutine(MonsterManager.mM.WardOffMonster());
     }
 }

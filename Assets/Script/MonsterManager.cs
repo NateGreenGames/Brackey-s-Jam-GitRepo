@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class MonsterManager : MonoBehaviour
 {
+    public static MonsterManager mM;
     public float attackRate = 0;
+    public float swingTime = 75;
     public float attackRateIncrease = 3f;
     public int attackDamage = 25;
+    public float wardOffRate = 6;
     public int submarineHealth = 100;
     public float shakeDuration = 3f;
     bool isAttacking;
+    public bool isBeingWardedOff;
     public GameObject main;
     public Animator anim;
     public AnimationCurve shakeStrengthSmoothness;
@@ -18,6 +22,10 @@ public class MonsterManager : MonoBehaviour
     //public AudioClip[] monsterAudioClips;
     //[SerializeField] AudioManager audioManager;
 
+    private void Awake()
+    {
+        mM = this;
+    }
     private void Start()
     {
         anim = GetComponent<Animator>();
@@ -85,4 +93,35 @@ public class MonsterManager : MonoBehaviour
 
         main.transform.position = startPos;
     }
-}
+
+    public IEnumerator WardOffMonster()
+    {
+        if (!isAttacking)
+        {
+            Debug.Log("No no... monster is not hungry yet");
+            yield return null;
+        }
+        else
+        {
+            while (isBeingWardedOff)
+            {
+                yield return new WaitForEndOfFrame();
+                attackRate -= wardOffRate * Time.deltaTime;                
+                if (attackRate <= 0) {attackRate = 0;}
+                if (attackRate < swingTime)
+                {
+                    StopAllCoroutines();
+                    isAttacking = false;
+                }
+            }
+            if (attackRate > swingTime)
+            {
+                yield break;
+            }
+
+            Debug.Log("Lmao");
+            anim.SetTrigger("Close Eye");
+            StartCoroutine(WaitForAttackSequence());
+        }
+    }
+    }
