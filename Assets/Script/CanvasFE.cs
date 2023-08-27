@@ -25,4 +25,14 @@ public class CanvasFE : MonoBehaviour
     {
         tutorialMenu.SetActive(_newState);
     }
+
+    public void ChangeScenes(string _sceneName)
+    {
+        LoadingManager.instance.ChangeScene(_sceneName);
+    }
+
+    public void CloseGame()
+    {
+        LoadingManager.instance.ExitGame();
+    }
 }
