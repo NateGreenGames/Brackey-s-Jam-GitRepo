@@ -25,6 +25,12 @@ public class GameOverAndCompletionController : MonoBehaviour
         StartCoroutine(DisplayGameOverScreen(_gameOverDescription));
         Destroy(playerCamera.GetComponent<PlayerFreelookCameraBehavior>());
     }
+
+    public void WinGame()
+    {
+        StartCoroutine(DisplayWinningScreen());
+        Destroy(playerCamera.GetComponent<PlayerFreelookCameraBehavior>());
+    }
     private IEnumerator DisplayGameOverScreen(string _gameOverDescription)
     {
         yield return StartCoroutine(FadeToBlack(3f));
@@ -33,6 +39,14 @@ public class GameOverAndCompletionController : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
 
         newWidget.UpdateDeathDescriptionText(_gameOverDescription);
+    }
+
+    private IEnumerator DisplayWinningScreen()
+    {
+        yield return StartCoroutine(FadeToBlack(3f));
+        Instantiate(Resources.Load("Widgets/WinWidget") as GameObject, canvasTransform);
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     private IEnumerator FadeToBlack(float _duration)

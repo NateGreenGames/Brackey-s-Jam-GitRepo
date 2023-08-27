@@ -43,6 +43,7 @@ public class ProgressionPanel : MonoBehaviour
         if (collision.gameObject.CompareTag("Finish"))
         {
             //Start end sequence.
+            GameOverAndCompletionController.instance.WinGame();
             if (postDebugInformation) Debug.Log($"I collided with: {collision.collider.name}. You've won!");
         }
         else if(collision.gameObject.CompareTag("Obstacle"))

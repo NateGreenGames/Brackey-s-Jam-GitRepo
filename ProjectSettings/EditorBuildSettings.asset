@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Nate Test aFolder/NateGreen.unity
     guid: f2a8b93c3e1bc164b9dc7502a5f05a8d
+  - enabled: 1
+    path: Assets/Scenes/Nate Test aFolder/Credits.unity
+    guid: 6fd33cbe253997a4ab6329dcba26ebd2
   m_configObjects: {}
