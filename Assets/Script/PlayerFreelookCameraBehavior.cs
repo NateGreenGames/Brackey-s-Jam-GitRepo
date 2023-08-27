@@ -25,7 +25,7 @@ public class PlayerFreelookCameraBehavior : MonoBehaviour
     {
         // Lock and Hide the Cursor
         Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
 

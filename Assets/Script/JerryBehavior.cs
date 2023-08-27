@@ -7,6 +7,7 @@ public class JerryBehavior : ElectricityUser
     public float jerryGivesOxygen = 1.33f;
     public bool isActive;
     public Material[] lightMaterial;
+    [SerializeField] AudioSource jerryWorkingSource, jerryOverflowSource;
     [SerializeField] OxygenGuageBehavior guageBehavior;
 
     private void Start()
@@ -42,6 +43,18 @@ public class JerryBehavior : ElectricityUser
         }
         while (isActive == true)
         {
+            if (!jerryWorkingSource.isPlaying && guageBehavior.oxygenPercentage < 100) 
+            {
+                jerryWorkingSource.Play();
+                jerryOverflowSource.Stop();
+            }
+            else if(!jerryOverflowSource.isPlaying && guageBehavior.oxygenPercentage >= 100)
+            {
+                jerryWorkingSource.Stop();
+                jerryOverflowSource.Play();
+            }
+
+
             yield return new WaitForEndOfFrame();
             if (guageBehavior.oxygenPercentage >= 100)
             {
@@ -51,6 +64,8 @@ public class JerryBehavior : ElectricityUser
             OxygenManagement.ChangeOxygenAmount(jerryGivesOxygen * Time.deltaTime);
             Debug.Log("Kissing Jerry");
         }
+        jerryOverflowSource.Stop();
+        jerryWorkingSource.Stop();
         Debug.Log("Not Kissing Jerry :(");
         yield return null;
     }

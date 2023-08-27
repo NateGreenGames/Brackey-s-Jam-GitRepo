@@ -40,7 +40,12 @@ public class ThrottleLevelBehavior : ElectricityUser, IInteractable
     {
     }
 
-
+    public override void ToggleActiveState()
+    {
+        base.ToggleActiveState();
+        AudioManager.instance.PlaySFX(eSFX.leverPushPull, 0.2f);
+        m_anim.SetTrigger("Up");
+    }
     public IEnumerator HoldingDownLever()
     {
         while (Input.GetKey(KeyCode.Mouse0))
@@ -53,16 +58,19 @@ public class ThrottleLevelBehavior : ElectricityUser, IInteractable
             {
                 m_anim.SetTrigger("Down");
                 SetActiveState(true);
+                AudioManager.instance.PlaySFX(eSFX.leverPushPull, 0.2f);
                 break;
             }else if (buttonIsBeingHeld && mouseDelta.y > 0 && !isOn)
             {
                 m_anim.SetTrigger("Bump");
+                AudioManager.instance.PlaySFX(eSFX.leverBump, 1f);
                 break;
             }
             else if (buttonIsBeingHeld && mouseDelta.y > 0 && isOn)
             {
                 m_anim.SetTrigger("Up");
                 SetActiveState(false);
+                AudioManager.instance.PlaySFX(eSFX.leverPushPull, 0.2f);
                 break;
             }
             else

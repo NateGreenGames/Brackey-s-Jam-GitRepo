@@ -52,9 +52,7 @@ public class Lever : MonoBehaviour, IInteractable
                 if (buttonIsBeingHeld && ((mouseDelta.y < 0)))
                 {
                     anim.SetTrigger("LeverDown");
-                    FuseBox.fB.isOverloaded = true;
                     fuseBox.Overload();
-                    yield return new WaitForSeconds(2);
                     break;
                     //isInteractable = false;
                 }
@@ -77,7 +75,8 @@ public class Lever : MonoBehaviour, IInteractable
                     anim.SetTrigger("LeverUp");
                     FuseBox.fB.isOverloaded = false;
                     lightButtonBacklight.material.EnableKeyword("_EMISSION");
-                    yield return new WaitForSeconds(2);
+                    AudioManager.instance.PlaySFX(eSFX.leverPushPull, 0.2f);
+                    AudioManager.instance.PlaySFX(eSFX.powerOn, 0.3f);
                     break;
                     //isInteractable = false;
                 }

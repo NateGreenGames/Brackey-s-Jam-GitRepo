@@ -12,7 +12,7 @@ public enum eSFX
     //SFX
     buttonClick, leverPushPull, airHiss, pipeBurst, fusePop, fuseExplode, fuseClunk, lightOn, lightOff, 
     engineOn, engineOff, powerWarning, waterMovement, powerOff, powerOn, hullHit, hullWane, creatureAttack, 
-    creatureFlee, creatureApproach, alarm,none
+    creatureFlee, creatureApproach, alarm, leverBump, none
 }
 
 public enum eMusic { titleMusic, gameplayMusicCalm, gameplayMusicDanger, none }

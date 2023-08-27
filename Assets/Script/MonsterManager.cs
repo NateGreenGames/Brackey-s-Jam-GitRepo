@@ -57,12 +57,12 @@ public class MonsterManager : MonoBehaviour
         //audioManager.PlaySFX(eSFX.creatureApproach, 0.3f);
         AudioManager.instance.PlaySFX(eSFX.creatureApproach, 0.45f);
         int _randLook = Random.Range(1, 4);
-        int _randattack = Random.Range(3, 7);
         yield return new WaitForSeconds(_randLook);
         anim.SetTrigger("LookAround");
         StartCoroutine(TakingDamage());
         while (isAttacking == true)
         {
+            float _randattack = Random.Range(1.5f, 4f);
             yield return new WaitForSeconds(_randattack);
             //Update window texture blending.
             subWindow.SetFloat("_Blend", Mathf.Lerp(uncrackedBlendValue, crackedBlendValue, Mathf.InverseLerp(100, 0, submarineHealth)));
@@ -120,6 +120,7 @@ public class MonsterManager : MonoBehaviour
                 {
                     StopAllCoroutines();
                     anim.SetTrigger("Close Eye");
+                    AudioManager.instance.PlaySFX(eSFX.creatureFlee, 0.8f);
                     StartCoroutine(WaitForAttackSequence());
                     isAttacking = false;
                     yield break;
