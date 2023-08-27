@@ -82,7 +82,7 @@ public class FuseBox : MonoBehaviour
     public void Overload()
     {
         lever.anim.SetTrigger("LeverDown");
-        AudioManager.instance.PlaySFX(eSFX.powerOff, 0.3f);
+        AudioManager.instance.PlaySFX(eSFX.powerOff, 0.5f);
         AudioManager.instance.PlaySFX(eSFX.leverPushPull, 0.2f);
         isOverloaded = true;
         for (int i = ElectricityManager.ActiveUsers.Count - 1; i >= 0; i--)

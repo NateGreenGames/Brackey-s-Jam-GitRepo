@@ -78,7 +78,7 @@ public class Lever : MonoBehaviour, IInteractable
                     FuseBox.fB.isOverloaded = false;
                     lightButtonBacklight.material.EnableKeyword("_EMISSION");
                     AudioManager.instance.PlaySFX(eSFX.leverPushPull, 0.2f);
-                    AudioManager.instance.PlaySFX(eSFX.powerOn, 0.3f);
+                    AudioManager.instance.PlaySFX(eSFX.powerOn, 0.5f);
                     break;
                     //isInteractable = false;
                 }

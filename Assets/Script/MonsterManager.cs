@@ -55,7 +55,7 @@ public class MonsterManager : MonoBehaviour
         anim.SetTrigger("Open Eye");
         swingTime = Random.Range(0, 60);
         //audioManager.PlaySFX(eSFX.creatureApproach, 0.3f);
-        AudioManager.instance.PlaySFX(eSFX.creatureApproach, 0.45f);
+        AudioManager.instance.PlaySFX(eSFX.creatureApproach, 0.55f);
         int _randLook = Random.Range(1, 4);
         yield return new WaitForSeconds(_randLook);
         anim.SetTrigger("LookAround");
@@ -120,7 +120,7 @@ public class MonsterManager : MonoBehaviour
                 {
                     StopAllCoroutines();
                     anim.SetTrigger("Close Eye");
-                    AudioManager.instance.PlaySFX(eSFX.creatureFlee, 0.8f);
+                    AudioManager.instance.PlaySFX(eSFX.creatureFlee, 0.4f);
                     StartCoroutine(WaitForAttackSequence());
                     isAttacking = false;
                     yield break;
