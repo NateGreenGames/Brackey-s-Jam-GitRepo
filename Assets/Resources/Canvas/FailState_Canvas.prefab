@@ -35,7 +35,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -10.100005}
+  m_AnchoredPosition: {x: 0, y: 79}
   m_SizeDelta: {x: 578.2599, y: 88.5605}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8979684366010601706
@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: _Text Catch This L Bozo
+  m_text: '%You Suffocated.%'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 10fe5f4ed9508534c9c267bc904b6a77, type: 2}
   m_sharedMaterial: {fileID: -3839689641325289035, guid: 10fe5f4ed9508534c9c267bc904b6a77,
@@ -94,8 +94,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 73.19
+  m_fontSizeBase: 73.19
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -404,7 +404,7 @@ RectTransform:
   m_GameObject: {fileID: 6255827125967084364}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.7501, y: 2.7501, z: 2.7501}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3726883843606758502}
@@ -414,7 +414,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 25.7}
+  m_AnchoredPosition: {x: 0, y: 153}
   m_SizeDelta: {x: 202.8456, y: 120.804}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &2405667151360322266
@@ -521,7 +521,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -660,8 +660,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0.0000038146973, y: -56}
-  m_SizeDelta: {x: 479.818, y: 104.3692}
+  m_AnchoredPosition: {x: 0.0000038146973, y: -153}
+  m_SizeDelta: {x: 959.636, y: 208.7384}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &2995900996179779620
 CanvasRenderer:

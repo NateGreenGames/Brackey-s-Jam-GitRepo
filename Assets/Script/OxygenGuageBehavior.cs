@@ -8,6 +8,8 @@ public class OxygenGuageBehavior : MonoBehaviour
     [SerializeField] float emptyRotation, fullRotation;
     public float oxygenPercentage;
 
+    private bool dying = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +32,12 @@ public class OxygenGuageBehavior : MonoBehaviour
     {
         RotateDialToNewValue(oxygenPercentage + _change);
         oxygenPercentage += _change;
+        if (oxygenPercentage <= 0 && !dying)
+        {
+            dying = true;
+            AudioManager.instance.PlaySFX(eSFX.suffocation, 1f);
+            GameOverAndCompletionController.instance.EndGame("You suffocated.");
+        }
     }
 
 

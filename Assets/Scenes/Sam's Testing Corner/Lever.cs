@@ -43,6 +43,7 @@ public class Lever : MonoBehaviour, IInteractable
     {
         if (!FuseBox.fB.isOverloaded)
         {
+            lastMouseCoordinate = Input.mousePosition;
             while (Input.GetKey(KeyCode.Mouse0))
             {
                 bool buttonIsBeingHeld = true;
@@ -64,6 +65,7 @@ public class Lever : MonoBehaviour, IInteractable
         }
         else if (FuseBox.fB.isOverloaded)
         {
+            lastMouseCoordinate = Input.mousePosition;
             while (Input.GetKey(KeyCode.Mouse0))
             {
                 bool buttonIsBeingHeld = true;

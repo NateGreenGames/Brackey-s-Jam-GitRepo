@@ -6,6 +6,8 @@ public class ThrottleLevelBehavior : ElectricityUser, IInteractable
 {
     public bool isInteractable { get; set; }
     [SerializeField] float movementSpeed;
+    [SerializeField] AudioSource engineRunningSource;
+    [SerializeField] float leverSensitivity;
     private Vector3 lastMouseCoordinate;
     private Animator m_anim;
     void Start()
@@ -19,6 +21,15 @@ public class ThrottleLevelBehavior : ElectricityUser, IInteractable
         if (isOn)
         {
             ProgressionManager.MoveSubmarine(movementSpeed * Time.deltaTime);
+        }
+
+        if (isOn && !engineRunningSource.isPlaying)
+        {
+            engineRunningSource.Play();
+        }
+        else if(!isOn)
+        {
+            engineRunningSource.Stop();
         }
     }
     public void OnInteract()
@@ -48,6 +59,7 @@ public class ThrottleLevelBehavior : ElectricityUser, IInteractable
     }
     public IEnumerator HoldingDownLever()
     {
+        lastMouseCoordinate = Input.mousePosition;
         while (Input.GetKey(KeyCode.Mouse0))
         {
             bool buttonIsBeingHeld = true;

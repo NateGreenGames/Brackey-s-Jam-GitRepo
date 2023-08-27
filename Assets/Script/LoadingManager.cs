@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LoadingManager : MonoBehaviour
 {
+    public static LoadingManager instance;
     [SerializeField] private CanvasGroup fadingPanelGroup;
     [SerializeField] private GameObject loadingScreenObject;
     [Range(1, 20)] [SerializeField] float minimumLoadtime;
@@ -12,12 +13,18 @@ public class LoadingManager : MonoBehaviour
     AsyncOperation operation;
 
 
-
-    private void Start()
+    private void Awake()
     {
-        DontDestroyOnLoad(this.gameObject);
+        if(instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
     }
-
 
     public void ExitGame()
     {

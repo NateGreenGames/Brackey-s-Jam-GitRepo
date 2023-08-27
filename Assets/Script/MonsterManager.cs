@@ -108,7 +108,7 @@ public class MonsterManager : MonoBehaviour
             while (isBeingWardedOff)
             {
                 yield return new WaitForEndOfFrame();
-                attackRate -= wardOffRate * Time.deltaTime;                
+                attackRate -= wardOffRate * Time.deltaTime;
                 /*if (attackRate <= 0)
                 {
                     anim.SetTrigger("Close Eye");
@@ -144,7 +144,16 @@ public class MonsterManager : MonoBehaviour
             yield return new WaitForEndOfFrame();
             submarineHealth -= attackDamage * Time.deltaTime;
             ProgressionManager.AlterPlayerCourse((GetRandomOffset() * Time.deltaTime));
+            if (submarineHealth <= 0)
+            {
+                isAttacking = false;
+            }
             yield return null;
+        }
+        if (submarineHealth <= 0)
+        {
+            AudioManager.instance.PlaySFX(eSFX.crush, 1f);
+            GameOverAndCompletionController.instance.EndGame("You were crushed and swallowed whole.");
         }
     }
 
@@ -155,4 +164,10 @@ public class MonsterManager : MonoBehaviour
         float trueRandomOffset = Random.Range(randomOffset1, randomOffset2);
         return trueRandomOffset;
     }
+
+    public void Enrage()
+    {
+        attackRate = 100;
+        attackDamage = 100;
     }
+}

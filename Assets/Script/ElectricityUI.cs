@@ -31,8 +31,7 @@ public class ElectricityUI : MonoBehaviour
             float newValue = m_slider.value += _change;
             if (newValue <= 0)
             {
-                //Invoke depleted oxygen event and set the slider value to 0.
-                m_slider.value = 0;
+                StartCoroutine(DeathSequence());
             }
             else
             {
@@ -40,5 +39,14 @@ public class ElectricityUI : MonoBehaviour
                 m_slider.value = newValue;
             }
         }
+    }
+
+
+    private IEnumerator DeathSequence()
+    {
+        FuseBox.fB.Overload();
+        yield return new WaitForSeconds(1f);
+        MonsterManager.mM.Enrage();
+        m_slider.value = 0;
     }
 }

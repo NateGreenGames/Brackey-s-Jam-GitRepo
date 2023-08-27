@@ -9,14 +9,9 @@ public class ProgressionPanel : MonoBehaviour
 
     private MeshRenderer m_mr;
 
-
-    
-    private void Start()
-    {
-        m_mr = GetComponent<MeshRenderer>();
-    }
     private void OnEnable()
     {
+        if(m_mr == null) m_mr = GetComponent<MeshRenderer>();
         StartCoroutine(BlinkRoutine(true));
         ProgressionManager.onCourseChangeEvent += Rotate;
         ProgressionManager.onMovmentTick += Movement;
@@ -53,6 +48,9 @@ public class ProgressionPanel : MonoBehaviour
         else if(collision.gameObject.CompareTag("Obstacle"))
         {
             //Trigger crash failstate.
+            AudioManager.instance.PlaySFX(eSFX.crush, 1f);
+            GameOverAndCompletionController.instance.EndGame("You crashed into the sea floor.");
+            //AudioManager.instance.PlaySFX(eSFX.)
             if (postDebugInformation) Debug.Log($"I collided with: {collision.collider.name}. You've sunk.");
         }
         else
