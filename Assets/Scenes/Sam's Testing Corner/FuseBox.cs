@@ -90,4 +90,10 @@ public class FuseBox : MonoBehaviour
             ElectricityManager.ActiveUsers[i].ToggleActiveState();
         }
     }
+
+    public IEnumerator RunOutOfPower()
+    {
+        Overload();
+        MonsterManager.mM.Enrage();
+    }
 }
