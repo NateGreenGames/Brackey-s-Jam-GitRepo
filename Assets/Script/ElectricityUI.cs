@@ -31,7 +31,7 @@ public class ElectricityUI : MonoBehaviour
             float newValue = m_slider.value += _change;
             if (newValue <= 0)
             {
-                StartCoroutine(DeathSequence());
+                DeathSequence();
             }
             else
             {
@@ -42,11 +42,8 @@ public class ElectricityUI : MonoBehaviour
     }
 
 
-    private IEnumerator DeathSequence()
+    private void DeathSequence()
     {
-        FuseBox.fB.Overload();
-        yield return new WaitForSeconds(1f);
-        MonsterManager.mM.Enrage();
-        m_slider.value = 0;
+        FuseBox.fB.RunOutOfPower();
     }
 }
