@@ -44,6 +44,6 @@ public class ElectricityUI : MonoBehaviour
 
     private void DeathSequence()
     {
-        StartCoroutine(FuseBox.fB.RunOutOfPower());
+        FuseBox.fB.RunOutOfPower();
     }
 }

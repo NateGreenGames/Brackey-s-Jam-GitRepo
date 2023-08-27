@@ -91,9 +91,10 @@ public class FuseBox : MonoBehaviour
         }
     }
 
-    public IEnumerator RunOutOfPower()
+    public void RunOutOfPower()
     {
         Overload();
         MonsterManager.mM.Enrage();
+        
     }
 }
