@@ -2201,9 +2201,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62c5e62d1887c53498fe74eeec226a3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  electricityUsedPerSecond: 0.25
+  electricityUsedPerSecond: 0.5
   isOn: 0
-  jerryGivesOxygen: 2
+  jerryGivesOxygen: 4
   isActive: 0
   lightMaterial:
   - {fileID: 2100000, guid: d3bb468123427dd499424dcd38d97a01, type: 2}
@@ -2709,6 +2709,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e65ab64ae9ebd149981fd552f534108, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerCamera: {fileID: 330585543}
   canvasTransform: {fileID: 456888538}
 --- !u!225 &639183232
 CanvasGroup:

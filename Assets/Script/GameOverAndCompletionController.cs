@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameOverAndCompletionController : MonoBehaviour
 {
     public static GameOverAndCompletionController instance;
+    public GameObject playerCamera;
     public Transform canvasTransform;
     private CanvasGroup fadePanel;
 
@@ -21,8 +22,8 @@ public class GameOverAndCompletionController : MonoBehaviour
 
     public void EndGame(string _gameOverDescription)
     {
-        MonsterManager.mM.attackRate = 0f;
         StartCoroutine(DisplayGameOverScreen(_gameOverDescription));
+        Destroy(playerCamera.GetComponent<PlayerFreelookCameraBehavior>());
     }
     private IEnumerator DisplayGameOverScreen(string _gameOverDescription)
     {
