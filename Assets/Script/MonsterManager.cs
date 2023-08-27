@@ -52,6 +52,10 @@ public class MonsterManager : MonoBehaviour
 
     public IEnumerator StartAttackSequence()
     {
+        if (isBeingWardedOff)
+        {
+            StartCoroutine(WardOffMonster());
+        }
         anim.SetTrigger("Open Eye");
         swingTime = Random.Range(0, 60);
         //audioManager.PlaySFX(eSFX.creatureApproach, 0.3f);
@@ -109,13 +113,7 @@ public class MonsterManager : MonoBehaviour
             {
                 yield return new WaitForEndOfFrame();
                 attackRate -= wardOffRate * Time.deltaTime;
-                /*if (attackRate <= 0)
-                {
-                    anim.SetTrigger("Close Eye");
-                    StartCoroutine(WaitForAttackSequence());
-                    attackRate = 0;
-                    yield break;
-                }*/
+
                 if (attackRate < swingTime)
                 {
                     StopAllCoroutines();

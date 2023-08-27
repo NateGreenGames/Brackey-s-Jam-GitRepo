@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CanvasFE : MonoBehaviour
 {
-    [SerializeField] GameObject optionsMenu, creditsMenu;
+    [SerializeField] GameObject optionsMenu, creditsMenu, tutorialMenu;
 
 
     public void ChangeOptionMenuState(bool _newState)
@@ -19,5 +19,10 @@ public class CanvasFE : MonoBehaviour
         {
             creditsMenu.GetComponent<Animator>().SetTrigger("Start");
         }
+    }
+
+    public void ChangeTutorialMenuState(bool _newState)
+    {
+        tutorialMenu.SetActive(_newState);
     }
 }

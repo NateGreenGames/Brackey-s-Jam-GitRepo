@@ -23,6 +23,7 @@ public class ExteriorLightBehavior : ElectricityUser
         }
     }
 
+
     public override void ToggleActiveState()
     {       
         outsideLight.enabled = !outsideLight.enabled;
