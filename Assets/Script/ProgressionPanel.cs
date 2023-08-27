@@ -50,7 +50,6 @@ public class ProgressionPanel : MonoBehaviour
             //Trigger crash failstate.
             AudioManager.instance.PlaySFX(eSFX.crush, 1f);
             GameOverAndCompletionController.instance.EndGame("You crashed into the sea floor.");
-            //AudioManager.instance.PlaySFX(eSFX.)
             if (postDebugInformation) Debug.Log($"I collided with: {collision.collider.name}. You've sunk.");
         }
         else
