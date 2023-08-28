@@ -43,6 +43,7 @@ public class ProgressionPanel : MonoBehaviour
         if (collision.gameObject.CompareTag("Finish"))
         {
             //Start end sequence.
+            AudioManager.instance.PlaySFX(eSFX.hatchOpen, 1f);
             GameOverAndCompletionController.instance.WinGame();
             if (postDebugInformation) Debug.Log($"I collided with: {collision.collider.name}. You've won!");
         }

@@ -725,7 +725,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db0fe08446aba784fb481c153662d085, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  electricityUsedPerSecond: 0.125
+  electricityUsedPerSecond: 0.0625
   isOn: 0
   rateofChange: 10
   audioSource: {fileID: 1483160504}
@@ -1990,7 +1990,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3105609cf1b8a60438a74cb122475839, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  electricityUsedPerSecond: 0.25
+  electricityUsedPerSecond: 0.125
   isOn: 0
   movementSpeed: 0.00075
   engineRunningSource: {fileID: 513045354}
@@ -2201,7 +2201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62c5e62d1887c53498fe74eeec226a3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  electricityUsedPerSecond: 0.5
+  electricityUsedPerSecond: 0.25
   isOn: 0
   jerryGivesOxygen: 4
   isActive: 0
@@ -4940,8 +4940,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0596fe9f9e7d06f4cbce7aa03c754bf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  oxygenUsedPerSecond: 1.333
-  ticksPerSecond: 500
+  oxygenUsedPerSecond: 1
 --- !u!4 &1097393725
 Transform:
   m_ObjectHideFlags: 0
@@ -4969,7 +4968,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a6ac6b10f8c99b469163d05f1b901ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ticksPerSecond: 500
   postDebugInformation: 0
 --- !u!114 &1097393727
 MonoBehaviour:
@@ -5031,7 +5029,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea45699577cf5104aaff52c583aad8ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  electricityUsedPerSecond: 0.125
+  electricityUsedPerSecond: 0.0625
   isOn: 1
   lights:
   - {fileID: 1263254058}
@@ -5251,7 +5249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db0fe08446aba784fb481c153662d085, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  electricityUsedPerSecond: 0.125
+  electricityUsedPerSecond: 0.0625
   isOn: 0
   rateofChange: -10
   audioSource: {fileID: 1483160504}
@@ -7043,7 +7041,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe18d5615a4005a428d7bf11a74c2e3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  electricityUsedPerSecond: 0.125
+  electricityUsedPerSecond: 0.0625
   isOn: 0
   outsideLight: {fileID: 1505980462}
 --- !u!1 &1520136891 stripped
@@ -14246,6 +14244,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 689044468150ba945aa8d36155e9c49d, type: 3}
   - {fileID: 8300000, guid: 4cc3dc1d2e6723346a65a0a2ae8b76b3, type: 3}
   - {fileID: 8300000, guid: 457d7d8467bf0c04d8256e7bb32920e1, type: 3}
+  - {fileID: 8300000, guid: 6dd46cfa126f3d74599b9d20ec680cac, type: 3}
   - {fileID: 8300000, guid: 689044468150ba945aa8d36155e9c49d, type: 3}
   sfxSource: {fileID: 2065006177}
   musicSource1: {fileID: 2065006176}

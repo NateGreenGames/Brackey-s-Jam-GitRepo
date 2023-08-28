@@ -5,7 +5,6 @@ using UnityEngine;
 public class OxygenManagement : MonoBehaviour
 {
     [SerializeField] private float oxygenUsedPerSecond;
-    [SerializeField] private int ticksPerSecond;
     public delegate void OxygenChange(float _change);
     public static event OxygenChange OxygenChangeEvent;
 
@@ -16,8 +15,8 @@ public class OxygenManagement : MonoBehaviour
 
     private IEnumerator OnTick()
     {
-        ChangeOxygenAmount(-oxygenUsedPerSecond/ticksPerSecond);
-        yield return new WaitForSeconds(1f/ticksPerSecond);
+        ChangeOxygenAmount(-oxygenUsedPerSecond * Time.deltaTime);
+        yield return new WaitForEndOfFrame();
         StartCoroutine(OnTick());
     }
 

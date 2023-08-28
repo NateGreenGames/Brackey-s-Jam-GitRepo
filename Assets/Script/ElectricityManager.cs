@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ElectricityManager : MonoBehaviour
 {
-    [SerializeField] private int ticksPerSecond;
     [SerializeField] private bool postDebugInformation;
     public delegate void ElectricityChange(float _change);
     public static event ElectricityChange ElectricityChangeEvent;
@@ -26,11 +25,11 @@ public class ElectricityManager : MonoBehaviour
         float changeThisTick = 0;
         for (int i = 0; i < ActiveUsers.Count; i++)
         {
-            changeThisTick += -ActiveUsers[i].electricityUsedPerSecond / ticksPerSecond;
+            changeThisTick += -ActiveUsers[i].electricityUsedPerSecond;
             if (postDebugInformation) Debug.Log(ActiveUsers[i].name);
         }
-        ChangeElectricityAmount(changeThisTick);
-        yield return new WaitForSeconds(1f / ticksPerSecond);
+        ChangeElectricityAmount(changeThisTick * Time.deltaTime);
+        yield return new WaitForEndOfFrame();
         StartCoroutine(OnTick());
     }
 
