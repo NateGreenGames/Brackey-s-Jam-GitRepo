@@ -8,7 +8,6 @@ public class ThrottleLevelBehavior : ElectricityUser, IInteractable
     [SerializeField] float movementSpeed;
     [SerializeField] AudioSource engineRunningSource;
     [SerializeField] float leverSensitivity;
-    private Vector3 lastMouseCoordinate;
     private Animator m_anim;
     void Start()
     {
@@ -59,36 +58,28 @@ public class ThrottleLevelBehavior : ElectricityUser, IInteractable
     }
     public IEnumerator HoldingDownLever()
     {
-        lastMouseCoordinate = Input.mousePosition;
         while (Input.GetKey(KeyCode.Mouse0))
         {
-            bool buttonIsBeingHeld = true;
-            yield return new WaitForEndOfFrame();
-            Vector3 mouseDelta = Input.mousePosition - lastMouseCoordinate;
-            lastMouseCoordinate = Input.mousePosition;
-            if (buttonIsBeingHeld && mouseDelta.y < 0 && !isOn)
+            if (Input.GetAxis("Mouse Y") < 0 && !isOn)
             {
                 m_anim.SetTrigger("Down");
                 SetActiveState(true);
                 AudioManager.instance.PlaySFX(eSFX.leverPushPull, 0.2f);
                 break;
-            }else if (buttonIsBeingHeld && mouseDelta.y > 0 && !isOn)
+            }else if (Input.GetAxis("Mouse Y") > 0 && !isOn)
             {
                 m_anim.SetTrigger("Bump");
                 AudioManager.instance.PlaySFX(eSFX.leverBump, 1f);
                 break;
             }
-            else if (buttonIsBeingHeld && mouseDelta.y > 0 && isOn)
+            else if (Input.GetAxis("Mouse Y") > 0 && isOn)
             {
                 m_anim.SetTrigger("Up");
                 SetActiveState(false);
                 AudioManager.instance.PlaySFX(eSFX.leverPushPull, 0.2f);
                 break;
             }
-            else
-            {
-                buttonIsBeingHeld = false;
-            }
+            yield return new WaitForEndOfFrame();
         }
     }
 }
