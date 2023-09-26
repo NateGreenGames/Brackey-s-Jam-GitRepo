@@ -62,7 +62,10 @@ public class MonsterManager : MonoBehaviour
         AudioManager.instance.PlaySFX(eSFX.creatureApproach, 0.55f);
         int _randLook = Random.Range(1, 4);
         yield return new WaitForSeconds(_randLook);
-        anim.SetTrigger("LookAround");
+        if (!isBeingWardedOff)
+        {
+            anim.SetTrigger("LookAround");
+        }
         //StartCoroutine(TakingDamage());
         while (isAttacking == true)
         {
