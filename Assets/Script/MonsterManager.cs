@@ -110,6 +110,10 @@ public class MonsterManager : MonoBehaviour
         }
         else
         {
+            if (isBeingWardedOff)
+            {
+                anim.SetTrigger("Squint Eye");
+            }
             while (isBeingWardedOff)
             {
                 yield return new WaitForEndOfFrame();
@@ -127,6 +131,7 @@ public class MonsterManager : MonoBehaviour
             }
             if (attackRate > swingTime)
             {
+                anim.SetTrigger("LookAround");
                 yield break;
             }
 

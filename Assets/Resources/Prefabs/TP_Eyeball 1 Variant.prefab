@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 8dc487527277f024f868efe6cc374be8,
         type: 3}
       propertyPath: m_RootOrder
-      value: 19
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8dc487527277f024f868efe6cc374be8,
         type: 3}
@@ -135,10 +135,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackRate: 0
+  swingTime: 0
   attackRateIncrease: 3
   attackDamage: 25
+  wardOffRate: 6
   submarineHealth: 100
   shakeDuration: 3
+  rotationLowEnd: 0
+  rotationHighEnd: 0
+  isBeingWardedOff: 0
   main: {fileID: 0}
   anim: {fileID: 0}
   shakeStrengthSmoothness:
@@ -183,7 +188,9 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  audioManager: {fileID: 0}
+  subWindow: {fileID: 0}
+  uncrackedBlendValue: 0
+  crackedBlendValue: 0
 --- !u!95 &7393570938362661391
 Animator:
   serializedVersion: 5

@@ -325,7 +325,7 @@ PrefabInstance:
     - target: {fileID: 8997772953615033508, guid: 6733c96e4a73847479b033be98c9ee45,
         type: 3}
       propertyPath: attackDamage
-      value: 0.75
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 8997772953615033508, guid: 6733c96e4a73847479b033be98c9ee45,
         type: 3}
@@ -1992,7 +1992,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   electricityUsedPerSecond: 0.125
   isOn: 0
-  movementSpeed: 0.00075
+  movementSpeed: 0.0015
   engineRunningSource: {fileID: 513045354}
   leverSensitivity: 1.4
 --- !u!4 &513045350 stripped
@@ -4908,7 +4908,7 @@ MonoBehaviour:
   lever: {fileID: 0}
   isOverloaded: 0
   overloadLight: {fileID: 1060507469}
-  valueToOverload: 3
+  valueToOverload: 4
 --- !u!1 &1097393723
 GameObject:
   m_ObjectHideFlags: 0
