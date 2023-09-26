@@ -63,7 +63,7 @@ public class MonsterManager : MonoBehaviour
         int _randLook = Random.Range(1, 4);
         yield return new WaitForSeconds(_randLook);
         anim.SetTrigger("LookAround");
-        StartCoroutine(TakingDamage());
+        //StartCoroutine(TakingDamage());
         while (isAttacking == true)
         {
             float _randattack = Random.Range(1.5f, 4f);
@@ -84,6 +84,7 @@ public class MonsterManager : MonoBehaviour
     IEnumerator ScreenShake()
     {
         Debug.Log("Shaaaaaaake");
+        StartCoroutine(TakingDamage());
         //audioManager.PlaySFX(eSFX.creatureAttack, 1);
         AudioManager.instance.PlaySFX(eSFX.creatureAttack, 0.5f);
         Vector3 startPos = main.transform.position;
@@ -137,22 +138,30 @@ public class MonsterManager : MonoBehaviour
 
     IEnumerator TakingDamage()
     {
-        while (isAttacking)
+        submarineHealth -= attackDamage;
+        StartCoroutine(AlterCourse());
+        //ProgressionManager.AlterPlayerCourse((GetRandomOffset() * Time.deltaTime));
+        if (submarineHealth <= 0)
         {
-            yield return new WaitForEndOfFrame();
-            submarineHealth -= attackDamage * Time.deltaTime;
-            ProgressionManager.AlterPlayerCourse((GetRandomOffset() * Time.deltaTime));
-            if (submarineHealth <= 0)
-            {
-                isAttacking = false;
-            }
-            yield return null;
+            isAttacking = false;
         }
+
         if (submarineHealth <= 0)
         {
             AudioManager.instance.PlaySFX(eSFX.crush, 1f);
             GameOverAndCompletionController.instance.EndGame("You were crushed and swallowed whole.");
         }
+        yield return null;
+    }
+
+    IEnumerator AlterCourse()
+    {
+        while (isAttacking)
+        {
+            yield return new WaitForEndOfFrame();
+            ProgressionManager.AlterPlayerCourse((GetRandomOffset() * Time.deltaTime));
+        }
+        yield return null;
     }
 
     float GetRandomOffset()
