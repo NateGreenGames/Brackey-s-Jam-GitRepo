@@ -7,7 +7,7 @@ public class EyeballState : MonsterBaseState
     public float attackRate = 0;
     public float swingTime = 0;
     public float attackRateIncrease = 3f;
-    public float attackDamage;
+    public float damagePerAttack;
     public float wardOffRate = 6;
     public float submarineHealth = 100;
     public float shakeDuration = 3f;
@@ -19,11 +19,10 @@ public class EyeballState : MonsterBaseState
     public AnimationCurve shakeStrengthSmoothness;
     public Material subWindow;
     public float uncrackedBlendValue, crackedBlendValue;
-    //public AudioClip[] monsterAudioClips;
-    //[SerializeField] AudioManager audioManager;
 
     public override void EnterState(MonsterStateManager _monsterStateManager)
     {
+<<<<<<< Updated upstream
         if (eyeballMonster == null)
         {
             Debug.Log("Obtaining references for Eyeball monster");
@@ -32,6 +31,9 @@ public class EyeballState : MonsterBaseState
             main = GameObject.Find("Virtual Camera");
             subWindow.SetFloat("_Blend", Mathf.Lerp(uncrackedBlendValue, crackedBlendValue, Mathf.InverseLerp(100, 0, submarineHealth)));
         }
+=======
+         
+>>>>>>> Stashed changes
     }
 
     public override void UpdateState(MonsterStateManager _monsterStateManager)
@@ -46,6 +48,7 @@ public class EyeballState : MonsterBaseState
         subWindow.SetFloat("_Blend", Mathf.Lerp(uncrackedBlendValue, crackedBlendValue, Mathf.InverseLerp(100, 0, submarineHealth)));
         //StartCoroutine(WaitForAttackSequence());
     }*/
+<<<<<<< Updated upstream
     /*public IEnumerator WaitForAttackSequence()
     {
         while (attackRate <= 100)
@@ -61,6 +64,8 @@ public class EyeballState : MonsterBaseState
         }
         yield return null;
     }*/
+=======
+>>>>>>> Stashed changes
 
     public IEnumerator StartAttackSequence()
     {
@@ -89,19 +94,64 @@ public class EyeballState : MonsterBaseState
             {
                 Debug.Log("You died...");
             }
-            GetRandomOffset();
-
-            //StartCoroutine(ScreenShake());
+            
         }
         yield return null;
     }
 
+    public void WardOffMonster()
+    {
+            if (isBeingWardedOff)
+            {
+                anim.SetTrigger("Squint Eye");
+            }
+            while (isBeingWardedOff)
+            {
+                attackRate -= wardOffRate * Time.deltaTime;
+
+                if (attackRate < swingTime)
+                {
+                    //StopAllCoroutines();
+                    anim.SetTrigger("Close Eye");
+                    AudioManager.instance.PlaySFX(eSFX.creatureFlee, 0.4f);
+                    isAttacking = false;
+                }
+            }
+            if (attackRate > swingTime)
+            {
+                anim.SetTrigger("LookAround");
+            }
+
+            Debug.Log("Lmao");
+            anim.SetTrigger("Close Eye");
+    }
+
+    private void TakeDamage()
+    {
+        submarineHealth -= damagePerAttack;
+        //Call screen shake routine on camera.
+        AudioManager.instance.PlaySFX(eSFX.creatureAttack, 1);
+        ProgressionManager.AlterPlayerCourse((GetRandomOffset() * Time.deltaTime));
+
+        if (submarineHealth <= 0)
+        {
+            isAttacking = false;
+            AudioManager.instance.PlaySFX(eSFX.crush, 1f);
+            GameOverAndCompletionController.instance.EndGame("You were crushed and swallowed whole.");
+        }
+    }
+
+    float GetRandomOffset()
+    {
+        float randomOffset1 = Random.Range(rotationLowEnd, rotationHighEnd);
+        float randomOffset2 = Random.Range(rotationLowEnd, rotationHighEnd);
+        float trueRandomOffset = Random.Range(randomOffset1, randomOffset2);
+        return trueRandomOffset;
+    }
+
+    //This needs moved to a new component on the main camera. The creature doesn't need to know this logic.
     IEnumerator ScreenShake()
     {
-        Debug.Log("Shaaaaaaake");
-        //StartCoroutine(TakingDamage());
-        //audioManager.PlaySFX(eSFX.creatureAttack, 1);
-        AudioManager.instance.PlaySFX(eSFX.creatureAttack, 0.5f);
         Vector3 startPos = main.transform.position;
         float timeElapsed = 0f;
 
@@ -116,86 +166,11 @@ public class EyeballState : MonsterBaseState
         main.transform.position = startPos;
     }
 
-    public IEnumerator WardOffMonster()
-    {
-        if (!isAttacking)
-        {
-            Debug.Log("No no... monster is not hungry yet");
-            yield return null;
-        }
-        else
-        {
-            if (isBeingWardedOff)
-            {
-                anim.SetTrigger("Squint Eye");
-            }
-            while (isBeingWardedOff)
-            {
-                yield return new WaitForEndOfFrame();
-                attackRate -= wardOffRate * Time.deltaTime;
-
-                if (attackRate < swingTime)
-                {
-                    //StopAllCoroutines();
-                    anim.SetTrigger("Close Eye");
-                    AudioManager.instance.PlaySFX(eSFX.creatureFlee, 0.4f);
-                    //StartCoroutine(WaitForAttackSequence());
-                    isAttacking = false;
-                    yield break;
-                }
-            }
-            if (attackRate > swingTime)
-            {
-                anim.SetTrigger("LookAround");
-                yield break;
-            }
-
-            Debug.Log("Lmao");
-            anim.SetTrigger("Close Eye");
-            //StartCoroutine(WaitForAttackSequence());
-        }
-    }
-
-    IEnumerator TakingDamage()
-    {
-        submarineHealth -= attackDamage;
-        //StartCoroutine(AlterCourse());
-        //ProgressionManager.AlterPlayerCourse((GetRandomOffset() * Time.deltaTime));
-        if (submarineHealth <= 0)
-        {
-            isAttacking = false;
-        }
-
-        if (submarineHealth <= 0)
-        {
-            AudioManager.instance.PlaySFX(eSFX.crush, 1f);
-            GameOverAndCompletionController.instance.EndGame("You were crushed and swallowed whole.");
-        }
-        yield return null;
-    }
-
-    IEnumerator AlterCourse()
-    {
-        while (isAttacking)
-        {
-            yield return new WaitForEndOfFrame();
-            ProgressionManager.AlterPlayerCourse((GetRandomOffset() * Time.deltaTime));
-        }
-        yield return null;
-    }
-
-    float GetRandomOffset()
-    {
-        float randomOffset1 = Random.Range(rotationLowEnd, rotationHighEnd);
-        float randomOffset2 = Random.Range(rotationLowEnd, rotationHighEnd);
-        float trueRandomOffset = Random.Range(randomOffset1, randomOffset2);
-        return trueRandomOffset;
-    }
-
+    //This should probably be moved up to the manager level so it can affect whatever creature is currently active.
     public void Enrage()
     {
         attackRate = 100;
-        attackDamage = 100;
+        damagePerAttack = 100;
     }
     
 }
