@@ -22,7 +22,6 @@ public class EyeballState : MonsterBaseState
 
     public override void EnterState(MonsterStateManager _monsterStateManager)
     {
-<<<<<<< Updated upstream
         if (eyeballMonster == null)
         {
             Debug.Log("Obtaining references for Eyeball monster");
@@ -31,9 +30,6 @@ public class EyeballState : MonsterBaseState
             main = GameObject.Find("Virtual Camera");
             subWindow.SetFloat("_Blend", Mathf.Lerp(uncrackedBlendValue, crackedBlendValue, Mathf.InverseLerp(100, 0, submarineHealth)));
         }
-=======
-         
->>>>>>> Stashed changes
     }
 
     public override void UpdateState(MonsterStateManager _monsterStateManager)
@@ -48,24 +44,7 @@ public class EyeballState : MonsterBaseState
         subWindow.SetFloat("_Blend", Mathf.Lerp(uncrackedBlendValue, crackedBlendValue, Mathf.InverseLerp(100, 0, submarineHealth)));
         //StartCoroutine(WaitForAttackSequence());
     }*/
-<<<<<<< Updated upstream
-    /*public IEnumerator WaitForAttackSequence()
-    {
-        while (attackRate <= 100)
-        {
-            yield return new WaitForEndOfFrame();
-            attackRate += Time.deltaTime * attackRateIncrease;
-            if (attackRate >= 100)
-            {
-                Debug.Log("Start Attack");
-                isAttacking = true;
-                //StartCoroutine(StartAttackSequence());
-            }
-        }
-        yield return null;
-    }*/
-=======
->>>>>>> Stashed changes
+
 
     public IEnumerator StartAttackSequence()
     {
