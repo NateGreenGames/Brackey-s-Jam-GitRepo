@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class MonsterStateManager : MonoBehaviour
 {
-    MonsterBaseState currentState;
-    MonsterIdleState idleState = new MonsterIdleState();
-    EyeballState eyeballState = new EyeballState();
+    public MonsterBaseState currentState;
+    public MonsterIdleState idleState = new MonsterIdleState();
+    public EyeballState eyeballState = new EyeballState();
+
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +19,12 @@ public class MonsterStateManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        currentState.UpdateState(this);
+    }
+
+    public void SwitchStates(MonsterBaseState _state)
+    {
+        currentState = _state;
+        _state.EnterState(this);
     }
 }

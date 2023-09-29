@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class EyeballState : MonsterBaseState
 {
+    [SerializeField] GameObject eyeballMonster;
     public float attackRate = 0;
     public float swingTime = 0;
     public float attackRateIncrease = 3f;
@@ -23,12 +24,19 @@ public class EyeballState : MonsterBaseState
 
     public override void EnterState(MonsterStateManager _monsterStateManager)
     {
-
+        if (eyeballMonster == null)
+        {
+            Debug.Log("Obtaining references for Eyeball monster");
+            eyeballMonster = GameObject.Find("TP_Eyeball 1 Variant");
+            anim = eyeballMonster.GetComponent<Animator>();
+            main = GameObject.Find("Virtual Camera");
+            subWindow.SetFloat("_Blend", Mathf.Lerp(uncrackedBlendValue, crackedBlendValue, Mathf.InverseLerp(100, 0, submarineHealth)));
+        }
     }
 
     public override void UpdateState(MonsterStateManager _monsterStateManager)
     {
-
+        
     }
 
     /*private void Start()
@@ -38,7 +46,7 @@ public class EyeballState : MonsterBaseState
         subWindow.SetFloat("_Blend", Mathf.Lerp(uncrackedBlendValue, crackedBlendValue, Mathf.InverseLerp(100, 0, submarineHealth)));
         //StartCoroutine(WaitForAttackSequence());
     }*/
-    public IEnumerator WaitForAttackSequence()
+    /*public IEnumerator WaitForAttackSequence()
     {
         while (attackRate <= 100)
         {
@@ -52,7 +60,7 @@ public class EyeballState : MonsterBaseState
             }
         }
         yield return null;
-    }
+    }*/
 
     public IEnumerator StartAttackSequence()
     {
