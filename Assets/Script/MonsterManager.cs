@@ -84,6 +84,7 @@ public class MonsterManager : MonoBehaviour
         yield return null;
     }
 
+    //This needs moved to a new component on the main camera. The creature doesn't need to know this logic.
     IEnumerator ScreenShake()
     {
         Debug.Log("Shaaaaaaake");
@@ -181,6 +182,7 @@ public class MonsterManager : MonoBehaviour
         return trueRandomOffset;
     }
 
+    //This should probably be moved up to the manager level so it can affect whatever creature is currently active.
     public void Enrage()
     {
         attackRate = 100;

@@ -1,11 +1,13 @@
 using System.Collections;
 using UnityEngine;
 
-public class EyeballState : MonsterBaseState
-{
+[System.SerializableAttribute]
+public class EyeballState : MonsterBaseState 
+{    
     [SerializeField] GameObject eyeballMonster;
     public float attackRate = 0;
     public float swingTime = 0;
+    float attackTimer;
     public float attackRateIncrease = 3f;
     public float damagePerAttack;
     public float wardOffRate = 6;
@@ -30,84 +32,72 @@ public class EyeballState : MonsterBaseState
             main = GameObject.Find("Virtual Camera");
             subWindow.SetFloat("_Blend", Mathf.Lerp(uncrackedBlendValue, crackedBlendValue, Mathf.InverseLerp(100, 0, submarineHealth)));
         }
+        attackTimer = Random.Range(1, 4);
+        TriggerAttackSequence();
     }
 
     public override void UpdateState(MonsterStateManager _monsterStateManager)
     {
-        
+        AttackSequenceTimer();
+        WardOffMonster();
     }
 
-    /*private void Start()
+    void TriggerAttackSequence()
     {
-        //anim = GetComponent<Animator>();
-        main = GameObject.Find("Virtual Camera");
-        subWindow.SetFloat("_Blend", Mathf.Lerp(uncrackedBlendValue, crackedBlendValue, Mathf.InverseLerp(100, 0, submarineHealth)));
-        //StartCoroutine(WaitForAttackSequence());
-    }*/
-
-
-    public IEnumerator StartAttackSequence()
-    {
-        if (isBeingWardedOff)
-        {
-            //StartCoroutine(WardOffMonster());
-        }
         anim.SetTrigger("Open Eye");
         swingTime = Random.Range(0, 60);
-        //audioManager.PlaySFX(eSFX.creatureApproach, 0.3f);
         AudioManager.instance.PlaySFX(eSFX.creatureApproach, 0.55f);
-        int _randLook = Random.Range(1, 4);
-        yield return new WaitForSeconds(_randLook);
-        if (!isBeingWardedOff)
+    }
+
+    void AttackSequenceTimer()
+    {
+        attackTimer -= Time.deltaTime;
+        Debug.Log(attackTimer);
+        if (attackTimer >= 0)
         {
-            anim.SetTrigger("LookAround");
+            Debug.Log("Returning");
+            return;
         }
-        //StartCoroutine(TakingDamage());
-        while (isAttacking == true)
-        {
-            float _randattack = Random.Range(1.5f, 4f);
-            yield return new WaitForSeconds(_randattack);
-            //Update window texture blending.
-            subWindow.SetFloat("_Blend", Mathf.Lerp(uncrackedBlendValue, crackedBlendValue, Mathf.InverseLerp(100, 0, submarineHealth)));
-            if (submarineHealth <= 0)
-            {
-                Debug.Log("You died...");
-            }
-            
-        }
-        yield return null;
+        TakeDamage();
+        attackTimer = Random.Range(1, 4);
     }
 
     public void WardOffMonster()
     {
-            if (isBeingWardedOff)
-            {
-                anim.SetTrigger("Squint Eye");
-            }
-            while (isBeingWardedOff)
-            {
-                attackRate -= wardOffRate * Time.deltaTime;
+        if (isBeingWardedOff)
+        {
+            anim.SetTrigger("Squint Eye");
+        }
+        else
+        {
+            return;
+        }
+        while (isBeingWardedOff)
+        {
+            attackRate -= wardOffRate * Time.deltaTime;
 
-                if (attackRate < swingTime)
-                {
-                    //StopAllCoroutines();
-                    anim.SetTrigger("Close Eye");
-                    AudioManager.instance.PlaySFX(eSFX.creatureFlee, 0.4f);
-                    isAttacking = false;
-                }
-            }
-            if (attackRate > swingTime)
+            if (attackRate < swingTime)
             {
-                anim.SetTrigger("LookAround");
+                //StopAllCoroutines();
+                anim.SetTrigger("Close Eye");
+                AudioManager.instance.PlaySFX(eSFX.creatureFlee, 0.4f);
+                isAttacking = false;
             }
+        }
+        if (attackRate > swingTime)
+        {
+            anim.SetTrigger("LookAround");
+        }
 
-            Debug.Log("Lmao");
-            anim.SetTrigger("Close Eye");
+        Debug.Log("Lmao");
+        anim.SetTrigger("Close Eye");
     }
 
-    private void TakeDamage()
+    private void TakeDamage()   //MOVE this function to update and add a condition + timer. 
     {
+        anim.SetTrigger("LookAround");
         submarineHealth -= damagePerAttack;
+        Debug.Log(submarineHealth);
         //Call screen shake routine on camera.
         AudioManager.instance.PlaySFX(eSFX.creatureAttack, 1);
         ProgressionManager.AlterPlayerCourse((GetRandomOffset() * Time.deltaTime));
@@ -127,29 +117,4 @@ public class EyeballState : MonsterBaseState
         float trueRandomOffset = Random.Range(randomOffset1, randomOffset2);
         return trueRandomOffset;
     }
-
-    //This needs moved to a new component on the main camera. The creature doesn't need to know this logic.
-    IEnumerator ScreenShake()
-    {
-        Vector3 startPos = main.transform.position;
-        float timeElapsed = 0f;
-
-        while (timeElapsed < shakeDuration)
-        {
-            timeElapsed += Time.deltaTime;
-            float shakeStrength = shakeStrengthSmoothness.Evaluate(timeElapsed / shakeDuration);
-            main.transform.position = startPos + Random.insideUnitSphere * shakeStrength;
-            yield return null;
-        }
-
-        main.transform.position = startPos;
-    }
-
-    //This should probably be moved up to the manager level so it can affect whatever creature is currently active.
-    public void Enrage()
-    {
-        attackRate = 100;
-        damagePerAttack = 100;
-    }
-    
 }

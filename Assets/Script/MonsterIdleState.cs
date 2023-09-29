@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
+[System.SerializableAttribute]
 public class MonsterIdleState : MonsterBaseState
 {
     public float attackRate = 0;
