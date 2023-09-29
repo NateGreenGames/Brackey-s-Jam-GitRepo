@@ -115,6 +115,7 @@ public class MonsterManager : MonoBehaviour
         {
             if (isBeingWardedOff)
             {
+                AudioManager.instance.PlaySFX(eSFX.creatureSqueel, 0.5f);
                 anim.SetTrigger("Squint Eye");
             }
             while (isBeingWardedOff)
