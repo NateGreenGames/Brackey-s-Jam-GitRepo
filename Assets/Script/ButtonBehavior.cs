@@ -9,6 +9,9 @@ public class ButtonBehavior : MonoBehaviour, IInteractable
     [SerializeField] private ExteriorLightBehavior outsideLight;
     [SerializeField] private JerryBehavior jerry;
     [SerializeField] private int buttonIdx = 0;
+
+    public delegate void buttonDelegate(int _buttonIdx, bool _buttonState);
+    public static event buttonDelegate buttonEvent;
     //[SerializeField] private AudioManager am;
 
 
@@ -47,6 +50,7 @@ public class ButtonBehavior : MonoBehaviour, IInteractable
             default:
                 break;
         }
+        buttonEvent.Invoke(_idx, isOn);
     }
 
     public void OnInteract()

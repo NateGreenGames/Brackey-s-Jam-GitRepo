@@ -12,15 +12,25 @@ public class EyeballState : MonsterBaseState
     public float damagePerAttack;
     public float wardOffRate = 6;
     public float submarineHealth = 100;
-    public float shakeDuration = 3f;
     public float rotationLowEnd, rotationHighEnd;
-    bool isAttacking;
     public bool isBeingWardedOff;
-    public GameObject main;
     public Animator anim;
-    public AnimationCurve shakeStrengthSmoothness;
+    private bool isAttacking;
+
+    //Sub Health Stuff
     public Material subWindow;
     public float uncrackedBlendValue, crackedBlendValue;
+
+
+    public override void OnEnable()
+    {
+        ButtonBehavior.buttonEvent += UpdateLightState;
+    }
+
+    public override void OnDisable()
+    {
+        ButtonBehavior.buttonEvent -= UpdateLightState;
+    }
 
     public override void EnterState(MonsterStateManager _monsterStateManager)
     {
@@ -29,7 +39,6 @@ public class EyeballState : MonsterBaseState
             Debug.Log("Obtaining references for Eyeball monster");
             eyeballMonster = GameObject.Find("TP_Eyeball 1 Variant");
             anim = eyeballMonster.GetComponent<Animator>();
-            main = GameObject.Find("Virtual Camera");
             subWindow.SetFloat("_Blend", Mathf.Lerp(uncrackedBlendValue, crackedBlendValue, Mathf.InverseLerp(100, 0, submarineHealth)));
         }
         attackTimer = Random.Range(1, 4);
@@ -116,5 +125,13 @@ public class EyeballState : MonsterBaseState
         float randomOffset2 = Random.Range(rotationLowEnd, rotationHighEnd);
         float trueRandomOffset = Random.Range(randomOffset1, randomOffset2);
         return trueRandomOffset;
+    }
+
+    private void UpdateLightState(int _Index, bool _state)
+    {
+        if(_Index == 1)
+        {
+            isBeingWardedOff = _state;
+        }
     }
 }

@@ -8,6 +8,17 @@ public class MonsterStateManager : MonoBehaviour
     public MonsterIdleState idleState = new MonsterIdleState();
     public EyeballState eyeballState = new EyeballState();
 
+    private void OnEnable()
+    {
+        idleState.OnEnable();
+        eyeballState.OnEnable();
+    }
+
+    private void OnDisable()
+    {
+        idleState.OnDisable();
+        eyeballState.OnDisable();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -26,5 +37,10 @@ public class MonsterStateManager : MonoBehaviour
     {
         currentState = _state;
         _state.EnterState(this);
+    }
+
+    public void Enrage()
+    {
+        //Make whatever creature is currently attacking crush the sub, if it's idle, make a new creature appear and have them crush it.
     }
 }
