@@ -81,30 +81,13 @@ public class EyeballState : MonsterBaseState
         {
             return;
         }
-        while (isBeingWardedOff)
-        {
-            attackRate -= wardOffRate * Time.deltaTime;
-
-            if (attackRate < swingTime)
-            {
-                //StopAllCoroutines();
-                anim.SetTrigger("Close Eye");
-                AudioManager.instance.PlaySFX(eSFX.creatureFlee, 0.4f);
-                isAttacking = false;
-            }
-        }
-        if (attackRate > swingTime)
-        {
-            anim.SetTrigger("LookAround");
-        }
-
-        Debug.Log("Lmao");
-        anim.SetTrigger("Close Eye");
+        attackRate -= wardOffRate * Time.deltaTime;
+        AudioManager.instance.PlaySFX(eSFX.creatureFlee, 0.4f);
     }
 
     private void TakeDamage()   //MOVE this function to update and add a condition + timer. 
     {
-        anim.SetTrigger("LookAround");
+        //anim.SetTrigger("LookAround");
         submarineHealth -= damagePerAttack;
         Debug.Log(submarineHealth);
         //Call screen shake routine on camera.
@@ -116,6 +99,14 @@ public class EyeballState : MonsterBaseState
             isAttacking = false;
             AudioManager.instance.PlaySFX(eSFX.crush, 1f);
             GameOverAndCompletionController.instance.EndGame("You were crushed and swallowed whole.");
+        }
+        if (isBeingWardedOff)
+        {
+            return;
+        }
+        else
+        {
+            anim.SetTrigger("LookAround");
         }
     }
 
