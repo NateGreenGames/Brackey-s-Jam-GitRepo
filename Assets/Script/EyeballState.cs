@@ -5,9 +5,10 @@ using UnityEngine;
 public class EyeballState : MonsterBaseState 
 {    
     [SerializeField] GameObject eyeballMonster;
-    public float attackRate = 0;
+    public float attackRate;
     public float swingTime = 0;
     float attackTimer;
+    float sfxTimer = 6f;
     public float attackRateIncrease = 3f;
     public float damagePerAttack;
     public float wardOffRate = 6;
@@ -42,6 +43,7 @@ public class EyeballState : MonsterBaseState
             subWindow.SetFloat("_Blend", Mathf.Lerp(uncrackedBlendValue, crackedBlendValue, Mathf.InverseLerp(100, 0, submarineHealth)));
         }
         attackTimer = Random.Range(1, 4);
+        attackRate = 100;
         TriggerAttackSequence();
     }
 
@@ -49,6 +51,12 @@ public class EyeballState : MonsterBaseState
     {
         AttackSequenceTimer();
         WardOffMonster();
+        if (attackRate <= swingTime)
+        {
+            anim.SetTrigger("Close Eye");
+            anim.ResetTrigger("Squint Eye");
+            _monsterStateManager.SwitchStates(_monsterStateManager.idleState);
+        }
     }
 
     void TriggerAttackSequence()
@@ -61,28 +69,40 @@ public class EyeballState : MonsterBaseState
     void AttackSequenceTimer()
     {
         attackTimer -= Time.deltaTime;
-        Debug.Log(attackTimer);
         if (attackTimer >= 0)
         {
-            Debug.Log("Returning");
             return;
         }
         TakeDamage();
         attackTimer = Random.Range(1, 4);
     }
 
-    public void WardOffMonster()
+    void SFXTimer()
     {
-        if (isBeingWardedOff)
-        {
-            anim.SetTrigger("Squint Eye");
-        }
-        else
+        sfxTimer -= Time.deltaTime;
+        if (sfxTimer >= 0)
         {
             return;
         }
-        attackRate -= wardOffRate * Time.deltaTime;
         AudioManager.instance.PlaySFX(eSFX.creatureFlee, 0.4f);
+        sfxTimer = 6;
+    }
+
+    public void WardOffMonster()
+    {
+        if (!isBeingWardedOff)
+        {
+            anim.SetTrigger("LookAround");
+            anim.ResetTrigger("Squint Eye");
+            return;
+        }
+        else if (isBeingWardedOff)
+        {
+            anim.SetTrigger("Squint Eye");
+            anim.ResetTrigger("LookAround");
+        }
+        attackRate -= wardOffRate * Time.deltaTime;
+        SFXTimer();
     }
 
     private void TakeDamage()   //MOVE this function to update and add a condition + timer. 

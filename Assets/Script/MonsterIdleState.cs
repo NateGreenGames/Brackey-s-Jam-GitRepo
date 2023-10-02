@@ -35,6 +35,5 @@ public class MonsterIdleState : MonsterBaseState
     public void WaitForAttackSequence()
     {
         attackRate += Time.deltaTime * attackRateIncrease;
-        Debug.Log(attackRate);
     }
 }
