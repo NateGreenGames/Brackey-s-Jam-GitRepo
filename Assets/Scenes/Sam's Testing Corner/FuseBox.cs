@@ -87,7 +87,7 @@ public class FuseBox : MonoBehaviour
         isOverloaded = true;
         for (int i = ElectricityManager.ActiveUsers.Count - 1; i >= 0; i--)
         {
-            ElectricityManager.ActiveUsers[i].ToggleActiveState();
+            ElectricityManager.ActiveUsers[i].SetActiveState(false);
         }
     }
 

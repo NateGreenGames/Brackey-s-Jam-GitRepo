@@ -7,7 +7,7 @@ public class ElectricityUser : MonoBehaviour
     public float electricityUsedPerSecond;
     public bool isOn = false;
 
-    public virtual void ToggleActiveState()
+    public virtual void ToggleActiveState(int _info, bool _state)
     {
         isOn = !isOn;
         bool onList = ElectricityManager.ActiveUsers.Contains(this);

@@ -11,6 +11,17 @@ public class InteriorLightBehavior : ElectricityUser
     [SerializeField] [ColorUsage(false, true)] private Color onEmission, offEmission;
     [SerializeField] private AudioSource lightAudio;
 
+
+    private void OnEnable()
+    {
+        ButtonBehavior.buttonEvent += ToggleActiveState;
+    }
+
+    private void OnDisable()
+    {
+        ButtonBehavior.buttonEvent -= ToggleActiveState;
+    }
+
     private void Start()
     {
         if (isOn)
@@ -30,14 +41,18 @@ public class InteriorLightBehavior : ElectricityUser
     }
 
 
-    public override void ToggleActiveState()
+    public override void ToggleActiveState(int _info, bool _state)
     {
-        base.ToggleActiveState();
-        ToggleAudioSource();
-        UpdateMaterialColor();
-        for (int i = 0; i < lights.Length; i++)
+        if(_info == 0)
         {
-            lights[i].enabled = isOn;
+            base.ToggleActiveState(_info, _state);
+
+            ToggleAudioSource();
+            UpdateMaterialColor();
+            for (int i = 0; i < lights.Length; i++)
+            {
+                lights[i].enabled = isOn;
+            }
         }
     }
 

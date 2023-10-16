@@ -49,9 +49,9 @@ public class ThrottleLevelBehavior : ElectricityUser, IInteractable
     {
     }
 
-    public override void ToggleActiveState()
+    public override void ToggleActiveState(int _info, bool _state)
     {
-        base.ToggleActiveState();
+        base.ToggleActiveState(_info, _state);
         AudioManager.instance.PlaySFX(eSFX.leverPushPull, 0.2f);
         m_anim.SetTrigger("Up");
     }

@@ -10,6 +10,15 @@ public class JerryBehavior : ElectricityUser
     [SerializeField] AudioSource jerryWorkingSource, jerryOverflowSource;
     [SerializeField] OxygenGuageBehavior guageBehavior;
 
+
+    private void OnEnable()
+    {
+        ButtonBehavior.buttonEvent += ToggleActiveState;
+    }
+    private void OnDisable()
+    {
+        ButtonBehavior.buttonEvent -= ToggleActiveState;
+    }
     private void Start()
     {
         if (!guageBehavior)
@@ -21,12 +30,16 @@ public class JerryBehavior : ElectricityUser
             }
         }
     }
-    public override void ToggleActiveState()
+    public override void ToggleActiveState(int _info, bool _state)
     {
-        isActive = !isActive;
-        Debug.Log("Jerry is Mad");
-        StartCoroutine(KissJerry(jerryGivesOxygen));
-        base.ToggleActiveState();
+        if(_info == 2)
+        {
+            base.ToggleActiveState(_info, _state);
+
+            isActive = !isActive;
+            Debug.Log("Jerry is Mad");
+            StartCoroutine(KissJerry(jerryGivesOxygen));
+        }
     }
 
     IEnumerator KissJerry(float _jerryGivesThisMuch)

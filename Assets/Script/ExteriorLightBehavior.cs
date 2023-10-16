@@ -6,6 +6,15 @@ public class ExteriorLightBehavior : ElectricityUser
 {
     [SerializeField] private Light outsideLight;
 
+    private void OnEnable()
+    {
+        ButtonBehavior.buttonEvent += ToggleActiveState;
+    }
+
+    private void OnDisable()
+    {
+        ButtonBehavior.buttonEvent -= ToggleActiveState;
+    }
     private void Start()
     {
         //isOn = false;
@@ -24,16 +33,20 @@ public class ExteriorLightBehavior : ElectricityUser
     }
 
 
-    public override void ToggleActiveState()
-    {       
-        outsideLight.enabled = !outsideLight.enabled;
-        base.ToggleActiveState();
-        outsideLight.enabled = isOn;
-        MonsterManager.mM.isBeingWardedOff = !MonsterManager.mM.isBeingWardedOff;
-        if (!MonsterManager.mM.isBeingWardedOff)
+    public override void ToggleActiveState(int _info, bool _state)
+    {
+        if(_info == 1)
         {
-            return;
+            base.ToggleActiveState(_info, _state);
+
+            outsideLight.enabled = !outsideLight.enabled;
+            outsideLight.enabled = isOn;
+            MonsterManager.mM.isBeingWardedOff = !MonsterManager.mM.isBeingWardedOff;
+            if (!MonsterManager.mM.isBeingWardedOff)
+            {
+                return;
+            }
+            StartCoroutine(MonsterManager.mM.WardOffMonster());
         }
-        StartCoroutine(MonsterManager.mM.WardOffMonster());
     }
 }

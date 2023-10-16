@@ -5,9 +5,6 @@ using UnityEngine.UI;
 
 public class ButtonBehavior : MonoBehaviour, IInteractable
 {
-    [SerializeField] private InteriorLightBehavior lights;
-    [SerializeField] private ExteriorLightBehavior outsideLight;
-    [SerializeField] private JerryBehavior jerry;
     [SerializeField] private int buttonIdx = 0;
 
     public delegate void buttonDelegate(int _buttonIdx, bool _buttonState);
@@ -33,7 +30,9 @@ public class ButtonBehavior : MonoBehaviour, IInteractable
     {
         AudioManager.instance.PlaySFX(eSFX.buttonClick, .25f);
         if (FuseBox.fB.isOverloaded) return;
-        switch (_idx)
+        isOn = !isOn;
+        buttonEvent?.Invoke(_idx, isOn);
+        /*switch (_idx)
         {
             case 0:                
                 lights.ToggleActiveState();
@@ -43,14 +42,14 @@ public class ButtonBehavior : MonoBehaviour, IInteractable
                 outsideLight.ToggleActiveState();
                 isOn = !isOn;
                 break;
-            case 3:
+            case 2:
                 jerry.ToggleActiveState();
                 isOn = !isOn;
                 break;
             default:
                 break;
         }
-        buttonEvent.Invoke(_idx, isOn);
+        */
     }
 
     public void OnInteract()
