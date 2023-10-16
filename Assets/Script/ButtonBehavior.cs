@@ -6,13 +6,14 @@ using UnityEngine.UI;
 public class ButtonBehavior : MonoBehaviour, IInteractable
 {
     [SerializeField] private int buttonIdx = 0;
+    [SerializeField] private bool isRockerSwitch;
 
     public delegate void buttonDelegate(int _buttonIdx, bool _buttonState);
     public static event buttonDelegate buttonEvent;
     //[SerializeField] private AudioManager am;
 
 
-
+    private Animator m_Anim;
     private MeshRenderer m_mr;
     
 
@@ -23,33 +24,20 @@ public class ButtonBehavior : MonoBehaviour, IInteractable
     {
         isInteractable = true;
         m_mr = GetComponent<MeshRenderer>();
-        //UpdateMaterialColor();
+        if (isRockerSwitch)
+        {
+            m_Anim = GetComponent<Animator>();
+            m_Anim.SetBool("StartState", isOn);
+        }
     }
 
     public void ToggleButtonState(int _idx)
     {
         AudioManager.instance.PlaySFX(eSFX.buttonClick, .25f);
         if (FuseBox.fB.isOverloaded) return;
+        if (isRockerSwitch) m_Anim.SetTrigger("Flip");
         isOn = !isOn;
         buttonEvent?.Invoke(_idx, isOn);
-        /*switch (_idx)
-        {
-            case 0:                
-                lights.ToggleActiveState();
-                isOn = !isOn;
-                break;
-            case 1:
-                outsideLight.ToggleActiveState();
-                isOn = !isOn;
-                break;
-            case 2:
-                jerry.ToggleActiveState();
-                isOn = !isOn;
-                break;
-            default:
-                break;
-        }
-        */
     }
 
     public void OnInteract()
