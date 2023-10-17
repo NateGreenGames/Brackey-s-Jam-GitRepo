@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: efc9b968f1857f148a42e7f7e4b2aad0
+guid: 878d938bfe6f99644a65943e66a25664
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,8 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: TP_Nemo_Base
-    second: {fileID: 2100000, guid: 434879be611634f45a576515cc72939d, type: 2}
+      name: TP_Needle_Fish
+    second: {fileID: 2100000, guid: 0a6159e69e0773f4d804fc36a5fa9a92, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

@@ -3,7 +3,12 @@ guid: 4411617713339b042befae77fe751cc5
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Snapper
+    second: {fileID: 2100000, guid: 7bf7540cc00a6634d95f2ca3f68d36ee, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
