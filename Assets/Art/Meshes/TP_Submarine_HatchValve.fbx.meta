@@ -3,7 +3,12 @@ guid: c5bfbdf3095aaeb4696f8293e98de69d
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TP_SubmarineValve
+    second: {fileID: 2100000, guid: 827c9117c77225246ae4b3c3e9fa138c, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
