@@ -76,7 +76,7 @@ public class InteriorLightBehavior : ElectricityUser
         }
 
 
-        if (!isOn && !FuseBox.fB.isOverloaded)
+        if (!isOn && !FuseBox.instance.isOverloaded)
         {
             buttonBacking.material.EnableKeyword("_EMISSION");
         }

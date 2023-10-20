@@ -39,7 +39,7 @@ public class Lever : MonoBehaviour, IInteractable
 
     public IEnumerator HoldingDownLever()
     {
-        if (!FuseBox.fB.isOverloaded)
+        if (!FuseBox.instance.isOverloaded)
         {
             while (Input.GetKey(KeyCode.Mouse0))
             {
@@ -52,14 +52,14 @@ public class Lever : MonoBehaviour, IInteractable
                 yield return new WaitForEndOfFrame();
             }
         }
-        else if (FuseBox.fB.isOverloaded)
+        else if (FuseBox.instance.isOverloaded)
         {
             while (Input.GetKey(KeyCode.Mouse0))
             {
                 if (Input.GetAxis("Mouse Y") > 0)
                 {
                     anim.SetTrigger("LeverUp");
-                    FuseBox.fB.isOverloaded = false;
+                    FuseBox.instance.isOverloaded = false;
                     lightButtonBacklight.material.EnableKeyword("_EMISSION");
                     AudioManager.instance.PlaySFX(eSFX.leverPushPull, 0.2f);
                     AudioManager.instance.PlaySFX(eSFX.powerOn, 0.5f);

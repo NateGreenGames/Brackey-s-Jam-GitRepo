@@ -33,7 +33,7 @@ public class ThrottleLevelBehavior : ElectricityUser, IInteractable
     }
     public void OnInteract()
     {
-        if (FuseBox.fB.isOverloaded) return;
+        if (FuseBox.instance.isOverloaded) return;
         StartCoroutine(HoldingDownLever());
     }
 

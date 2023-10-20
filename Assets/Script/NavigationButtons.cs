@@ -67,7 +67,7 @@ public class NavigationButtons : ElectricityUser, IInteractable
         while (Input.GetMouseButton(0) && isActive)
         {
             yield return new WaitForEndOfFrame();
-            if (FuseBox.fB.isOverloaded)
+            if (FuseBox.instance.isOverloaded)
             {
                 audioSource.Stop();
                 isActive = false;

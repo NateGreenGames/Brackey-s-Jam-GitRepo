@@ -7,7 +7,7 @@ public class FuseBox : MonoBehaviour
     public GameObject[] fuseBoxLights;
     public Material[] lightMaterial = new Material[3];
     public GameObject[] objectsToHideDuringOverload;
-    public static FuseBox fB;
+    public static FuseBox instance;
     [SerializeField] Lever lever;
     public bool isOverloaded = false;
     public Light overloadLight;
@@ -15,7 +15,7 @@ public class FuseBox : MonoBehaviour
     //public List<GameObject> tests; 
     private void Awake()
     {
-        fB = this;
+        instance = this;
     }
     private void Start()
     {
