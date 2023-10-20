@@ -212,6 +212,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3055558371660313976, guid: 6733c96e4a73847479b033be98c9ee45,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2ddeaf88b66939b4caeac7549c033556, type: 2}
     - target: {fileID: 7986880438050845370, guid: 6733c96e4a73847479b033be98c9ee45,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -12389,6 +12394,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TP_Worm
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7cae233025d170740a3e9cb8f29bee03,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
