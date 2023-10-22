@@ -110,10 +110,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8dc487527277f024f868efe6cc374be8,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8997772953615033508}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8dc487527277f024f868efe6cc374be8,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: 7393570938362661391}
   m_SourcePrefab: {fileID: 100100000, guid: 8dc487527277f024f868efe6cc374be8, type: 3}
 --- !u!1 &9066940558594087059 stripped
@@ -122,75 +118,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 8148515548021925314}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8997772953615033508
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9066940558594087059}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ecf1735a915625e46af28b6d5bf7cbc2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackRate: 0
-  swingTime: 0
-  attackRateIncrease: 3
-  attackDamage: 25
-  wardOffRate: 6
-  submarineHealth: 100
-  shakeDuration: 3
-  rotationLowEnd: 0
-  rotationHighEnd: 0
-  isBeingWardedOff: 0
-  main: {fileID: 0}
-  anim: {fileID: 0}
-  shakeStrengthSmoothness:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.30872214
-      value: 0.11711389
-      inSlope: 0.059720896
-      outSlope: 0.059720896
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.5639308
-      value: 0.08768839
-      inSlope: -0.38517147
-      outSlope: -0.38517147
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.9794922
-      value: 0.044620514
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  subWindow: {fileID: 0}
-  uncrackedBlendValue: 0
-  crackedBlendValue: 0
 --- !u!95 &7393570938362661391
 Animator:
   serializedVersion: 5

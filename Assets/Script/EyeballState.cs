@@ -42,6 +42,7 @@ public class EyeballState : MonsterBaseState
             anim = eyeballMonster.GetComponent<Animator>();
             subWindow.SetFloat("_Blend", Mathf.Lerp(uncrackedBlendValue, crackedBlendValue, Mathf.InverseLerp(100, 0, submarineHealth)));
         }
+        eyeballMonster.transform.localPosition = new Vector3(0, 1.28100002f, 1.56799996f) + eyeballMonster.transform.parent.position;
         attackTimer = Random.Range(1, 4);
         attackRate = 100;
         TriggerAttackSequence();
@@ -55,6 +56,7 @@ public class EyeballState : MonsterBaseState
         {
             anim.SetTrigger("Close Eye");
             anim.ResetTrigger("Squint Eye");
+            eyeballMonster.transform.localPosition = new Vector3(100, 100, 100) + eyeballMonster.transform.parent.position;
             _monsterStateManager.SwitchStates(_monsterStateManager.idleState);
         }
     }
