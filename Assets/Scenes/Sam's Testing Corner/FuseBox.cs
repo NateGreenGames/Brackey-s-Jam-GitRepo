@@ -12,6 +12,8 @@ public class FuseBox : MonoBehaviour
     public bool isOverloaded = false;
     public Light overloadLight;
     public int valueToOverload;
+
+    public bool postDebugInfo;
     //public List<GameObject> tests; 
     private void Awake()
     {
@@ -36,7 +38,7 @@ public class FuseBox : MonoBehaviour
     private void Update()
     {
         CheckForLights(ElectricityManager.ActiveUsers.Count);
-        Debug.Log(ElectricityManager.ActiveUsers.Count);
+        if(postDebugInfo) Debug.Log(ElectricityManager.ActiveUsers.Count);
     }
 
     public void CheckForLights(int _lightsAmount)

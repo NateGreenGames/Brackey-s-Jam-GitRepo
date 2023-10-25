@@ -9,10 +9,13 @@ public class ShockPlungerBehavior : ElectricityUser, IInteractable
 
     public bool isInteractable { get; set; }
     public float timeToChargeInSeconds;
+    public bool postDebugInformation;
+    public AudioClip windDownSound;
+    public AudioClip chargedClunk;
 
-    private float chargeTimer;
     private bool isCharged = false;
     private Animator m_Anim;
+    private AudioSource m_Audi;
     private ParticleSystem m_PS;
 
 
@@ -20,15 +23,9 @@ public class ShockPlungerBehavior : ElectricityUser, IInteractable
     {
         isInteractable = true;
         m_Anim = GetComponent<Animator>();
+        m_Audi = GetComponent<AudioSource>();
     }
 
-    private void Update()
-    {
-        if(!isCharged && isOn)
-        {
-
-        }
-    }
 
     public override void ToggleActiveState(int _info, bool _state)
     {
@@ -57,7 +54,7 @@ public class ShockPlungerBehavior : ElectricityUser, IInteractable
         //Do nothing
     }
 
-    public IEnumerator PlungerInputCheck()
+    private IEnumerator PlungerInputCheck()
     {
         while (Input.GetKey(KeyCode.Mouse0))
         {
@@ -66,17 +63,57 @@ public class ShockPlungerBehavior : ElectricityUser, IInteractable
                 m_Anim.SetTrigger("Toggle");
                 SetActiveState(true);
                 AudioManager.instance.PlaySFX(eSFX.leverPushPull, 0.2f);
+                StartCoroutine(ChargeUpRoutine());
                 break;
-            }else if (Input.GetAxis("Mouse Y") > 0 && isOn)
+            }
+            else if (Input.GetAxis("Mouse Y") > 0 && isOn)
             {
                 m_Anim.SetTrigger("Toggle");
                 SetActiveState(false);
                 AudioManager.instance.PlaySFX(eSFX.leverPushPull, 0.2f);
-                if (isCharged) onShock.Invoke();
+                if (isCharged)
+                {
+                    onShock?.Invoke();
+                    isCharged = false;
+                }
                 break;
             }
             yield return new WaitForEndOfFrame();
         }
     }
+
+    private IEnumerator ChargeUpRoutine()
+    {
+        //Start charging effects
+        if (postDebugInformation) Debug.Log("Charge Started");
+        m_Audi.Play();
+
+        float chargeTimer = 0;
+        //Runs every frame while charging.
+        while (chargeTimer < timeToChargeInSeconds)
+        {
+            if(isOn == true)
+            {
+                chargeTimer += Time.deltaTime;
+                yield return new WaitForEndOfFrame();
+            }
+            else
+            {
+                if(postDebugInformation) Debug.Log("Charge Cancelled");
+                m_Audi.Stop();
+                m_Audi.PlayOneShot(windDownSound);
+                break;
+            }
+        }
+
+        //End charging effects
+        if(postDebugInformation) Debug.Log("Charging Complete");
+        isCharged = true;
+        m_Audi.Stop();
+        m_Audi.PlayOneShot(windDownSound, 0.8f);
+        m_Audi.PlayOneShot(chargedClunk);
+    }
+
+
 }
 

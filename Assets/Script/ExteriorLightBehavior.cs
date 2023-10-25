@@ -41,12 +41,6 @@ public class ExteriorLightBehavior : ElectricityUser
 
             outsideLight.enabled = !outsideLight.enabled;
             outsideLight.enabled = isOn;
-            MonsterManager.mM.isBeingWardedOff = !MonsterManager.mM.isBeingWardedOff;
-            if (!MonsterManager.mM.isBeingWardedOff)
-            {
-                return;
-            }
-            StartCoroutine(MonsterManager.mM.WardOffMonster());
         }
     }
 }
