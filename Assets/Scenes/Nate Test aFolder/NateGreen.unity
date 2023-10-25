@@ -280,17 +280,17 @@ PrefabInstance:
     - target: {fileID: 8547813171810091561, guid: 6733c96e4a73847479b033be98c9ee45,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 100
+      value: 1.549
       objectReference: {fileID: 0}
     - target: {fileID: 8547813171810091561, guid: 6733c96e4a73847479b033be98c9ee45,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 100
+      value: 2.03
       objectReference: {fileID: 0}
     - target: {fileID: 8547813171810091561, guid: 6733c96e4a73847479b033be98c9ee45,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 100
+      value: 1.568
       objectReference: {fileID: 0}
     - target: {fileID: 8547813171810091561, guid: 6733c96e4a73847479b033be98c9ee45,
         type: 3}
@@ -32407,7 +32407,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 038306d07753ee74d9f8932c2de4dbc5,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1560914578599796291, guid: 038306d07753ee74d9f8932c2de4dbc5,
         type: 3}
@@ -34261,8 +34261,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   electricityUsedPerSecond: 1
   isOn: 0
-  timeToChargeInSeconds: 9
+  timeToChargeInSeconds: 8.5
   postDebugInformation: 1
+  windDownSound: {fileID: 8300000, guid: 267e7a79ed08b564ba77a9c21f14ca76, type: 3}
+  chargedClunk: {fileID: 8300000, guid: a36fcf3b8c200fe48b0cf32f99dc6599, type: 3}
 --- !u!95 &2036611166
 Animator:
   serializedVersion: 5
@@ -34295,10 +34297,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -6911797784613987812, guid: a4aedd25dff62d74d8b9d292ed0ca5ba,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 64d32e885bbabff469a7746ec7da7285, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 94a5fd050da94e74390d911355259ff3, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
+  m_Volume: 0.799
+  m_Pitch: 0.59
   Loop: 0
   Mute: 0
   Spatialize: 0
