@@ -12,15 +12,10 @@ public class EyeballState : MonsterBaseState
     public float attackRateIncrease = 3f;
     public float damagePerAttack;
     public float wardOffRate = 6;
-    public float submarineHealth = 100;
     public float rotationLowEnd, rotationHighEnd;
     public bool isBeingWardedOff;
     public Animator anim;
     private bool isAttacking;
-
-    //Sub Health Stuff
-    public Material subWindow;
-    public float uncrackedBlendValue, crackedBlendValue;
 
 
     public override void OnEnable()
@@ -39,9 +34,8 @@ public class EyeballState : MonsterBaseState
         {
             eyeballMonster = GameObject.Find("TP_Eyeball 1 Variant");
             anim = eyeballMonster.GetComponent<Animator>();
-            subWindow.SetFloat("_Blend", Mathf.Lerp(uncrackedBlendValue, crackedBlendValue, Mathf.InverseLerp(100, 0, submarineHealth)));
         }
-        attackTimer = Random.Range(1, 4);
+        attackTimer = Random.Range(2.5f, 4);
         attackRate = 100;
         TriggerAttackSequence();
     }
@@ -104,20 +98,18 @@ public class EyeballState : MonsterBaseState
         SFXTimer();
     }
 
-    private void TakeDamage()   //MOVE this function to update and add a condition + timer. 
+    private void TakeDamage()
     {
-        //anim.SetTrigger("LookAround");
-        submarineHealth -= damagePerAttack;
         //Call screen shake routine on camera.
         AudioManager.instance.PlaySFX(eSFX.creatureAttack, 1);
         ProgressionManager.AlterPlayerCourse((GetRandomOffset() * Time.deltaTime));
 
-        if (submarineHealth <= 0)
+        SubHealthManager.instance.TakeDamage(damagePerAttack);
+        if (SubHealthManager.instance.submarineHealth <= 0)
         {
             isAttacking = false;
-            AudioManager.instance.PlaySFX(eSFX.crush, 1f);
-            GameOverAndCompletionController.instance.EndGame("You were crushed and swallowed whole.");
         }
+
         if (isBeingWardedOff)
         {
             return;

@@ -535,7 +535,11 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 386239367}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7459904395352615439, guid: e9d1da98cd05b324bbd78eab156ced59,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1475236312}
   m_SourcePrefab: {fileID: 100100000, guid: e9d1da98cd05b324bbd78eab156ced59, type: 3}
 --- !u!4 &149608784 stripped
 Transform:
@@ -8005,14 +8009,10 @@ MonoBehaviour:
     attackRateIncrease: 3
     damagePerAttack: 1.5
     wardOffRate: 6
-    submarineHealth: 100
     rotationLowEnd: 0
     rotationHighEnd: 0
     isBeingWardedOff: 0
     anim: {fileID: 110331708}
-    subWindow: {fileID: 2100000, guid: 665593d3ff66cb243bf0264b98ee7f6b, type: 2}
-    uncrackedBlendValue: 0
-    crackedBlendValue: 0
 --- !u!4 &664966175
 Transform:
   m_ObjectHideFlags: 0
@@ -21629,6 +21629,25 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1462750341}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1475236308 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7459904395352615439, guid: e9d1da98cd05b324bbd78eab156ced59,
+    type: 3}
+  m_PrefabInstance: {fileID: 149608783}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1475236312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1475236308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 152d867d35fcd2d46976d821ab2b219d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  submarineHealth: 100
 --- !u!1 &1475635381
 GameObject:
   m_ObjectHideFlags: 0
