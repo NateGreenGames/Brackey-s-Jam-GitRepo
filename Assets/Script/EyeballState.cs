@@ -30,11 +30,6 @@ public class EyeballState : MonsterBaseState
 
     public override void EnterState(MonsterStateManager _monsterStateManager)
     {
-        if (eyeballMonster == null)
-        {
-            eyeballMonster = GameObject.Find("TP_Eyeball 1 Variant");
-            anim = eyeballMonster.GetComponent<Animator>();
-        }
         attackTimer = Random.Range(2.5f, 4);
         attackRate = 100;
         TriggerAttackSequence();

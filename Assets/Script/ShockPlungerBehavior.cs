@@ -25,13 +25,9 @@ public class ShockPlungerBehavior : ElectricityUser, IInteractable
         m_Anim = GetComponent<Animator>();
         m_Audi = GetComponent<AudioSource>();
     }
-
-
     public override void ToggleActiveState(int _info, bool _state)
     {
         base.ToggleActiveState(_info, _state);
-
-
     }
     public void OnInteract()
     {
