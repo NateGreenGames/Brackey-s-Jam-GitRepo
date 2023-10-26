@@ -14720,7 +14720,7 @@ GameObject:
   - component: {fileID: 1017570682}
   - component: {fileID: 1017570681}
   m_Layer: 0
-  m_Name: TP_Submarine_CeilingValve (1)
+  m_Name: TP_Submarine_CeilingValve
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21649,8 +21649,6 @@ Transform:
   - {fileID: 149608784}
   - {fileID: 532148553}
   - {fileID: 1186571299}
-  - {fileID: 1133023712}
-  - {fileID: 1505980463}
   - {fileID: 702104000}
   - {fileID: 1017570680}
   - {fileID: 1081119172}
@@ -21661,6 +21659,8 @@ Transform:
   - {fileID: 2054050600}
   - {fileID: 775618636}
   - {fileID: 1060507470}
+  - {fileID: 1133023712}
+  - {fileID: 1505980463}
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
