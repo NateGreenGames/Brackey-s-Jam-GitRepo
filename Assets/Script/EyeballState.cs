@@ -100,7 +100,7 @@ public class EyeballState : MonsterBaseState
 
     private void TakeDamage()
     {
-        //Call screen shake routine on camera.
+        CameraShake.StartScreenShake(0.001f, 1);
         AudioManager.instance.PlaySFX(eSFX.creatureAttack, 1);
         ProgressionManager.AlterPlayerCourse((GetRandomOffset() * Time.deltaTime));
 
