@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class FuseBox : MonoBehaviour
 {
+    public delegate void blankEvent();
+    public static event blankEvent OnOverload;
+
     public GameObject[] fuseBoxLights;
     public Material[] lightMaterial = new Material[3];
     public GameObject[] objectsToHideDuringOverload;
@@ -87,10 +90,12 @@ public class FuseBox : MonoBehaviour
         AudioManager.instance.PlaySFX(eSFX.powerOff, 0.5f);
         AudioManager.instance.PlaySFX(eSFX.leverPushPull, 0.2f);
         isOverloaded = true;
+
         for (int i = ElectricityManager.ActiveUsers.Count - 1; i >= 0; i--)
         {
-            ElectricityManager.ActiveUsers[i].SetActiveState(false);
+            ElectricityManager.ActiveUsers[i].OnOverload();
         }
+        OnOverload?.Invoke();
     }
 
     public void RunOutOfPower()

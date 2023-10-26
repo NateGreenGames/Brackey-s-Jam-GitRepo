@@ -8,12 +8,12 @@ public class ExteriorLightBehavior : ElectricityUser
 
     private void OnEnable()
     {
-        ButtonBehavior.buttonEvent += ToggleActiveState;
+        ButtonBehavior.buttonEvent += ChangeActiveState;
     }
 
     private void OnDisable()
     {
-        ButtonBehavior.buttonEvent -= ToggleActiveState;
+        ButtonBehavior.buttonEvent -= ChangeActiveState;
     }
     private void Start()
     {
@@ -33,14 +33,21 @@ public class ExteriorLightBehavior : ElectricityUser
     }
 
 
-    public override void ToggleActiveState(int _info, bool _state)
+    public override void ChangeActiveState(int _info, bool _state)
     {
         if(_info == 1)
         {
-            base.ToggleActiveState(_info, _state);
+            base.ChangeActiveState(_info, _state);
 
-            outsideLight.enabled = !outsideLight.enabled;
             outsideLight.enabled = isOn;
         }
+    }
+
+
+    public override void OnOverload()
+    {
+        base.OnOverload();
+
+        outsideLight.enabled = isOn;
     }
 }

@@ -18,6 +18,8 @@ public class TentacleMonsterState : MonsterBaseState
 
     public override void EnterState(MonsterStateManager _monsterStateManager)
     {
+        AudioManager.instance.FadeIn(AudioManager.instance.musicSource2, 1);
+        AudioManager.instance.PlayMusic(eMusic.gameplayMusicDanger);
         animTimer = Random.Range(5, 7);
         attackTimer = animTimer + 2.3f; 
         attackRate = 100;

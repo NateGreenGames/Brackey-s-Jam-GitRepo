@@ -14,12 +14,12 @@ public class InteriorLightBehavior : ElectricityUser
 
     private void OnEnable()
     {
-        ButtonBehavior.buttonEvent += ToggleActiveState;
+        ButtonBehavior.buttonEvent += ChangeActiveState;
     }
 
     private void OnDisable()
     {
-        ButtonBehavior.buttonEvent -= ToggleActiveState;
+        ButtonBehavior.buttonEvent -= ChangeActiveState;
     }
 
     private void Start()
@@ -41,11 +41,11 @@ public class InteriorLightBehavior : ElectricityUser
     }
 
 
-    public override void ToggleActiveState(int _info, bool _state)
+    public override void ChangeActiveState(int _info, bool _state)
     {
         if(_info == 0)
         {
-            base.ToggleActiveState(_info, _state);
+            base.ChangeActiveState(_info, _state);
 
             ToggleAudioSource();
             UpdateMaterialColor();
@@ -53,6 +53,18 @@ public class InteriorLightBehavior : ElectricityUser
             {
                 lights[i].enabled = isOn;
             }
+        }
+    }
+
+    public override void OnOverload()
+    {
+        base.OnOverload();
+
+        ToggleAudioSource();
+        UpdateMaterialColor();
+        for (int i = 0; i < lights.Length; i++)
+        {
+            lights[i].enabled = isOn;
         }
     }
 

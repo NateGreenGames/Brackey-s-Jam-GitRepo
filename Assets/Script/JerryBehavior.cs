@@ -13,11 +13,11 @@ public class JerryBehavior : ElectricityUser
 
     private void OnEnable()
     {
-        ButtonBehavior.buttonEvent += ToggleActiveState;
+        ButtonBehavior.buttonEvent += ChangeActiveState;
     }
     private void OnDisable()
     {
-        ButtonBehavior.buttonEvent -= ToggleActiveState;
+        ButtonBehavior.buttonEvent -= ChangeActiveState;
     }
     private void Start()
     {
@@ -30,16 +30,25 @@ public class JerryBehavior : ElectricityUser
             }
         }
     }
-    public override void ToggleActiveState(int _info, bool _state)
+    public override void ChangeActiveState(int _info, bool _state)
     {
         if(_info == 2)
         {
-            base.ToggleActiveState(_info, _state);
+            base.ChangeActiveState(_info, _state);
 
-            isActive = !isActive;
+            isActive = _state;
             Debug.Log("Jerry is Mad");
             StartCoroutine(KissJerry(jerryGivesOxygen));
         }
+    }
+
+    public override void OnOverload()
+    {
+        base.OnOverload();
+
+        isActive = false;
+        Debug.Log("Jerry is Mad");
+        StartCoroutine(KissJerry(jerryGivesOxygen));
     }
 
     IEnumerator KissJerry(float _jerryGivesThisMuch)

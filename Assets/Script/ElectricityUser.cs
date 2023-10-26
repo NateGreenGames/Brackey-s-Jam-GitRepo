@@ -7,9 +7,9 @@ public class ElectricityUser : MonoBehaviour
     public float electricityUsedPerSecond;
     public bool isOn = false;
 
-    public virtual void ToggleActiveState(int _info, bool _state)
+    public virtual void ChangeActiveState(int _channel, bool _state)
     {
-        isOn = !isOn;
+        isOn = _state;
         bool onList = ElectricityManager.ActiveUsers.Contains(this);
         if (!onList && isOn)
         {
@@ -21,9 +21,23 @@ public class ElectricityUser : MonoBehaviour
         }
     }
 
-    public void SetActiveState(bool _newState)
+    public virtual void ChangeActiveState(bool _state)
     {
-        isOn = _newState;
+        isOn = _state;
+        bool onList = ElectricityManager.ActiveUsers.Contains(this);
+        if (!onList && isOn)
+        {
+            ElectricityManager.ActiveUsers.Add(this);
+        }
+        else if (onList && !isOn)
+        {
+            ElectricityManager.ActiveUsers.Remove(this);
+        }
+    }
+
+    public virtual void OnOverload()
+    {
+        isOn = false;
         bool onList = ElectricityManager.ActiveUsers.Contains(this);
         if (!onList && isOn)
         {

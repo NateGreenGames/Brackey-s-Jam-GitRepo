@@ -30,6 +30,8 @@ public class EyeballState : MonsterBaseState
 
     public override void EnterState(MonsterStateManager _monsterStateManager)
     {
+        AudioManager.instance.FadeIn(AudioManager.instance.musicSource2, 1);
+        AudioManager.instance.PlayMusic(eMusic.gameplayMusicDanger);
         attackTimer = Random.Range(2.5f, 4);
         attackRate = 100;
         TriggerAttackSequence();

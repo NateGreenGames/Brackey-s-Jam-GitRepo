@@ -25,9 +25,9 @@ public class ShockPlungerBehavior : ElectricityUser, IInteractable
         m_Anim = GetComponent<Animator>();
         m_Audi = GetComponent<AudioSource>();
     }
-    public override void ToggleActiveState(int _info, bool _state)
+    public override void ChangeActiveState(bool _state)
     {
-        base.ToggleActiveState(_info, _state);
+        base.ChangeActiveState(_state);
     }
     public void OnInteract()
     {
@@ -57,7 +57,7 @@ public class ShockPlungerBehavior : ElectricityUser, IInteractable
             if (Input.GetAxis("Mouse Y") < 0 && !isOn)
             {
                 m_Anim.SetTrigger("Toggle");
-                SetActiveState(true);
+                ChangeActiveState(true);
                 AudioManager.instance.PlaySFX(eSFX.leverPushPull, 0.2f);
                 StartCoroutine(ChargeUpRoutine());
                 break;
@@ -65,7 +65,7 @@ public class ShockPlungerBehavior : ElectricityUser, IInteractable
             else if (Input.GetAxis("Mouse Y") > 0 && isOn)
             {
                 m_Anim.SetTrigger("Toggle");
-                SetActiveState(false);
+                ChangeActiveState(false);
                 AudioManager.instance.PlaySFX(eSFX.leverPushPull, 0.2f);
                 if (isCharged)
                 {

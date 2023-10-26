@@ -37,9 +37,9 @@ public class NavigationButtons : ElectricityUser, IInteractable
         //Do nothing;
     }
 
-    public override void ToggleActiveState(int _info, bool _state)
+    public override void ChangeActiveState(int _info, bool _state)
     {
-        base.ToggleActiveState(_info, _state);
+        base.ChangeActiveState(_info, _state);
         isActive = !isActive;
         AudioManager.instance.PlaySFX(eSFX.buttonClick, .25f);
         if (isActive)
@@ -63,7 +63,7 @@ public class NavigationButtons : ElectricityUser, IInteractable
 
     IEnumerator HoldingButton()
     {
-        ToggleActiveState(0, true);
+        ChangeActiveState(0, true);
         while (Input.GetMouseButton(0) && isActive)
         {
             yield return new WaitForEndOfFrame();
@@ -82,6 +82,6 @@ public class NavigationButtons : ElectricityUser, IInteractable
                 audioSource.Play();
             }
         }
-        ToggleActiveState(0, false);
+        ChangeActiveState(0, false);
     }
 }

@@ -20,6 +20,16 @@ public class ButtonBehavior : MonoBehaviour, IInteractable
     [SerializeField] bool isOn;
     public bool isInteractable { get; set; }
 
+
+    private void OnEnable()
+    {
+        FuseBox.OnOverload += OnOverloadReset;
+    }
+
+    private void OnDisable()
+    {
+        FuseBox.OnOverload -= OnOverloadReset;
+    }
     void Start()
     {
         isInteractable = true;
@@ -40,6 +50,12 @@ public class ButtonBehavior : MonoBehaviour, IInteractable
         buttonEvent?.Invoke(_idx, isOn);
     }
 
+    public void OnOverloadReset()
+    {
+        AudioManager.instance.PlaySFX(eSFX.buttonClick, .25f);
+        if (isRockerSwitch) m_Anim.SetTrigger("Flip");
+        isOn = false;
+    }
     public void OnInteract()
     {
         ToggleButtonState(buttonIdx);
