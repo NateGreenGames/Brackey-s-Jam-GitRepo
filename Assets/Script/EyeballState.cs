@@ -30,7 +30,7 @@ public class EyeballState : MonsterBaseState
 
     public override void EnterState(MonsterStateManager _monsterStateManager)
     {
-        AudioManager.instance.FadeIn(AudioManager.instance.musicSource2, 1);
+        AudioManager.instance.StartCoroutine(AudioManager.instance.FadeIn(AudioManager.instance.musicSource2, 7));
         AudioManager.instance.PlayMusic(eMusic.gameplayMusicDanger);
         attackTimer = Random.Range(2.5f, 4);
         attackRate = 100;
@@ -45,6 +45,7 @@ public class EyeballState : MonsterBaseState
         {
             anim.SetTrigger("Close Eye");
             anim.ResetTrigger("Squint Eye");
+            AudioManager.instance.StartCoroutine(AudioManager.instance.FadeOut(AudioManager.instance.musicSource2, 7));
             _monsterStateManager.SwitchStates(_monsterStateManager.idleState);
         }
     }
