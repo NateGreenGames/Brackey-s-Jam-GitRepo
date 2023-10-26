@@ -37,6 +37,7 @@ public class TentacleMonsterState : MonsterBaseState
             {
                 return;
             }
+            isShocked = false;
             anim.SetTrigger("Idle");
             shockedTimer = 6.5f;
             animTimer = Random.Range(5, 7);
