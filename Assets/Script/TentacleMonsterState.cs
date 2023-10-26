@@ -9,16 +9,18 @@ public class TentacleMonsterState : MonsterBaseState
     public float attackRate;
     public float swingTime = 0;
     public float attackTimer;
+    public float shockedTimer = 6.5f;
     public float animTimer;
     public float attackRateIncrease = 3f;
     public float damagePerAttack;
     public float wardOffRate = 50;
     public float rotationLowEnd, rotationHighEnd;
     public bool isBeingWardedOff;
+    public bool isShocked;
 
     public override void EnterState(MonsterStateManager _monsterStateManager)
     {
-        AudioManager.instance.FadeIn(AudioManager.instance.musicSource2, 1);
+        AudioManager.instance.StartCoroutine(AudioManager.instance.FadeIn(AudioManager.instance.musicSource2, 7));
         AudioManager.instance.PlayMusic(eMusic.gameplayMusicDanger);
         animTimer = Random.Range(5, 7);
         attackTimer = animTimer + 2.3f; 
@@ -28,6 +30,18 @@ public class TentacleMonsterState : MonsterBaseState
 
     public override void UpdateState(MonsterStateManager _monsterStateManager)
     {
+        if (isShocked)
+        {
+            shockedTimer -= Time.deltaTime;
+            if (shockedTimer >= 0)
+            {
+                return;
+            }
+            anim.SetTrigger("Idle");
+            shockedTimer = 6.5f;
+            animTimer = Random.Range(5, 7);
+            attackTimer = animTimer + 2.3f;
+        }
         AttackSequenceTimer();
         if (attackRate <= 0)
         {
@@ -94,8 +108,10 @@ public class TentacleMonsterState : MonsterBaseState
     public void IsShocked()
     {
         Debug.Log("Shocked");
+        isShocked = true;
         attackRate -= wardOffRate;
         anim.SetTrigger("Shocked");
+        anim.ResetTrigger("Slapped");
         anim.SetTrigger("Idle");
     }
 
