@@ -8042,8 +8042,8 @@ MonoBehaviour:
     attackRateIncrease: 3
     damagePerAttack: 10
     wardOffRate: 6
-    rotationLowEnd: -10
-    rotationHighEnd: 10
+    rotationLowEnd: -100
+    rotationHighEnd: 100
     isBeingWardedOff: 0
   wormMonsterState:
     wormMonster: {fileID: 310642231}
