@@ -7,6 +7,7 @@ public class MonsterIdleState : MonsterBaseState
     public float attackRate = 0;
     public float attackRateIncrease = 3f;
     public int monsterIdx;
+    public bool rigged;
 
     public override void OnEnable()
     {
@@ -53,6 +54,10 @@ public class MonsterIdleState : MonsterBaseState
 
     int RandomNumber()
     {
+        if (rigged)
+        {
+            return monsterIdx;
+        }
         monsterIdx = Random.Range(1, 4);
         return monsterIdx;
     }
