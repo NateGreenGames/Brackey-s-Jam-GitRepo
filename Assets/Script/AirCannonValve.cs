@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class AirCannonValve : MonoBehaviour, IInteractable
 {
+    public delegate void Blank(float _power);
+    public static event Blank OnAirCannonTick;
 
     [SerializeField][Range(0, 5)] private int stage;
-    [SerializeField] private float rotationSpeed;
+    [SerializeField] private float airCannonPower;
 
     private Animator m_anim;
-    private float goalRotation;
     public bool isInteractable { get; set; }
 
     public void OnInteract()
@@ -40,8 +41,9 @@ public class AirCannonValve : MonoBehaviour, IInteractable
     }
 
     void Update()
-    { 
+    {
         //Fire Air Event
+        OnAirCannonTick.Invoke(airCannonPower * stage * Time.deltaTime);
 
         //Start particles if they are off and stage is above 0
         //stop particles if they are on and stage is equal to 0
