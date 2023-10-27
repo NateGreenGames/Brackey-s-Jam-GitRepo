@@ -24,7 +24,7 @@ public class TentacleMonsterState : MonsterBaseState
         anim.SetTrigger("Slitherin");
         AudioManager.instance.StartCoroutine(AudioManager.instance.FadeIn(AudioManager.instance.musicSource2, 7));
         AudioManager.instance.PlayMusic(eMusic.gameplayMusicDanger);
-        animTimer = Random.Range(5, 7);
+        animTimer = 6;
         attackTimer = animTimer + 2.3f; 
         attackRate = 100;
         TriggerAttackSequence();
@@ -42,7 +42,7 @@ public class TentacleMonsterState : MonsterBaseState
             isShocked = false;
             anim.SetTrigger("Idle");
             shockedTimer = 6.5f;
-            animTimer = Random.Range(5, 7);
+            animTimer = 6;
             attackTimer = animTimer + 2.3f;
         }
         AttackSequenceTimer();

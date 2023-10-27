@@ -8475,8 +8475,8 @@ MonoBehaviour:
   idleState:
     attackRate: 0
     attackRateIncrease: 3
-    monsterIdx: 3
-    rigged: 0
+    monsterIdx: 2
+    rigged: 1
   eyeballState:
     eyeballMonster: {fileID: 1286939076}
     attackRate: 0
