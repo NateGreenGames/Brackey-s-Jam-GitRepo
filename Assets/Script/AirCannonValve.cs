@@ -6,6 +6,7 @@ public class AirCannonValve : MonoBehaviour, IInteractable
 {
 
     [SerializeField][Range(0, 5)] private int stage;
+    private Animator m_anim;
     public bool isInteractable { get; set; }
 
     public void OnInteract()
@@ -15,42 +16,71 @@ public class AirCannonValve : MonoBehaviour, IInteractable
 
     public void OnInteractEnd()
     {
-        throw new System.NotImplementedException();
+        //Do nothing
     }
 
     public void OnInteractHeld()
     {
-        throw new System.NotImplementedException();
+        //Do nothing
     }
 
     public void OnLookingAt()
     {
-        throw new System.NotImplementedException();
+        //Do nothing
     }
 
-    // Update is called once per frame
+
+    private void Start()
+    {
+        isInteractable = true;
+        m_anim = GetComponent<Animator>();
+    }
+
     void Update()
     {
-        
+        //Fire Air Event
+
+        //Start particles if they are off and stage is above 0
+        //stop particles if they are on and stage is equal to 0
     }
 
     private IEnumerator HoldingDownLever()
     {
         while (Input.GetKey(KeyCode.Mouse0))
         {
-            if (Input.GetAxis("Mouse X") < 0 && stage < 5)
+            if (Input.GetAxis("Mouse X") > 0 && stage < 5)
             {
                 stage++;
-                //AudioManager.instance.PlaySFX(eSFX.leverPushPull, 0.2f);
+                PlayRandomSqueek();
+                m_anim.SetInteger("State", stage);
                 break;
             }
-            else if (Input.GetAxis("Mouse X") > 0 && stage > 0)
+            else if (Input.GetAxis("Mouse X") < 0 && stage > 0)
             {
                 stage--;
-                //AudioManager.instance.PlaySFX(eSFX.leverPushPull, 0.2f);
+                PlayRandomSqueek();
+                m_anim.SetInteger("State", stage);
                 break;
             }
             yield return new WaitForEndOfFrame();
+        }
+    }
+
+    private void PlayRandomSqueek()
+    {
+        int randomNum = Random.Range(1, 4);
+
+        switch (randomNum)
+        {
+            case 1: 
+                AudioManager.instance.PlaySFX(eSFX.valvesqueek1, 0.2f);
+                return;
+            case 2:
+                AudioManager.instance.PlaySFX(eSFX.valvesqueek1, 0.2f);
+                return;
+            case 3:
+                AudioManager.instance.PlaySFX(eSFX.valvesqueek1, 0.2f);
+                return;
         }
     }
 }
