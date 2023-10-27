@@ -15,6 +15,7 @@ public class MonsterStateManager : MonoBehaviour
         idleState.OnEnable();
         eyeballState.OnEnable();
         tentacleMonsterState.OnEnable();
+        wormMonsterState.OnEnable();
     }
 
     private void OnDisable()
@@ -22,6 +23,7 @@ public class MonsterStateManager : MonoBehaviour
         idleState.OnDisable();
         eyeballState.OnDisable();
         tentacleMonsterState.OnDisable();
+        wormMonsterState.OnDisable();
     }
 
     // Start is called before the first frame update

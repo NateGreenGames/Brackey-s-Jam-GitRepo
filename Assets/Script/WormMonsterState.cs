@@ -29,12 +29,12 @@ public class WormMonsterState : MonsterBaseState
 
     public override void OnDisable()
     {
-        throw new System.NotImplementedException();
+        AirCannonValve.OnAirCannonTick -= AirCannonDamage;
     }
 
     public override void OnEnable()
     {
-        throw new System.NotImplementedException();
+        AirCannonValve.OnAirCannonTick += AirCannonDamage;
     }
 
     public override void UpdateState(MonsterStateManager _monsterStateManager)
@@ -128,5 +128,18 @@ public class WormMonsterState : MonsterBaseState
         float randomOffset2 = Random.Range(rotationLowEnd, rotationHighEnd);
         float trueRandomOffset = Random.Range(randomOffset1, randomOffset2);
         return trueRandomOffset;
+    }
+
+    private void AirCannonDamage(float _dmg)
+    {
+        attackRate -= _dmg;
+        if (_dmg == 0)
+        {
+            isBeingWardedOff = false;
+        }
+        else
+        {
+            isBeingWardedOff = true;
+        }
     }
 }

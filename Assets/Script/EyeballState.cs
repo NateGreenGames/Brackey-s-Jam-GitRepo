@@ -6,7 +6,7 @@ public class EyeballState : MonsterBaseState
 {    
     [SerializeField] GameObject eyeballMonster;
     public float attackRate;
-    public float swingTime = 0;
+    public float swingTime;
     float attackTimer;
     float sfxTimer = 6f;
     public float attackRateIncrease = 3f;
@@ -43,7 +43,7 @@ public class EyeballState : MonsterBaseState
     {
         AttackSequenceTimer();
         WardOffMonster();
-        if (attackRate <= swingTime)
+        if (attackRate <= 0)
         {
             anim.SetTrigger("Close Eye");
             anim.ResetTrigger("Squint Eye");
@@ -55,7 +55,7 @@ public class EyeballState : MonsterBaseState
     void TriggerAttackSequence()
     {
         anim.SetTrigger("Open Eye");
-        swingTime = Random.Range(0, 60);
+        //swingTime = Random.Range(0, 60);
         AudioManager.instance.PlaySFX(eSFX.creatureApproach, 0.55f);
     }
 
