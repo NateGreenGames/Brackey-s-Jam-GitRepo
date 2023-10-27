@@ -32,6 +32,7 @@ public class ProgressionPanel : MonoBehaviour
     void Movement(float _magnitudeOfMovement)
     {
         transform.position = transform.position + (-transform.up.normalized * _magnitudeOfMovement);
+        Debug.Log(_magnitudeOfMovement);
     }
     void Rotate(float _differenceOfRotation)
     {

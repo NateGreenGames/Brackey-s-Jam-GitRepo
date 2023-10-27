@@ -20,6 +20,7 @@ public class ThrottleLevelBehavior : ElectricityUser, IInteractable
         if (isOn)
         {
             ProgressionManager.MoveSubmarine(movementSpeed * Time.deltaTime);
+            Debug.Log(movementSpeed * Time.deltaTime);
         }
 
         if (isOn && !engineRunningSource.isPlaying)
