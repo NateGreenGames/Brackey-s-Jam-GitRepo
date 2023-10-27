@@ -15155,7 +15155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stage: 0
-  rotationSpeed: 0
+  airCannonPower: 5
 --- !u!23 &952177699 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: -348009337250976085, guid: c742b6e3b1c813540a25bf35ee3fb228,
