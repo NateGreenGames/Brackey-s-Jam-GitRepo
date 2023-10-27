@@ -9,8 +9,10 @@ public class AirCannonValve : MonoBehaviour, IInteractable
 
     [SerializeField][Range(0, 5)] private int stage;
     [SerializeField] private float airCannonPower;
+    [SerializeField] private float oxygenUsedPerSecond;
 
     private Animator m_anim;
+    private AudioSource m_audi;
     public bool isInteractable { get; set; }
 
     public void OnInteract()
@@ -38,15 +40,25 @@ public class AirCannonValve : MonoBehaviour, IInteractable
     {
         isInteractable = true;
         m_anim = GetComponent<Animator>();
+        m_audi = GetComponent<AudioSource>();
     }
 
     void Update()
     {
         //Fire Air Event
-        OnAirCannonTick.Invoke(airCannonPower * stage * Time.deltaTime);
+        OnAirCannonTick?.Invoke(airCannonPower * Mathf.Pow(stage, 2) * Time.deltaTime);
+        OxygenManagement.ChangeOxygenAmount(-oxygenUsedPerSecond * Mathf.Pow(stage, 2) * Time.deltaTime);
 
-        //Start particles if they are off and stage is above 0
-        //stop particles if they are on and stage is equal to 0
+
+        m_audi.volume = 0.2f * stage;
+        if(!m_audi.isPlaying && stage > 0)
+        {
+            m_audi.Play();
+        }
+        else if(m_audi.isPlaying && stage == 0)
+        {
+            m_audi.Stop();
+        }
     }
 
     private IEnumerator HoldingDownLever()
