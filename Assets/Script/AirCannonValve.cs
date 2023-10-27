@@ -6,7 +6,10 @@ public class AirCannonValve : MonoBehaviour, IInteractable
 {
 
     [SerializeField][Range(0, 5)] private int stage;
+    [SerializeField] private float rotationSpeed;
+
     private Animator m_anim;
+    private float goalRotation;
     public bool isInteractable { get; set; }
 
     public void OnInteract()
@@ -37,7 +40,7 @@ public class AirCannonValve : MonoBehaviour, IInteractable
     }
 
     void Update()
-    {
+    { 
         //Fire Air Event
 
         //Start particles if they are off and stage is above 0
@@ -48,14 +51,14 @@ public class AirCannonValve : MonoBehaviour, IInteractable
     {
         while (Input.GetKey(KeyCode.Mouse0))
         {
-            if (Input.GetAxis("Mouse X") > 0 && stage < 5)
+            if (Input.GetAxis("Mouse X") < 0 && stage < 5)
             {
                 stage++;
                 PlayRandomSqueek();
                 m_anim.SetInteger("State", stage);
                 break;
             }
-            else if (Input.GetAxis("Mouse X") < 0 && stage > 0)
+            else if (Input.GetAxis("Mouse X") > 0 && stage > 0)
             {
                 stage--;
                 PlayRandomSqueek();
@@ -76,10 +79,10 @@ public class AirCannonValve : MonoBehaviour, IInteractable
                 AudioManager.instance.PlaySFX(eSFX.valvesqueek1, 0.2f);
                 return;
             case 2:
-                AudioManager.instance.PlaySFX(eSFX.valvesqueek1, 0.2f);
+                AudioManager.instance.PlaySFX(eSFX.valvesqueek2, 0.2f);
                 return;
             case 3:
-                AudioManager.instance.PlaySFX(eSFX.valvesqueek1, 0.2f);
+                AudioManager.instance.PlaySFX(eSFX.valvesqueek3, 0.2f);
                 return;
         }
     }

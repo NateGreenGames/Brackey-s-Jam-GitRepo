@@ -15155,6 +15155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stage: 0
+  rotationSpeed: 0
 --- !u!23 &952177699 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: -348009337250976085, guid: c742b6e3b1c813540a25bf35ee3fb228,
@@ -35554,7 +35555,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4cc3dc1d2e6723346a65a0a2ae8b76b3, type: 3}
   - {fileID: 8300000, guid: 457d7d8467bf0c04d8256e7bb32920e1, type: 3}
   - {fileID: 8300000, guid: 6dd46cfa126f3d74599b9d20ec680cac, type: 3}
-  - {fileID: 8300000, guid: 689044468150ba945aa8d36155e9c49d, type: 3}
+  - {fileID: 8300000, guid: 97c10f5edb11a3246b23feace1645710, type: 3}
+  - {fileID: 8300000, guid: 4f02880e92555d1478041ec58bbc82fe, type: 3}
+  - {fileID: 8300000, guid: e255260cbaa3cfe4eab2954168973288, type: 3}
   sfxSource: {fileID: 2065006177}
   musicSource1: {fileID: 2065006176}
   musicSource2: {fileID: 2065006180}
