@@ -225,7 +225,7 @@ public class AudioManager : MonoBehaviour
         _audioSource.Play();
         _audioSource.volume = 0f;
 
-        while (_audioSource.volume < 1)
+        while (_audioSource.volume < 1f)
         {
 
 
