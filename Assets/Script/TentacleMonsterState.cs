@@ -49,6 +49,7 @@ public class TentacleMonsterState : MonsterBaseState
         if (attackRate <= 0)
         {
             anim.SetTrigger("Slitherout");
+            AudioManager.instance.StartCoroutine(AudioManager.instance.FadeOut(AudioManager.instance.musicSource2, 7));
             _monsterStateManager.SwitchStates(_monsterStateManager.idleState);
         }
     }
@@ -118,5 +119,6 @@ public class TentacleMonsterState : MonsterBaseState
         anim.SetTrigger("Idle");
     }
 
+    
     
 }

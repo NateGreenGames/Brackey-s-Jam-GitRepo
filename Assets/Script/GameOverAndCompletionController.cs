@@ -34,6 +34,7 @@ public class GameOverAndCompletionController : MonoBehaviour
     private IEnumerator DisplayGameOverScreen(string _gameOverDescription)
     {
         yield return StartCoroutine(FadeToBlack(3f));
+        AudioManager.instance.StartCoroutine(AudioManager.instance.FadeOut(AudioManager.instance.musicSource1, 7));
         GameOverWidgetBehavior newWidget = Instantiate(Resources.Load("Widgets/GameOverWidget") as GameObject, canvasTransform).GetComponent<GameOverWidgetBehavior>();
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
@@ -43,8 +44,8 @@ public class GameOverAndCompletionController : MonoBehaviour
 
     private IEnumerator DisplayWinningScreen()
     {
-        MonsterManager.mM.attackRate = 0;
         yield return StartCoroutine(FadeToBlack(3f));
+        AudioManager.instance.StartCoroutine(AudioManager.instance.FadeOut(AudioManager.instance.musicSource1, 7));
         //AudioManager.instance.PlaySFX(eSFX.hatch, 1f);
         Instantiate(Resources.Load("Widgets/WinWidget") as GameObject, canvasTransform);
         Cursor.visible = true;

@@ -8467,14 +8467,14 @@ MonoBehaviour:
     attackRate: 0
     attackRateIncrease: 3
     monsterIdx: 3
-    rigged: 1
+    rigged: 0
   eyeballState:
     eyeballMonster: {fileID: 1286939076}
     attackRate: 0
     swingTime: 0
     attackRateIncrease: 3
     damagePerAttack: 1.5
-    wardOffRate: 6
+    wardOffRate: 10
     rotationLowEnd: 0
     rotationHighEnd: 0
     isBeingWardedOff: 0
@@ -15155,7 +15155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stage: 0
-  airCannonPower: 5
+  airCannonPower: 2
   oxygenUsedPerSecond: 0.25
 --- !u!82 &949667966
 AudioSource:
@@ -21790,7 +21790,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   electricityUsedPerSecond: 0.125
   isOn: 0
-  movementSpeed: 0.0015
+  movementSpeed: 0.00135
   engineRunningSource: {fileID: 1322787050}
   leverSensitivity: 1.4
 --- !u!95 &1322787053
@@ -23352,7 +23352,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe18d5615a4005a428d7bf11a74c2e3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  electricityUsedPerSecond: 0.0625
+  electricityUsedPerSecond: 0.25
   isOn: 0
   outsideLight: {fileID: 1505980462}
 --- !u!1 &1520136891 stripped

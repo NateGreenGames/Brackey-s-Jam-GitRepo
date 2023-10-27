@@ -29,6 +29,15 @@ public class ShockPlungerBehavior : ElectricityUser, IInteractable
     {
         base.ChangeActiveState(_state);
     }
+
+    public override void OnOverload()
+    {
+        base.OnOverload();
+        m_Anim.SetTrigger("Toggle");
+        ChangeActiveState(false);
+        AudioManager.instance.PlaySFX(eSFX.leverPushPull, 0.2f);
+        isCharged = false;
+    }
     public void OnInteract()
     {
         if (FuseBox.instance.isOverloaded) return;
@@ -109,7 +118,6 @@ public class ShockPlungerBehavior : ElectricityUser, IInteractable
         m_Audi.PlayOneShot(windDownSound, 0.8f);
         m_Audi.PlayOneShot(chargedClunk);
     }
-
 
 }
 
