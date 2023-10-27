@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Cinemachine;
 public class PlayerFreelookCameraBehavior : MonoBehaviour
 {
     // Variables
@@ -18,14 +18,23 @@ public class PlayerFreelookCameraBehavior : MonoBehaviour
     [Header("Interaction Settings:")]
     [SerializeField] float maxInteractionDistance;
     [SerializeField] LayerMask interactionMask;
+
+    [Space]
+    [Header("Zoom Settings:")]
+    [SerializeField] private float minFOV;
+    [SerializeField] private float zoomSpeed;
+
+
     private float cameraVerticalRotation;
     private float cameraHorizontalRotation;
+    private CinemachineVirtualCamera virtualCamera;
 
     void Start()
     {
         // Lock and Hide the Cursor
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        virtualCamera = GetComponent<CinemachineVirtualCamera>();
     }
 
 
@@ -33,6 +42,7 @@ public class PlayerFreelookCameraBehavior : MonoBehaviour
     {
         PerformCameraRotation();
         WhileLooking();
+        Zoom();
     }
 
     private void PerformCameraRotation()
@@ -76,6 +86,24 @@ public class PlayerFreelookCameraBehavior : MonoBehaviour
                     interactable.OnInteractEnd();
                 }
             }
+        }
+    }
+
+    public void Zoom()
+    {
+        if (Input.GetMouseButton(1) && virtualCamera.m_Lens.FieldOfView > minFOV)
+        {
+            virtualCamera.m_Lens.FieldOfView -= zoomSpeed * Time.deltaTime;
+        }
+        else if(!Input.GetMouseButton(1) && virtualCamera.m_Lens.FieldOfView < 60)
+        {
+            virtualCamera.m_Lens.FieldOfView += zoomSpeed * Time.deltaTime;
+        }else if(Input.GetMouseButton(1) && virtualCamera.m_Lens.FieldOfView < minFOV)
+        {
+            virtualCamera.m_Lens.FieldOfView = minFOV;
+        }else if(!Input.GetMouseButton(1) && virtualCamera.m_Lens.FieldOfView > 60)
+        {
+            virtualCamera.m_Lens.FieldOfView = 60;
         }
     }
 }

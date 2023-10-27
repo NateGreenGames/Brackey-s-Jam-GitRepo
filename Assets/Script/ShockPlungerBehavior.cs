@@ -10,7 +10,7 @@ public class ShockPlungerBehavior : ElectricityUser, IInteractable
     public bool isInteractable { get; set; }
     public float timeToChargeInSeconds;
     public bool postDebugInformation;
-    public AudioClip windDownSound;
+    public AudioClip blastSound;
     public AudioClip chargedClunk;
 
     private bool isCharged = false;
@@ -79,6 +79,7 @@ public class ShockPlungerBehavior : ElectricityUser, IInteractable
                 if (isCharged)
                 {
                     onShock?.Invoke();
+                    m_Audi.PlayOneShot(blastSound);
                     isCharged = false;
                 }
                 break;
@@ -106,7 +107,6 @@ public class ShockPlungerBehavior : ElectricityUser, IInteractable
             {
                 if(postDebugInformation) Debug.Log("Charge Cancelled");
                 m_Audi.Stop();
-                m_Audi.PlayOneShot(windDownSound);
                 break;
             }
         }
@@ -115,7 +115,6 @@ public class ShockPlungerBehavior : ElectricityUser, IInteractable
         if(postDebugInformation) Debug.Log("Charging Complete");
         isCharged = true;
         m_Audi.Stop();
-        m_Audi.PlayOneShot(windDownSound, 0.8f);
         m_Audi.PlayOneShot(chargedClunk);
     }
 

@@ -652,6 +652,8 @@ MonoBehaviour:
   interactionMask:
     serializedVersion: 2
     m_Bits: 3
+  minFOV: 20
+  zoomSpeed: 40
 --- !u!114 &170842542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -673,7 +675,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 60.000004
+    FieldOfView: 60
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -6955,7 +6957,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 60.000004
+  field of view: 60
   orthographic: 0
   orthographic size: 10
   m_Depth: -1
@@ -8476,7 +8478,7 @@ MonoBehaviour:
     attackRate: 0
     attackRateIncrease: 3
     monsterIdx: 2
-    rigged: 1
+    rigged: 0
   eyeballState:
     eyeballMonster: {fileID: 1286939076}
     attackRate: 0
@@ -35390,9 +35392,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   electricityUsedPerSecond: 1
   isOn: 0
-  timeToChargeInSeconds: 8.5
+  timeToChargeInSeconds: 4
   postDebugInformation: 1
-  windDownSound: {fileID: 8300000, guid: 267e7a79ed08b564ba77a9c21f14ca76, type: 3}
+  blastSound: {fileID: 8300000, guid: 1b143f46007adc342822458c7194b17e, type: 3}
   chargedClunk: {fileID: 8300000, guid: a36fcf3b8c200fe48b0cf32f99dc6599, type: 3}
 --- !u!95 &2036611166
 Animator:
@@ -35426,7 +35428,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -6911797784613987812, guid: a4aedd25dff62d74d8b9d292ed0ca5ba,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 94a5fd050da94e74390d911355259ff3, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 7e0deda69449c0c48b2576e5cb9d70ce, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.799
   m_Pitch: 0.59
