@@ -20,6 +20,8 @@ public class TentacleMonsterState : MonsterBaseState
 
     public override void EnterState(MonsterStateManager _monsterStateManager)
     {
+        //tentacleMonster.transform.position = new Vector3(0, 0, 1.839f);
+        anim.SetTrigger("Slitherin");
         AudioManager.instance.StartCoroutine(AudioManager.instance.FadeIn(AudioManager.instance.musicSource2, 7));
         AudioManager.instance.PlayMusic(eMusic.gameplayMusicDanger);
         animTimer = Random.Range(5, 7);
