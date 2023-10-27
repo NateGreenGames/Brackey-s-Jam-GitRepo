@@ -6,6 +6,7 @@ public class MonsterIdleState : MonsterBaseState
 {
     public float attackRate = 0;
     public float attackRateIncrease = 3f;
+    public int monsterIdx;
 
     public override void OnEnable()
     {
@@ -29,13 +30,30 @@ public class MonsterIdleState : MonsterBaseState
         {
             Debug.Log("Start Attack");
             attackRate = 0;
-            //_monsterStateManager.SwitchStates(_monsterStateManager.eyeballState);
-            //_monsterStateManager.SwitchStates(_monsterStateManager.tentacleMonsterState);
-            _monsterStateManager.SwitchStates(_monsterStateManager.wormMonsterState);
+            switch (RandomNumber())
+            {
+                case 1:
+                    _monsterStateManager.SwitchStates(_monsterStateManager.eyeballState);
+                    break;
+                case 2:
+                    _monsterStateManager.SwitchStates(_monsterStateManager.tentacleMonsterState);
+                    break;
+                case 3:
+                    _monsterStateManager.SwitchStates(_monsterStateManager.wormMonsterState);
+                    break;
+                default:
+                    break;
+            }
         }
     }
     public void WaitForAttackSequence()
     {
         attackRate += Time.deltaTime * attackRateIncrease;
+    }
+
+    int RandomNumber()
+    {
+        monsterIdx = Random.Range(1, 4);
+        return monsterIdx;
     }
 }

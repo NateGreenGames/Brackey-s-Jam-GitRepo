@@ -6,8 +6,8 @@ public class WormMonsterState : MonsterBaseState
 {
     [SerializeField] GameObject wormMonster;
     public Animator anim;
+    public AudioSource audioSource;
     public float attackRate;
-    public float swingTime = 0;
     float attackTimer;
     float sfxTimer = 6f;
     public float attackRateIncrease = 3f;
@@ -40,7 +40,7 @@ public class WormMonsterState : MonsterBaseState
     {
         AttackSequenceTimer();
         WardOffMonster();
-        if (attackRate <= swingTime)
+        if (attackRate <= 0)
         {
             anim.SetTrigger("Detach");
             anim.ResetTrigger("Idle");
@@ -52,7 +52,6 @@ public class WormMonsterState : MonsterBaseState
     void TriggerAttackSequence()
     {
         anim.SetTrigger("Attatch");
-        swingTime = Random.Range(0, 60);
         AudioManager.instance.PlaySFX(eSFX.creatureApproach, 0.55f);
     }
 
@@ -82,6 +81,7 @@ public class WormMonsterState : MonsterBaseState
         }
         else if (isBeingWardedOff)
         {
+            //audioSource.Stop();
             anim.SetTrigger("Hurt");
             anim.ResetTrigger("Idle");
         }
@@ -94,6 +94,10 @@ public class WormMonsterState : MonsterBaseState
         //CameraShake.StartScreenShake(0.001f, 1);
         //AudioManager.instance.PlaySFX(eSFX.creatureAttack, 1);
         ProgressionManager.AlterPlayerCourse((GetRandomOffset() * Time.deltaTime));
+        if (!audioSource.isPlaying)
+        {
+            audioSource.Play();
+        }
 
         SubHealthManager.instance.TakeDamage(damagePerAttack * Time.deltaTime);
         if (SubHealthManager.instance.submarineHealth <= 0)
@@ -117,13 +121,5 @@ public class WormMonsterState : MonsterBaseState
         float randomOffset2 = Random.Range(rotationLowEnd, rotationHighEnd);
         float trueRandomOffset = Random.Range(randomOffset1, randomOffset2);
         return trueRandomOffset;
-    }
-
-    private void UpdateLightState(int _Index, bool _state)
-    {
-        if (_Index == 1)
-        {
-            isBeingWardedOff = _state;
-        }
     }
 }
