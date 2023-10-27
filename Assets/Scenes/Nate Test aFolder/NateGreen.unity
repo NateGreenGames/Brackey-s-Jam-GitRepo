@@ -1327,7 +1327,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 224594441}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.0001, z: -0.00124}
+  m_LocalPosition: {x: 0, y: -0.00011, z: -0.00126}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -7680,7 +7680,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62c5e62d1887c53498fe74eeec226a3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  electricityUsedPerSecond: 0.25
+  electricityUsedPerSecond: 0.5
   isOn: 0
   jerryGivesOxygen: 4
   isActive: 0
@@ -8477,8 +8477,8 @@ MonoBehaviour:
   idleState:
     attackRate: 0
     attackRateIncrease: 3
-    monsterIdx: 2
-    rigged: 0
+    monsterIdx: 3
+    rigged: 1
   eyeballState:
     eyeballMonster: {fileID: 1286939076}
     attackRate: 0
@@ -21830,7 +21830,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   electricityUsedPerSecond: 0.125
   isOn: 0
-  movementSpeed: 0.0054
+  movementSpeed: 0.000675
   engineRunningSource: {fileID: 1322787050}
   leverSensitivity: 1.4
 --- !u!95 &1322787053
@@ -22761,11 +22761,11 @@ Rigidbody:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
+  m_ImplicitCom: 0
+  m_ImplicitTensor: 0
   m_UseGravity: 0
   m_IsKinematic: 0
-  m_Interpolate: 1
+  m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 1
 --- !u!64 &1446523954
@@ -35391,7 +35391,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51af846ac56ec06429fd274d23928332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  electricityUsedPerSecond: 0.25
+  electricityUsedPerSecond: 0.5
   isOn: 0
   timeToChargeInSeconds: 4
   postDebugInformation: 1

@@ -35,6 +35,7 @@ public class GameOverAndCompletionController : MonoBehaviour
     {
         yield return StartCoroutine(FadeToBlack(3f));
         AudioManager.instance.StartCoroutine(AudioManager.instance.FadeOut(AudioManager.instance.musicSource1, 7));
+        if(AudioManager.instance.musicSource2.volume > 0) AudioManager.instance.StartCoroutine(AudioManager.instance.FadeOut(AudioManager.instance.musicSource2, 7));
         GameOverWidgetBehavior newWidget = Instantiate(Resources.Load("Widgets/GameOverWidget") as GameObject, canvasTransform).GetComponent<GameOverWidgetBehavior>();
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
@@ -46,7 +47,7 @@ public class GameOverAndCompletionController : MonoBehaviour
     {
         yield return StartCoroutine(FadeToBlack(3f));
         AudioManager.instance.StartCoroutine(AudioManager.instance.FadeOut(AudioManager.instance.musicSource1, 7));
-        //AudioManager.instance.PlaySFX(eSFX.hatch, 1f);
+        if (AudioManager.instance.musicSource2.volume > 0) AudioManager.instance.StartCoroutine(AudioManager.instance.FadeOut(AudioManager.instance.musicSource2, 7));
         Instantiate(Resources.Load("Widgets/WinWidget") as GameObject, canvasTransform);
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;

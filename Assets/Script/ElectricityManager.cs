@@ -28,8 +28,8 @@ public class ElectricityManager : MonoBehaviour
             changeThisTick += -ActiveUsers[i].electricityUsedPerSecond;
             if (postDebugInformation) Debug.Log(ActiveUsers[i].name);
         }
-        ChangeElectricityAmount(changeThisTick * Time.deltaTime);
-        yield return new WaitForEndOfFrame();
+        ChangeElectricityAmount(changeThisTick * Time.fixedDeltaTime);
+        yield return new WaitForFixedUpdate();
         StartCoroutine(OnTick());
     }
 

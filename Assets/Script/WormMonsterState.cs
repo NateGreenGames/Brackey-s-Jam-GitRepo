@@ -43,6 +43,7 @@ public class WormMonsterState : MonsterBaseState
         WardOffMonster();
         if (attackRate <= 0)
         {
+            audioSource.Stop();
             anim.SetTrigger("Detach");
             anim.ResetTrigger("Idle");
             anim.ResetTrigger("Hurt");
@@ -91,7 +92,6 @@ public class WormMonsterState : MonsterBaseState
         }
         else if (isBeingWardedOff)
         {
-            audioSource.Stop();
             anim.SetTrigger("Hurt");
             anim.ResetTrigger("Idle");
         }

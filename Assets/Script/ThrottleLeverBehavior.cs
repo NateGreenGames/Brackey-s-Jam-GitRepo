@@ -15,13 +15,17 @@ public class ThrottleLevelBehavior : ElectricityUser, IInteractable
         m_anim = GetComponent<Animator>();
         isOn = false;
     }
-    void Update()
+
+
+    private void FixedUpdate()
     {
         if (isOn)
         {
-            ProgressionManager.MoveSubmarine(movementSpeed * Time.deltaTime);
-            Debug.Log(movementSpeed * Time.deltaTime);
+            ProgressionManager.MoveSubmarine(movementSpeed * Time.fixedDeltaTime);
         }
+    }
+    void Update()
+    {
 
         if (isOn && !engineRunningSource.isPlaying)
         {
