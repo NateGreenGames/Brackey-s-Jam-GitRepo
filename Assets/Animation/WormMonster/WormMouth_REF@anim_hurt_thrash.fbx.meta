@@ -1,19 +1,9 @@
 fileFormatVersion: 2
-guid: 892f33b22bd2eeb498bca3b6c2d68df7
+guid: 90fc01ab3ef6c6b41bd4c208af150ffb
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: TP_WormBase
-    second: {fileID: 2100000, guid: 9aabf3cf14b62d7458152344fdeb9342, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: TP_WormTeeth
-    second: {fileID: 2100000, guid: aba47305280fcb6468e0afb956881e95, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -41,7 +31,36 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: anim_hurt_thrash
+      takeName: Take 001
+      internalID: 1827226128182048838
+      firstFrame: 0
+      lastFrame: 35
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 0
   meshes:
     lODScreenPercentages: []
@@ -87,14 +106,7 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  referencedClips:
-  - af8196f38645a1e4da9048724bbc2f70
-  - db9513d742c27ee4788ea2785a3a5657
-  - 8a1ca1017c5e2784da9a3598ec555558
-  - cf08bcd75b7a4cb45865ec2ec1ac4d2f
-  - f1796230bf1e6824ebf8bea4a4fa6fb0
-  - 90fc01ab3ef6c6b41bd4c208af150ffb
-  - b58627d3000eb1542a68af50c7e6a326
+  referencedClips: []
   importAnimation: 1
   humanDescription:
     serializedVersion: 3
