@@ -50,7 +50,10 @@ public class WormMonsterState : MonsterBaseState
             _monsterStateManager.SwitchStates(_monsterStateManager.idleState);
         }
     }
-
+    public override void Enrage(MonsterStateManager _monsterStateManager)
+    {
+        damagePerAttack = 100;
+    }
     void TriggerAttackSequence()
     {
         anim.SetTrigger("Attatch");

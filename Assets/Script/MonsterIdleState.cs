@@ -47,6 +47,12 @@ public class MonsterIdleState : MonsterBaseState
             }
         }
     }
+
+    public override void Enrage(MonsterStateManager _monsterStateManager)
+    {
+        _monsterStateManager.SwitchStates(_monsterStateManager.tentacleMonsterState);
+        _monsterStateManager.tentacleMonsterState.Enrage(_monsterStateManager);
+    }
     public void WaitForAttackSequence()
     {
         attackRate += Time.deltaTime * attackRateIncrease;

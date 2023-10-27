@@ -17,6 +17,7 @@ public class FuseBox : MonoBehaviour
     public int valueToOverload;
 
     public bool postDebugInfo;
+    public MonsterStateManager monsterManager;
     //public List<GameObject> tests; 
     private void Awake()
     {
@@ -101,7 +102,7 @@ public class FuseBox : MonoBehaviour
     public void RunOutOfPower()
     {
         Overload();
-        MonsterManager.mM.Enrage();
-        
+        monsterManager.Enrage();
+
     }
 }

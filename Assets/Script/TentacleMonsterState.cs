@@ -54,6 +54,10 @@ public class TentacleMonsterState : MonsterBaseState
         }
     }
 
+    public override void Enrage(MonsterStateManager _monsterStateManager)
+    {
+        damagePerAttack = 100;
+    }
     void TriggerAttackSequence()
     {
         anim.SetTrigger("Idle");
