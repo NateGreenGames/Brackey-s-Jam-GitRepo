@@ -53,7 +53,7 @@ public class ButtonBehavior : MonoBehaviour, IInteractable
     public void OnOverloadReset()
     {
         AudioManager.instance.PlaySFX(eSFX.buttonClick, .25f);
-        if (isRockerSwitch) m_Anim.SetTrigger("Flip");
+        if (isRockerSwitch && isOn) m_Anim.SetTrigger("Flip");
         isOn = false;
     }
     public void OnInteract()
