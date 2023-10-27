@@ -3,7 +3,17 @@ guid: 892f33b22bd2eeb498bca3b6c2d68df7
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TP_WormBase
+    second: {fileID: 2100000, guid: 9aabf3cf14b62d7458152344fdeb9342, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TP_WormTeeth
+    second: {fileID: 2100000, guid: aba47305280fcb6468e0afb956881e95, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
