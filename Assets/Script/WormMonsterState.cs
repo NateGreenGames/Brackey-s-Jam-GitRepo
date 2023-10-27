@@ -45,6 +45,7 @@ public class WormMonsterState : MonsterBaseState
         {
             anim.SetTrigger("Detach");
             anim.ResetTrigger("Idle");
+            anim.ResetTrigger("Hurt");
             AudioManager.instance.StartCoroutine(AudioManager.instance.FadeOut(AudioManager.instance.musicSource2, 7));
             _monsterStateManager.SwitchStates(_monsterStateManager.idleState);
         }
@@ -89,7 +90,7 @@ public class WormMonsterState : MonsterBaseState
         {
             audioSource.Stop();
             anim.SetTrigger("Hurt");
-            anim.ResetTrigger("Idle");
+            //anim.ResetTrigger("Idle");
         }
         attackRate -= wardOffRate * Time.deltaTime;
         //SFXTimer();
