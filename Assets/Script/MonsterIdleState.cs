@@ -30,7 +30,8 @@ public class MonsterIdleState : MonsterBaseState
             Debug.Log("Start Attack");
             attackRate = 0;
             //_monsterStateManager.SwitchStates(_monsterStateManager.eyeballState);
-            _monsterStateManager.SwitchStates(_monsterStateManager.tentacleMonsterState);
+            //_monsterStateManager.SwitchStates(_monsterStateManager.tentacleMonsterState);
+            _monsterStateManager.SwitchStates(_monsterStateManager.wormMonsterState);
         }
     }
     public void WaitForAttackSequence()
