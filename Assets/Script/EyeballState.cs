@@ -21,11 +21,13 @@ public class EyeballState : MonsterBaseState
     public override void OnEnable()
     {
         ButtonBehavior.buttonEvent += UpdateLightState;
+        FuseBox.OnOverload += OnOverload;
     }
 
     public override void OnDisable()
     {
         ButtonBehavior.buttonEvent -= UpdateLightState;
+        FuseBox.OnOverload -= OnOverload;
     }
 
     public override void EnterState(MonsterStateManager _monsterStateManager)
@@ -100,7 +102,7 @@ public class EyeballState : MonsterBaseState
     {
         CameraShake.StartScreenShake(0.001f, 1);
         AudioManager.instance.PlaySFX(eSFX.creatureAttack, 1);
-        ProgressionManager.AlterPlayerCourse((GetRandomOffset() * Time.deltaTime));
+        ProgressionManager.AlterPlayerCourse((GetRandomOffset()));
 
         SubHealthManager.instance.TakeDamage(damagePerAttack);
         if (SubHealthManager.instance.submarineHealth <= 0)
@@ -132,5 +134,10 @@ public class EyeballState : MonsterBaseState
         {
             isBeingWardedOff = _state;
         }
+    }
+
+    private void OnOverload()
+    {
+        isBeingWardedOff = false;
     }
 }

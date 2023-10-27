@@ -8033,7 +8033,7 @@ MonoBehaviour:
   idleState:
     attackRate: 0
     attackRateIncrease: 3
-    monsterIdx: 2
+    monsterIdx: 1
     rigged: 1
   eyeballState:
     eyeballMonster: {fileID: 110331709}
@@ -8042,8 +8042,8 @@ MonoBehaviour:
     attackRateIncrease: 3
     damagePerAttack: 1.5
     wardOffRate: 6
-    rotationLowEnd: 0
-    rotationHighEnd: 0
+    rotationLowEnd: -100
+    rotationHighEnd: 100
     isBeingWardedOff: 0
     anim: {fileID: 110331708}
   tentacleMonsterState:
