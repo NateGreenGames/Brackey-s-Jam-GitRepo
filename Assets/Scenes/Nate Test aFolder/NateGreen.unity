@@ -8478,7 +8478,7 @@ MonoBehaviour:
     attackRate: 0
     attackRateIncrease: 3
     monsterIdx: 3
-    rigged: 1
+    rigged: 0
   eyeballState:
     eyeballMonster: {fileID: 1286939076}
     attackRate: 0
@@ -9568,7 +9568,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 691ea97aeff898845b4615175d67022f, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.145
+  m_Volume: 0.7
   m_Pitch: -0.49
   Loop: 1
   Mute: 0
@@ -34705,7 +34705,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: e989eadc15292954681faf6afb810bb6, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.041
+  m_Volume: 1
   m_Pitch: -0.49
   Loop: 1
   Mute: 0
