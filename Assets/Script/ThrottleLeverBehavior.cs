@@ -9,11 +9,15 @@ public class ThrottleLevelBehavior : ElectricityUser, IInteractable
     [SerializeField] AudioSource engineRunningSource;
     [SerializeField] float leverSensitivity;
     private Animator m_anim;
+
+    [SerializeField][ColorUsage(false, true)] Color middleColor, descendingColor;
+    [SerializeField] private Material m_mat;
     void Start()
     {
         isInteractable = true;
         m_anim = GetComponent<Animator>();
         isOn = false;
+        m_mat.SetColor("_EmissionColor", middleColor);
     }
 
 
@@ -61,10 +65,12 @@ public class ThrottleLevelBehavior : ElectricityUser, IInteractable
         if (_state)
         {
             m_anim.SetTrigger("Down");
+            m_mat.SetColor("_EmissionColor", descendingColor);
         }
         else
         {
             m_anim.SetTrigger("Up");
+            m_mat.SetColor("_EmissionColor", middleColor);
         }
     }
 
