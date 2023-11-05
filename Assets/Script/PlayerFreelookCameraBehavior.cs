@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using UnityEngine.UI;
 public class PlayerFreelookCameraBehavior : MonoBehaviour
 {
     // Variables
@@ -18,6 +19,7 @@ public class PlayerFreelookCameraBehavior : MonoBehaviour
     [Header("Interaction Settings:")]
     [SerializeField] float maxInteractionDistance;
     [SerializeField] LayerMask interactionMask;
+    [SerializeField] HUDReticleController HUDReticle;
 
     [Space]
     [Header("Zoom Settings:")]
@@ -72,6 +74,7 @@ public class PlayerFreelookCameraBehavior : MonoBehaviour
         {
             if (hitInfo.collider.TryGetComponent<IInteractable>(out IInteractable interactable) && interactable.isInteractable)
             {
+                HUDReticle.UpdateReticleState(true);
                 interactable.OnLookingAt();
                 if (Input.GetMouseButtonDown(0))
                 {
@@ -85,6 +88,10 @@ public class PlayerFreelookCameraBehavior : MonoBehaviour
                 {
                     interactable.OnInteractEnd();
                 }
+            }
+            else
+            {
+                HUDReticle.UpdateReticleState(false);
             }
         }
     }
