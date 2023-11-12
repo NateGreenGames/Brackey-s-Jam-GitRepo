@@ -37,7 +37,7 @@ public class JerryBehavior : ElectricityUser
             base.ChangeActiveState(_info, _state);
 
             isActive = _state;
-            Debug.Log("Jerry is Mad");
+            //Debug.Log("Jerry is Mad");
             StartCoroutine(KissJerry(jerryGivesOxygen));
         }
     }
@@ -47,7 +47,7 @@ public class JerryBehavior : ElectricityUser
         base.OnOverload();
 
         isActive = false;
-        Debug.Log("Jerry is Mad");
+        //Debug.Log("Jerry is Mad");
         StartCoroutine(KissJerry(jerryGivesOxygen));
     }
 
@@ -84,11 +84,11 @@ public class JerryBehavior : ElectricityUser
                 //SOUND EFFECT?
             }
             OxygenManagement.ChangeOxygenAmount(jerryGivesOxygen * Time.deltaTime);
-            Debug.Log("Kissing Jerry");
+            //Debug.Log("Kissing Jerry");
         }
         jerryOverflowSource.Stop();
         jerryWorkingSource.Stop();
-        Debug.Log("Not Kissing Jerry :(");
+        //Debug.Log("Not Kissing Jerry :(");
         yield return null;
     }
 }

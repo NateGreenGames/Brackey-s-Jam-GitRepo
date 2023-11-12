@@ -5,6 +5,7 @@ using UnityEngine;
 public class MonsterStateManager : MonoBehaviour
 {
     public MonsterBaseState currentState;
+    public IntroState introState = new IntroState();
     public MonsterIdleState idleState = new MonsterIdleState();
     public EyeballState eyeballState = new EyeballState();
     public TentacleMonsterState tentacleMonsterState = new TentacleMonsterState();
@@ -29,7 +30,7 @@ public class MonsterStateManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentState = idleState; //Sets initial state to idle
+        currentState = introState; //Sets initial state to intro
         currentState.EnterState(this); //Calls EnterState function over in MonsterIdleState script
     }
 

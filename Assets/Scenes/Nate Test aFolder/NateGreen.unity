@@ -8665,6 +8665,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b88c6dcb8bfe8f547ac623d1044915c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  introState:
+    breathingRoom: 30
   idleState:
     attackRate: 0
     attackRateIncrease: 3
