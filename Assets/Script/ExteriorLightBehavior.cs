@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ExteriorLightBehavior : ElectricityUser
 {
-    [SerializeField] private Light outsideLight;
+    [SerializeField] private Light[] outsideLights;
 
     private void OnEnable()
     {
@@ -39,7 +39,10 @@ public class ExteriorLightBehavior : ElectricityUser
         {
             base.ChangeActiveState(_info, _state);
 
-            outsideLight.enabled = isOn;
+            foreach(Light light in outsideLights)
+            {
+                light.enabled = isOn;
+            }
         }
     }
 
@@ -48,7 +51,10 @@ public class ExteriorLightBehavior : ElectricityUser
     {
         base.OnOverload();
 
-        outsideLight.enabled = isOn;
+        foreach (Light light in outsideLights)
+        {
+            light.enabled = isOn;
+        }
 
     }
 }

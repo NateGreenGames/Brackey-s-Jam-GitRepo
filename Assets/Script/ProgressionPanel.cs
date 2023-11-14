@@ -6,6 +6,8 @@ public class ProgressionPanel : MonoBehaviour
 {
     [SerializeField] float blinksPerSecond;
     [SerializeField] private bool postDebugInformation;
+    [SerializeField] Color surfaceWaterColor, bottomWaterColor;
+    [SerializeField] float fullTransitionHeight;
 
     private MeshRenderer m_mr;
 
@@ -58,5 +60,10 @@ public class ProgressionPanel : MonoBehaviour
         {
             if (postDebugInformation) Debug.Log("Ugh.");
         }
+    }
+
+    private void Update()
+    {
+        //Camera.main.backgroundColor = Color.Lerp(surfaceWaterColor, bottomWaterColor, Mathf.InverseLerp(-0.4f, fullTransitionHeight, transform.localPosition.y));
     }
 }

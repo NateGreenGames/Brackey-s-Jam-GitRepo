@@ -3,7 +3,7 @@ using UnityEngine;
 [System.Serializable]
 public class IntroState : MonsterBaseState
 {
-    public float breathingRoom;
+    public float breathingRoomTimer;
 
     public override void Enrage(MonsterStateManager _monsterStateManager)
     {
@@ -28,8 +28,8 @@ public class IntroState : MonsterBaseState
 
     public override void UpdateState(MonsterStateManager _monsterStateManager)
     {
-        breathingRoom -= 1 * Time.deltaTime;
-        if (breathingRoom <= 0)
+        breathingRoomTimer -= Time.deltaTime;
+        if (breathingRoomTimer <= 0)
         {
             _monsterStateManager.SwitchStates(_monsterStateManager.idleState);
         }
