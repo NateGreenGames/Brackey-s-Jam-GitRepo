@@ -28,4 +28,16 @@ public class OptionsMenu : MonoBehaviour
     {
         AudioManager.instance.ChangeSFXVolume(_volume);
     }
+
+    public void ToggleSubtitles(bool _newState)
+    {
+        SubtitleController.hasSubtitles = _newState;
+        Debug.Log(SubtitleController.hasSubtitles);
+    }
+
+    public void UpdateSubtitleLanguage(int _languageIndex)
+    {
+        SubtitleController.language = (eSubtitleLanguage)_languageIndex;
+        Debug.Log(SubtitleController.language);
+    }
 }
