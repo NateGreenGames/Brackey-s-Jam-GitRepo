@@ -10,13 +10,12 @@ public class ShockPlungerBehavior : ElectricityUser, IInteractable
     public bool isInteractable { get; set; }
     public float timeToChargeInSeconds;
     public bool postDebugInformation;
-    public AudioClip blastSound;
-    public AudioClip chargedClunk;
+    [SerializeField] MeshRenderer lightIndicator;
+    [SerializeField] [ColorUsage(false, true)] Color onColor, offColor;
 
     private bool isCharged = false;
     private Animator m_Anim;
     private AudioSource m_Audi;
-    private ParticleSystem m_PS;
 
 
     void Start()
@@ -28,6 +27,17 @@ public class ShockPlungerBehavior : ElectricityUser, IInteractable
     public override void ChangeActiveState(bool _state)
     {
         base.ChangeActiveState(_state);
+
+        m_Anim.SetTrigger("Toggle");
+        AudioManager.instance.PlaySFX(eSFX.leverPushPull, 0.2f);
+        if (isOn)
+        {
+            lightIndicator.material.SetColor("_EmissionColor", onColor);
+        }
+        else
+        {
+            lightIndicator.material.SetColor("_EmissionColor", offColor);
+        }
     }
 
     public override void OnOverload()
@@ -65,21 +75,17 @@ public class ShockPlungerBehavior : ElectricityUser, IInteractable
         {
             if (Input.GetAxis("Mouse Y") < 0 && !isOn)
             {
-                m_Anim.SetTrigger("Toggle");
                 ChangeActiveState(true);
-                AudioManager.instance.PlaySFX(eSFX.leverPushPull, 0.2f);
                 StartCoroutine(ChargeUpRoutine());
                 break;
             }
             else if (Input.GetAxis("Mouse Y") > 0 && isOn)
             {
-                m_Anim.SetTrigger("Toggle");
                 ChangeActiveState(false);
-                AudioManager.instance.PlaySFX(eSFX.leverPushPull, 0.2f);
                 if (isCharged)
                 {
                     onShock?.Invoke();
-                    m_Audi.PlayOneShot(blastSound);
+                    AudioManager.instance.PlaySFX(eSFX.plungerShock, 1f);
                     isCharged = false;
                 }
                 break;
@@ -115,7 +121,7 @@ public class ShockPlungerBehavior : ElectricityUser, IInteractable
         if(postDebugInformation) Debug.Log("Charging Complete");
         isCharged = true;
         m_Audi.Stop();
-        m_Audi.PlayOneShot(chargedClunk);
+        AudioManager.instance.PlaySFX(eSFX.plungerLockedIn, 1f);
     }
 
 }

@@ -44,7 +44,6 @@ public class ButtonBehavior : MonoBehaviour, IInteractable
     public void ToggleButtonState(int _idx)
     {
         AudioManager.instance.PlaySFX(eSFX.buttonClick, .25f);
-        SubtitleController.CreateNewSubtitle(eSFX.buttonClick, 1f);
         if (FuseBox.instance.isOverloaded) return;
         if (isRockerSwitch) m_Anim.SetTrigger("Flip");
         isOn = !isOn;

@@ -89,19 +89,16 @@ public class ThrottleLevelBehavior : ElectricityUser, IInteractable
             {
                 m_anim.SetTrigger("Down");
                 ChangeActiveState(true);
-                AudioManager.instance.PlaySFX(eSFX.leverPushPull, 0.2f);
                 break;
             }else if (Input.GetAxis("Mouse Y") > 0 && !isOn)
             {
                 m_anim.SetTrigger("Bump");
-                AudioManager.instance.PlaySFX(eSFX.leverBump, 1f);
                 break;
             }
             else if (Input.GetAxis("Mouse Y") > 0 && isOn)
             {
                 m_anim.SetTrigger("Up");
                 ChangeActiveState(false);
-                AudioManager.instance.PlaySFX(eSFX.leverPushPull, 0.2f);
                 break;
             }
             yield return new WaitForEndOfFrame();

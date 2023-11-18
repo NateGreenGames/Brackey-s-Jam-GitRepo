@@ -13,7 +13,7 @@ public enum eSFX
     buttonClick, leverPushPull, airHiss, pipeBurst, fusePop, fuseExplode, fuseClunk, lightOn, lightOff, 
     engineOn, engineOff, powerWarning, waterMovement, powerOff, powerOn, hullHit, hullWane, creatureAttack, 
     creatureFlee, creatureApproach, creatureSqueel, leverBump, crush, suffocation, hatchOpen, valvesqueek1, 
-    valvesqueek2, valvesqueek3, none
+    valvesqueek2, valvesqueek3, plungerShock, plungerLockedIn, none
 }
 
 public enum eMusic { titleMusic, gameplayMusicCalm, gameplayMusicDanger, none }
@@ -147,9 +147,14 @@ public class AudioManager : MonoBehaviour
     {
         //Debug.Log("Playing " + sfx[(int)_sfx]);
         if (sfx[(int)_sfx] != null)
+        {
             sfxSource.PlayOneShot(sfx[(int)_sfx], volume);
+            SubtitleController.CreateNewSubtitle(_sfx, 1f);
+        }
         else
+        {
             Debug.LogWarning(_sfx.ToString() + " sound effect still needs a clip");
+        }
     }
 
     public void PlayAudioAtPoint(Transform _pointToPlay, eSFX _sfx)
