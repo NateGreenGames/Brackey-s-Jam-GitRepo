@@ -9,6 +9,7 @@ public class JerryBehavior : ElectricityUser
     public Material[] lightMaterial;
     [SerializeField] AudioSource jerryWorkingSource, jerryOverflowSource;
     [SerializeField] OxygenGuageBehavior guageBehavior;
+    [SerializeField] ParticleSystem airOverflowParticles;
 
 
     private void OnEnable()
@@ -19,17 +20,7 @@ public class JerryBehavior : ElectricityUser
     {
         ButtonBehavior.buttonEvent -= ChangeActiveState;
     }
-    private void Start()
-    {
-        if (!guageBehavior)
-        {
-            GameObject _guage = GameObject.Find("TP_OxygenGaugeArrow");
-            if (_guage != null)
-            {
-                guageBehavior = _guage.GetComponent<OxygenGuageBehavior>();
-            }
-        }
-    }
+
     public override void ChangeActiveState(int _info, bool _state)
     {
         if(_info == 2)
@@ -69,11 +60,13 @@ public class JerryBehavior : ElectricityUser
             {
                 jerryWorkingSource.Play();
                 jerryOverflowSource.Stop();
+                airOverflowParticles.Stop();
             }
             else if(!jerryOverflowSource.isPlaying && guageBehavior.oxygenPercentage >= 100)
             {
                 jerryWorkingSource.Stop();
                 jerryOverflowSource.Play();
+                airOverflowParticles.Play();
             }
 
 
@@ -88,6 +81,7 @@ public class JerryBehavior : ElectricityUser
         }
         jerryOverflowSource.Stop();
         jerryWorkingSource.Stop();
+        airOverflowParticles.Stop();
         //Debug.Log("Not Kissing Jerry :(");
         yield return null;
     }
