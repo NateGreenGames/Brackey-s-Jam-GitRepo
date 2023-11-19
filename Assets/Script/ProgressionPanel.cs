@@ -4,17 +4,12 @@ using UnityEngine;
 
 public class ProgressionPanel : MonoBehaviour
 {
-    [SerializeField] float blinksPerSecond;
     [SerializeField] private bool postDebugInformation;
-    [SerializeField] Color surfaceWaterColor, bottomWaterColor;
-    [SerializeField] float fullTransitionHeight;
-
-    private MeshRenderer m_mr;
+    //[SerializeField] Color surfaceWaterColor, bottomWaterColor;
+    //[SerializeField] float fullTransitionHeight;
 
     private void OnEnable()
     {
-        if(m_mr == null) m_mr = GetComponent<MeshRenderer>();
-        StartCoroutine(BlinkRoutine(true));
         ProgressionManager.onCourseChangeEvent += Rotate;
         ProgressionManager.onMovmentTick += Movement;
     }
@@ -25,12 +20,6 @@ public class ProgressionPanel : MonoBehaviour
         ProgressionManager.onMovmentTick -= Movement;
     }
 
-    private IEnumerator BlinkRoutine(bool _currentState)
-    {
-        m_mr.enabled = _currentState;
-        yield return new WaitForSeconds(1f / blinksPerSecond);
-        StartCoroutine(BlinkRoutine(!_currentState));
-    }
     void Movement(float _magnitudeOfMovement)
     {
         transform.position = transform.position + (-transform.up.normalized * _magnitudeOfMovement);
