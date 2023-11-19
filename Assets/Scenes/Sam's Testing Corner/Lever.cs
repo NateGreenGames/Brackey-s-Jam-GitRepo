@@ -32,7 +32,7 @@ public class Lever : MonoBehaviour, IInteractable
         //None
     }
 
-    public void OnInteractHeld()
+    public void OnInteractHeld(Vector3 _contactPoint)
     {
         //NONE
     }

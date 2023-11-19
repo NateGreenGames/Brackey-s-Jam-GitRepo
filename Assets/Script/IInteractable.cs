@@ -9,7 +9,7 @@ public interface IInteractable
 {
     bool isInteractable {get; set;}
     void OnInteract();
-    void OnInteractHeld();
+    void OnInteractHeld(Vector3 _contactPoint);
     void OnLookingAt();
 
     void OnInteractEnd();

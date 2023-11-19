@@ -59,7 +59,7 @@ public class ShockPlungerBehavior : ElectricityUser, IInteractable
         //Do nothing
     }
 
-    public void OnInteractHeld()
+    public void OnInteractHeld(Vector3 _contactPoint)
     {
         //Do nothing
     }

@@ -4758,7 +4758,7 @@ ParticleSystem:
         m_RotationOrder: 4
     separateAxes: 0
   ColorModule:
-    enabled: 0
+    enabled: 1
     gradient:
       serializedVersion: 2
       minMaxState: 1
@@ -4767,8 +4767,8 @@ ParticleSystem:
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
-        key1: {r: 1, g: 1, b: 1, a: 1}
-        key2: {r: 0, g: 0, b: 0, a: 0}
+        key1: {r: 1, g: 1, b: 1, a: 0}
+        key2: {r: 0, g: 0, b: 0, a: 1}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
@@ -4783,17 +4783,17 @@ ParticleSystem:
         ctime6: 0
         ctime7: 0
         atime0: 0
-        atime1: 65535
-        atime2: 0
+        atime1: 64764
+        atime2: 65535
         atime3: 0
         atime4: 0
         atime5: 0
         atime6: 0
         atime7: 0
         m_Mode: 0
-        m_ColorSpace: -1
+        m_ColorSpace: 0
         m_NumColorKeys: 2
-        m_NumAlphaKeys: 2
+        m_NumAlphaKeys: 3
       minGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -15983,6 +15983,7 @@ MonoBehaviour:
   stage: 0
   airCannonPower: 2
   oxygenUsedPerSecond: 0.25
+  m_Part: {fileID: 1013442478}
 --- !u!82 &949667966
 AudioSource:
   m_ObjectHideFlags: 0
@@ -16117,12 +16118,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1013442478}
-  m_LocalRotation: {x: 0.12223978, y: 0.62713313, z: -0.23069571, w: 0.7338536}
-  m_LocalPosition: {x: 0.10879541, y: -0.015203017, z: 0.059646137}
-  m_LocalScale: {x: 0.04088741, y: 0.04088741, z: 0.04088741}
+  m_LocalRotation: {x: -0.26660106, y: -0, z: 0.000000014901159, w: 0.963807}
+  m_LocalPosition: {x: -0.35196802, y: 0.19800532, z: 0.39663738}
+  m_LocalScale: {x: 0.02025134, y: 0.020251341, z: 0.020251341}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 949667958}
+  m_Father: {fileID: 1450885876}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: -30.924, y: 0, z: 0}
 --- !u!199 &1013442480
@@ -16214,7 +16215,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 1
   prewarm: 0
-  playOnAwake: 0
+  playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -16451,7 +16452,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5.19
+      scalar: 0
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -17034,7 +17035,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 28.1
+      scalar: 100
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -17464,7 +17465,7 @@ ParticleSystem:
         m_RotationOrder: 4
     separateAxes: 0
   ColorModule:
-    enabled: 0
+    enabled: 1
     gradient:
       serializedVersion: 2
       minMaxState: 1
@@ -17473,7 +17474,7 @@ ParticleSystem:
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
-        key1: {r: 1, g: 1, b: 1, a: 1}
+        key1: {r: 1, g: 1, b: 1, a: 0}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -17497,7 +17498,7 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
-        m_ColorSpace: -1
+        m_ColorSpace: 0
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
       minGradient:
@@ -28330,6 +28331,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 204094006}
+  - {fileID: 1013442479}
   - {fileID: 949667958}
   - {fileID: 149608784}
   - {fileID: 532148553}
@@ -40760,11 +40762,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: c5bfbdf3095aaeb4696f8293e98de69d,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1013442479}
+    m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c5bfbdf3095aaeb4696f8293e98de69d,
         type: 3}

@@ -10,7 +10,9 @@ public class AirCannonValve : MonoBehaviour, IInteractable
     [SerializeField][Range(0, 5)] private int stage;
     [SerializeField] private float airCannonPower;
     [SerializeField] private float oxygenUsedPerSecond;
+    [SerializeField] private GameObject m_Part;
 
+    private ParticleSystem.MainModule particalMain;
     private Animator m_anim;
     private AudioSource m_audi;
     public bool isInteractable { get; set; }
@@ -25,7 +27,7 @@ public class AirCannonValve : MonoBehaviour, IInteractable
         //Do nothing
     }
 
-    public void OnInteractHeld()
+    public void OnInteractHeld(Vector3 _contactPoint)
     {
         //Do nothing
     }
@@ -41,6 +43,7 @@ public class AirCannonValve : MonoBehaviour, IInteractable
         isInteractable = true;
         m_anim = GetComponent<Animator>();
         m_audi = GetComponent<AudioSource>();
+        particalMain = m_Part.GetComponent<ParticleSystem>().main;
     }
 
     void Update()
@@ -68,6 +71,7 @@ public class AirCannonValve : MonoBehaviour, IInteractable
             if (Input.GetAxis("Mouse X") < 0 && stage < 5)
             {
                 stage++;
+                particalMain.startSize = stage;
                 PlayRandomSqueek();
                 m_anim.SetInteger("State", stage);
                 break;
@@ -75,6 +79,7 @@ public class AirCannonValve : MonoBehaviour, IInteractable
             else if (Input.GetAxis("Mouse X") > 0 && stage > 0)
             {
                 stage--;
+                particalMain.startSize = stage;
                 PlayRandomSqueek();
                 m_anim.SetInteger("State", stage);
                 break;

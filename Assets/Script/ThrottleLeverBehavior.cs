@@ -50,7 +50,7 @@ public class ThrottleLevelBehavior : ElectricityUser, IInteractable
     {
     }
 
-    public void OnInteractHeld()
+    public void OnInteractHeld(Vector3 _contactPoint)
     {
     }
 

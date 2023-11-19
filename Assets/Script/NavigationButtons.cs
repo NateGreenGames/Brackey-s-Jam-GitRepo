@@ -18,7 +18,7 @@ public class NavigationButtons : ElectricityUser, IInteractable
         isInteractable = true;
     }
  
-    public void OnInteractHeld()
+    public void OnInteractHeld(Vector3 _contactPoint)
     {
         //Do Nothing;
     }
