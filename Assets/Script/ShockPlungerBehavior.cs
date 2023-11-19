@@ -30,14 +30,6 @@ public class ShockPlungerBehavior : ElectricityUser, IInteractable
 
         m_Anim.SetTrigger("Toggle");
         AudioManager.instance.PlaySFX(eSFX.leverPushPull, 0.2f);
-        if (isOn)
-        {
-            lightIndicator.material.SetColor("_EmissionColor", onColor);
-        }
-        else
-        {
-            lightIndicator.material.SetColor("_EmissionColor", offColor);
-        }
     }
 
     public override void OnOverload()
@@ -84,6 +76,7 @@ public class ShockPlungerBehavior : ElectricityUser, IInteractable
                 ChangeActiveState(false);
                 if (isCharged)
                 {
+                    lightIndicator.material.SetColor("_EmissionColor", offColor);
                     onShock?.Invoke();
                     AudioManager.instance.PlaySFX(eSFX.plungerShock, 1f);
                     isCharged = false;
@@ -120,6 +113,7 @@ public class ShockPlungerBehavior : ElectricityUser, IInteractable
         //End charging effects
         if(postDebugInformation) Debug.Log("Charging Complete");
         isCharged = true;
+        lightIndicator.material.SetColor("_EmissionColor", onColor);
         m_Audi.Stop();
         AudioManager.instance.PlaySFX(eSFX.plungerLockedIn, 1f);
     }

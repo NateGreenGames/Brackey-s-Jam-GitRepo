@@ -42,9 +42,12 @@ public class PlayerFreelookCameraBehavior : MonoBehaviour
 
     void Update()
     {
-        PerformCameraRotation();
-        WhileLooking();
-        Zoom();
+        if(Time.timeScale > 0)
+        {
+            PerformCameraRotation();
+            WhileLooking();
+            Zoom();
+        }
     }
 
     private void PerformCameraRotation()
