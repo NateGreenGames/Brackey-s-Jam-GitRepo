@@ -80,6 +80,7 @@ public class ThrottleLevelBehavior : ElectricityUser, IInteractable
 
         AudioManager.instance.PlaySFX(eSFX.leverPushPull, 0.2f);
         m_anim.SetTrigger("Up");
+        m_mat.SetColor("_EmissionColor", middleColor);
     }
     public IEnumerator HoldingDownLever()
     {

@@ -38,6 +38,7 @@ public class ShockPlungerBehavior : ElectricityUser, IInteractable
         m_Anim.SetTrigger("Toggle");
         ChangeActiveState(false);
         AudioManager.instance.PlaySFX(eSFX.leverPushPull, 0.2f);
+        lightIndicator.material.SetColor("_EmissionColor", offColor);
         isCharged = false;
     }
     public void OnInteract()
