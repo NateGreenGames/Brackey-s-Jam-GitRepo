@@ -2922,7 +2922,6 @@ RectTransform:
   m_Children:
   - {fileID: 1475635382}
   - {fileID: 387262662}
-  - {fileID: 639183230}
   - {fileID: 641941110}
   m_Father: {fileID: 0}
   m_RootOrder: 7
@@ -8454,13 +8453,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 639183229}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1346369778}
-  m_Father: {fileID: 456888538}
+  m_Father: {fileID: 641941110}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -8626,6 +8625,12 @@ PrefabInstance:
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4467979479925867345, guid: 1b62d90a6cd4be342a8e76e10d170829,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 340d0a5c6887ee74f9ca9f3abe265357,
+        type: 3}
     - target: {fileID: 5509130266588344515, guid: 1b62d90a6cd4be342a8e76e10d170829,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -8788,7 +8793,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 8641401071970017989, guid: 1b62d90a6cd4be342a8e76e10d170829,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 639183230}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b62d90a6cd4be342a8e76e10d170829, type: 3}
 --- !u!1 &641941109 stripped
