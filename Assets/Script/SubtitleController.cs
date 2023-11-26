@@ -5,6 +5,8 @@ public enum eSubtitleLanguage {English, Spanish };
 public class SubtitleController : MonoBehaviour
 {
     public delegate void subtitleInformation(eSFX _sound, float _subtitleDuration);
+    public delegate void stringSubtitle(string _text, float _duration);
+    public static event stringSubtitle textSubtitleEvent;
     public static event subtitleInformation subtitleEvent;
 
     public static eSubtitleLanguage language;
@@ -15,17 +17,37 @@ public class SubtitleController : MonoBehaviour
     private void OnEnable()
     {
         subtitleEvent += SpawnSubtitle;
+        textSubtitleEvent += SpawnSubtitle;
     }
 
     private void OnDisable()
     {
         subtitleEvent -= SpawnSubtitle;
+        textSubtitleEvent -= SpawnSubtitle;
     }
     public static void CreateNewSubtitle(eSFX _sound, float _subtitleDuration)
     {
         subtitleEvent?.Invoke(_sound, _subtitleDuration);
     }
+    public static void CreateNewSubtitle(string _text, float _subtitleDuration)
+    {
+        textSubtitleEvent?.Invoke(_text, _subtitleDuration);
+    }
 
+
+    private void SpawnSubtitle(string _text, float _subtitleDuration)
+    {
+        if (!hasSubtitles) return;
+
+        if (_text == "")
+        {
+            Debug.Log($"No string passed into spawn subtitle, aborting...");
+            return;
+        }
+
+        SubtitleWidget newWidget = Instantiate(subtitlePrefab, this.transform).GetComponent<SubtitleWidget>();
+        newWidget.Init(_text, _subtitleDuration);
+    }
     private void SpawnSubtitle(eSFX _sound, float _subtitleDuration)
     {
         if (!hasSubtitles) return;
