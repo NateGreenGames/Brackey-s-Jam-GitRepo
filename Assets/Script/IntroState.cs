@@ -14,7 +14,7 @@ public class IntroState : MonsterBaseState
     {
         //PLAY VOICE OVER
         Debug.Log("Intro Clip Plays");
-        IntroClipSubManager.introInstance.GenerateSubtitles(0);
+        IntroClipSubManager.introInstance.StartCoroutine(IntroClipSubManager.introInstance.GenerateSubtitles());
     }
 
     public override void OnDisable()
