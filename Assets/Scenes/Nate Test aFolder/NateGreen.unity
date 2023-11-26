@@ -2479,9 +2479,9 @@ MonoBehaviour:
   - englishTranslation: 
     spanishTranslation: 
   - englishTranslation: '[Button Click]'
-    spanishTranslation: '[El Button Clicko]'
+    spanishTranslation: '[Clic]'
   - englishTranslation: '[Lever Clunks]'
-    spanishTranslation: 
+    spanishTranslation: '[Sonido De Palanca]'
   - englishTranslation: 
     spanishTranslation: 
   - englishTranslation: 
@@ -2505,39 +2505,39 @@ MonoBehaviour:
   - englishTranslation: 
     spanishTranslation: 
   - englishTranslation: '[Fuse Pop]'
-    spanishTranslation: 
+    spanishTranslation: '[Estallido De Fusible]'
   - englishTranslation: '[Power Hum]'
-    spanishTranslation: 
+    spanishTranslation: "[Zumbido el\xE9ctrico]"
   - englishTranslation: 
     spanishTranslation: 
   - englishTranslation: 
     spanishTranslation: 
   - englishTranslation: '[Slam]'
-    spanishTranslation: 
+    spanishTranslation: '[Slam]'
   - englishTranslation: '[Creature Screams]'
-    spanishTranslation: 
+    spanishTranslation: '[Chillido De Criatura]'
   - englishTranslation: '[Creature Approaches]'
-    spanishTranslation: 
+    spanishTranslation: '[La Criatura Se Acerca]'
   - englishTranslation: '[Creature Squeels]'
-    spanishTranslation: 
+    spanishTranslation: '[Chillido De Criatura]'
   - englishTranslation: '[Lever Stuck]'
-    spanishTranslation: 
+    spanishTranslation: '[Palanca Trabada]'
   - englishTranslation: '[Submarine Collapses]'
-    spanishTranslation: 
+    spanishTranslation: '[El Submarino Colapsa]'
   - englishTranslation: '[Gasping For Air]'
-    spanishTranslation: 
+    spanishTranslation: '[Jadeando Por Aire]'
   - englishTranslation: '[Hatch Opens]'
-    spanishTranslation: 
+    spanishTranslation: '[La Escotilla Se Abre]'
   - englishTranslation: '[Valve Squeeks]'
-    spanishTranslation: 
+    spanishTranslation: "[La V\xE1lvula Chirr\xEDa]"
   - englishTranslation: '[Valve Squeeks]'
-    spanishTranslation: 
+    spanishTranslation: "[La V\xE1lvula Chirr\xEDa]"
   - englishTranslation: '[Valve Squeeks]'
-    spanishTranslation: 
+    spanishTranslation: "[La V\xE1lvula Chirr\xEDa]"
   - englishTranslation: '[Electric Burst]'
-    spanishTranslation: 
+    spanishTranslation: "[Estallido El\xE9ctrico]"
   - englishTranslation: '[Metallic Thunk]'
-    spanishTranslation: 
+    spanishTranslation: "[Golpe Met\xE1lico]"
   subtitlePrefab: {fileID: 521627325897994686, guid: 854e652b40f38c94e8220919a483fad6,
     type: 3}
 --- !u!114 &387262664
