@@ -8635,6 +8635,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CFXR Electrified 3 (JNT_03)
       objectReference: {fileID: 0}
+    - target: {fileID: 9027514048236820045, guid: effb650189dc5714e9e9801b1cfb3991,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 496487244642044104, guid: effb650189dc5714e9e9801b1cfb3991, type: 3}
@@ -9270,6 +9275,7 @@ MonoBehaviour:
     rotationHighEnd: 100
     isBeingWardedOff: 0
     isShocked: 0
+    m_PS: []
   wormMonsterState:
     wormMonster: {fileID: 1409611440}
     anim: {fileID: 1409611443}
@@ -28237,7 +28243,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 892f33b22bd2eeb498bca3b6c2d68df7,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1886953268545319247, guid: 892f33b22bd2eeb498bca3b6c2d68df7,
         type: 3}
@@ -29245,6 +29251,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CFXR Electrified 3 (JNT_07)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9027514048236820045, guid: effb650189dc5714e9e9801b1cfb3991,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -42310,7 +42321,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 97c10f5edb11a3246b23feace1645710, type: 3}
   - {fileID: 8300000, guid: 4f02880e92555d1478041ec58bbc82fe, type: 3}
   - {fileID: 8300000, guid: e255260cbaa3cfe4eab2954168973288, type: 3}
-  - {fileID: 8300000, guid: 1b143f46007adc342822458c7194b17e, type: 3}
+  - {fileID: 8300000, guid: 72ec9bd05d6a77740999c496652d340c, type: 3}
   - {fileID: 8300000, guid: a36fcf3b8c200fe48b0cf32f99dc6599, type: 3}
   sfxSource: {fileID: 2065006177}
   musicSource1: {fileID: 2065006176}
@@ -42640,6 +42651,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CFXR Electrified 3 (JNT_10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9027514048236820045, guid: effb650189dc5714e9e9801b1cfb3991,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
