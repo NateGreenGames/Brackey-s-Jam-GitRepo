@@ -18,7 +18,7 @@ public class OxygenGuageBehavior : MonoBehaviour
     void Start()
     {
         oxygenPercentage = 100f;
-        ppVolume.profile.TryGet(out m_vign);
+        //ppVolume.profile.TryGet(out m_vign);
     }
 
     private void OnEnable()
