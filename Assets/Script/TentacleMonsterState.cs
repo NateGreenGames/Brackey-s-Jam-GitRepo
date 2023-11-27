@@ -17,6 +17,7 @@ public class TentacleMonsterState : MonsterBaseState
     public float rotationLowEnd, rotationHighEnd;
     public bool isBeingWardedOff;
     public bool isShocked;
+    [SerializeField] ParticleSystem[] m_PS;
 
     public override void EnterState(MonsterStateManager _monsterStateManager)
     {
@@ -49,6 +50,10 @@ public class TentacleMonsterState : MonsterBaseState
         if (attackRate <= 0)
         {
             anim.SetTrigger("Slitherout");
+            foreach (ParticleSystem system in m_PS)
+            {
+                system.Stop();
+            }
             AudioManager.instance.StartCoroutine(AudioManager.instance.FadeOut(AudioManager.instance.musicSource2, 7));
             _monsterStateManager.SwitchStates(_monsterStateManager.idleState);
         }
@@ -116,13 +121,14 @@ public class TentacleMonsterState : MonsterBaseState
     public void IsShocked()
     {
         Debug.Log("Shocked");
+        foreach (ParticleSystem system in m_PS)
+        {
+            system.Play();
+        }
         isShocked = true;
         attackRate -= wardOffRate;
         anim.SetTrigger("Shocked");
         anim.ResetTrigger("Slapped");
         anim.SetTrigger("Idle");
     }
-
-    
-    
 }

@@ -95,27 +95,22 @@ public class ShockPlungerBehavior : ElectricityUser, IInteractable
 
         float chargeTimer = 0;
         //Runs every frame while charging.
-        while (chargeTimer < timeToChargeInSeconds)
+        while (chargeTimer < timeToChargeInSeconds && isOn)
         {
-            if(isOn == true)
-            {
-                chargeTimer += Time.deltaTime;
-                yield return new WaitForEndOfFrame();
-            }
-            else
-            {
-                if(postDebugInformation) Debug.Log("Charge Cancelled");
-                m_Audi.Stop();
-                break;
-            }
+            chargeTimer += Time.deltaTime;
+            yield return new WaitForEndOfFrame();
         }
 
-        //End charging effects
-        if(postDebugInformation) Debug.Log("Charging Complete");
-        isCharged = true;
-        lightIndicator.material.SetColor("_EmissionColor", onColor);
         m_Audi.Stop();
-        AudioManager.instance.PlaySFX(eSFX.plungerLockedIn, 1f);
+
+        if (chargeTimer >= timeToChargeInSeconds)
+        {
+            //End charging effects
+            if (postDebugInformation) Debug.Log("Charging Complete");
+            isCharged = true;
+            lightIndicator.material.SetColor("_EmissionColor", onColor);
+            AudioManager.instance.PlaySFX(eSFX.plungerLockedIn, 1f);
+        }
     }
 
 }
