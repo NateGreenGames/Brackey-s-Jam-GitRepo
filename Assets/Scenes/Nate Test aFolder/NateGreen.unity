@@ -7670,7 +7670,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   emptyRotation: -90
   fullRotation: 90
-  ppVolume: {fileID: 0}
+  ppVolume: {fileID: 832575518}
   oxygenPercentage: 0
 --- !u!1 &456888534
 GameObject:

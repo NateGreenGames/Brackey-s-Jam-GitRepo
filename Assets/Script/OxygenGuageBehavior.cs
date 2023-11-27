@@ -18,7 +18,7 @@ public class OxygenGuageBehavior : MonoBehaviour
     void Start()
     {
         oxygenPercentage = 100f;
-        //ppVolume.profile.TryGet(out m_vign);
+        if(ppVolume) ppVolume.profile.TryGet(out m_vign);
     }
 
     private void OnEnable()
@@ -37,6 +37,7 @@ public class OxygenGuageBehavior : MonoBehaviour
     {
         RotateDialToNewValue(oxygenPercentage + _change);
         oxygenPercentage += _change;
+        m_vign.intensity.value = Mathf.Lerp(0.9f, 0.417f, Mathf.InverseLerp(0f, 33f, oxygenPercentage));
         if (oxygenPercentage <= 0 && !dying)
         {
             dying = true;
