@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class OxygenGuageBehavior : MonoBehaviour
 {
 
     [SerializeField] float emptyRotation, fullRotation;
+    [SerializeField] Volume ppVolume;
+    Vignette m_vign;
     public float oxygenPercentage;
 
     private bool dying = false;
@@ -14,6 +18,7 @@ public class OxygenGuageBehavior : MonoBehaviour
     void Start()
     {
         oxygenPercentage = 100f;
+        ppVolume.profile.TryGet(out m_vign);
     }
 
     private void OnEnable()

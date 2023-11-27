@@ -7670,6 +7670,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   emptyRotation: -90
   fullRotation: 90
+  ppVolume: {fileID: 0}
   oxygenPercentage: 0
 --- !u!1 &456888534
 GameObject:
@@ -7768,6 +7769,7 @@ RectTransform:
   m_Children:
   - {fileID: 1475635382}
   - {fileID: 387262662}
+  - {fileID: 639183230}
   - {fileID: 641941110}
   m_Father: {fileID: 0}
   m_RootOrder: 7
@@ -13779,7 +13781,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1346369778}
-  m_Father: {fileID: 641941110}
+  m_Father: {fileID: 456888538}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -14113,11 +14115,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 8641401071970017989, guid: 1b62d90a6cd4be342a8e76e10d170829,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 639183230}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b62d90a6cd4be342a8e76e10d170829, type: 3}
 --- !u!1 &641941109 stripped
