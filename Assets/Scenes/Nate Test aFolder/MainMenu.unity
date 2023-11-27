@@ -531,6 +531,7 @@ GameObject:
   - component: {fileID: 194457439}
   - component: {fileID: 194457441}
   - component: {fileID: 194457440}
+  - component: {fileID: 194457442}
   m_Layer: 5
   m_Name: Loading
   m_TagString: Untagged
@@ -596,6 +597,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 194457438}
   m_CullTransparentMesh: 1
+--- !u!114 &194457442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 194457438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dc4f0662dc43454d9b8210e5445e31e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 21300000, guid: 12f1a0d0d3946c94786d587e9c628179, type: 3}
+  - {fileID: 21300000, guid: d73253c285c67e745a6a54b16f4ba14c, type: 3}
+  images: {fileID: 194457440}
+  languageIDX: 0
 --- !u!1001 &254431410
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2153,6 +2171,7 @@ GameObject:
   - component: {fileID: 470100744}
   - component: {fileID: 470100743}
   - component: {fileID: 470100742}
+  - component: {fileID: 470100746}
   m_Layer: 5
   m_Name: New Game Button
   m_TagString: Untagged
@@ -2308,6 +2327,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 470100740}
   m_CullTransparentMesh: 1
+--- !u!114 &470100746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 470100740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dc4f0662dc43454d9b8210e5445e31e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 21300000, guid: 249f2730ba43e9549bbc50d9d71373f1, type: 3}
+  - {fileID: 21300000, guid: fa807ae452aac854d90c78ed95d7bad6, type: 3}
+  images: {fileID: 470100744}
+  languageIDX: 0
 --- !u!1001 &508611010
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2586,6 +2622,7 @@ GameObject:
   - component: {fileID: 621032719}
   - component: {fileID: 621032718}
   - component: {fileID: 621032721}
+  - component: {fileID: 621032722}
   m_Layer: 5
   m_Name: Credits Button
   m_TagString: Untagged
@@ -2610,7 +2647,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: -435}
+  m_AnchoredPosition: {x: 0, y: -299}
   m_SizeDelta: {x: 252, y: 90}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &621032718
@@ -2741,6 +2778,23 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &621032722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 621032716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dc4f0662dc43454d9b8210e5445e31e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 21300000, guid: ed92553811c52414099c0f89360d32e4, type: 3}
+  - {fileID: 21300000, guid: 0c6d9befc4b78af4a876f8ea15ad10b1, type: 3}
+  images: {fileID: 621032719}
+  languageIDX: 0
 --- !u!1001 &640932013
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4598,6 +4652,7 @@ GameObject:
   - component: {fileID: 899945470}
   - component: {fileID: 899945469}
   - component: {fileID: 899945472}
+  - component: {fileID: 899945473}
   m_Layer: 5
   m_Name: Quit Button
   m_TagString: Untagged
@@ -4622,7 +4677,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: -570.5}
+  m_AnchoredPosition: {x: 0, y: -434.5}
   m_SizeDelta: {x: 136, y: 101}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &899945469
@@ -4753,6 +4808,23 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &899945473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 899945467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dc4f0662dc43454d9b8210e5445e31e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 21300000, guid: 1052283cac237f54294c82aaf14577e3, type: 3}
+  - {fileID: 21300000, guid: 6195aa00a4a407b4589f48f6ed8b60d7, type: 3}
+  images: {fileID: 899945470}
+  languageIDX: 0
 --- !u!1 &905446034
 GameObject:
   m_ObjectHideFlags: 0
@@ -16626,7 +16698,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1486815464
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16825,6 +16897,7 @@ GameObject:
   - component: {fileID: 1514464052}
   - component: {fileID: 1514464051}
   - component: {fileID: 1514464054}
+  - component: {fileID: 1514464055}
   m_Layer: 5
   m_Name: Options Button
   m_TagString: Untagged
@@ -16849,7 +16922,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: -305}
+  m_AnchoredPosition: {x: 0, y: -169}
   m_SizeDelta: {x: 261, y: 90}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1514464051
@@ -16980,6 +17053,23 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1514464055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1514464049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dc4f0662dc43454d9b8210e5445e31e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 21300000, guid: 6f55cdfeaf92334408726884673b6871, type: 3}
+  - {fileID: 21300000, guid: 2ad397fc3ed9b7f4082d8a5263df5d17, type: 3}
+  images: {fileID: 1514464052}
+  languageIDX: 0
 --- !u!1001 &1520435417
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34276,13 +34366,14 @@ GameObject:
   - component: {fileID: 2107491649}
   - component: {fileID: 2107491648}
   - component: {fileID: 2107491647}
+  - component: {fileID: 2107491651}
   m_Layer: 5
   m_Name: Tutorial Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2107491646
 RectTransform:
   m_ObjectHideFlags: 0
@@ -34431,6 +34522,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2107491645}
   m_CullTransparentMesh: 1
+--- !u!114 &2107491651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2107491645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dc4f0662dc43454d9b8210e5445e31e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 0}
+  - {fileID: 0}
+  images: {fileID: 2107491649}
+  languageIDX: 0
 --- !u!1 &2114327555
 GameObject:
   m_ObjectHideFlags: 0
@@ -34678,36 +34786,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Options
-      objectReference: {fileID: 0}
-    - target: {fileID: 3738346597713094977, guid: d915634a0f065e446ad4403a205789eb,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3738346597713094977, guid: d915634a0f065e446ad4403a205789eb,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4491494843317633459, guid: d915634a0f065e446ad4403a205789eb,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4491494843317633459, guid: d915634a0f065e446ad4403a205789eb,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4502202537576800431, guid: d915634a0f065e446ad4403a205789eb,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4502202537576800431, guid: d915634a0f065e446ad4403a205789eb,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8137731869704477249, guid: d915634a0f065e446ad4403a205789eb,
         type: 3}
