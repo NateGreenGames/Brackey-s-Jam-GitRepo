@@ -636,6 +636,7 @@ GameObject:
   - component: {fileID: 3211770338334691118}
   - component: {fileID: 2995900996179779620}
   - component: {fileID: 8908720491950696563}
+  - component: {fileID: 4611281599256530195}
   m_Layer: 5
   m_Name: GameOver_Img
   m_TagString: Untagged
@@ -701,3 +702,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4611281599256530195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9033669429752305667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dc4f0662dc43454d9b8210e5445e31e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 0}
+  - {fileID: 0}

@@ -868,6 +868,7 @@ GameObject:
   - component: {fileID: 2902878058277341247}
   - component: {fileID: 2031789310436223433}
   - component: {fileID: 598787869964010776}
+  - component: {fileID: 902759665187010727}
   m_Layer: 5
   m_Name: Image (3)
   m_TagString: Untagged
@@ -933,6 +934,23 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &902759665187010727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1453857984541958808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dc4f0662dc43454d9b8210e5445e31e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 21300000, guid: fcb31f8de3d23df41bf75f6111320f72, type: 3}
+  - {fileID: 21300000, guid: 423e33f728cb11b44b862fb634bbf166, type: 3}
+  images: {fileID: 598787869964010776}
+  languageIDX: 0
 --- !u!1 &1693658456799876542
 GameObject:
   m_ObjectHideFlags: 0
@@ -1264,13 +1282,14 @@ GameObject:
   m_Component:
   - component: {fileID: 8137731869704477249}
   - component: {fileID: 4280732795091639418}
+  - component: {fileID: 4144073330605592762}
   m_Layer: 5
   m_Name: Options
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8137731869704477249
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1316,6 +1335,18 @@ MonoBehaviour:
   - {fileID: 6234227984157655208}
   toggle: {fileID: 8656470541605734791}
   dropdown: {fileID: 5794549265716520128}
+--- !u!114 &4144073330605592762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2977962997845123580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1329c93c3c08c644b83587a6f227b52e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3245618443929937027
 GameObject:
   m_ObjectHideFlags: 0
@@ -1872,6 +1903,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 4144073330605592762}
+        m_TargetAssemblyTypeName: UILanguageController, Assembly-CSharp
+        m_MethodName: SwapLanguage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_AlphaFadeSpeed: 0.15
 --- !u!1 &4641289537677774977
 GameObject:
@@ -2146,26 +2189,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: CanvasFE, Assembly-CSharp
-        m_MethodName: ChangeOptionMenuState
+      - m_Target: {fileID: 2977962997845123580}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: PlayOneShot
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 7c4c5abdfb6f6c241a35258295f0c479,
-            type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2318,7 +2348,7 @@ RectTransform:
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
