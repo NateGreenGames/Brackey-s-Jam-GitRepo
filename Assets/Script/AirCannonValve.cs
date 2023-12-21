@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AirCannonValve : MonoBehaviour, IInteractable
+public class AirCannonValve : MonoBehaviour
 {
     public delegate void Blank(float _power);
     public static event Blank OnAirCannonTick;
@@ -15,32 +15,11 @@ public class AirCannonValve : MonoBehaviour, IInteractable
     private ParticleSystem.MainModule particalMain;
     private Animator m_anim;
     private AudioSource m_audi;
-    public bool isInteractable { get; set; }
-
-    public void OnInteract()
-    {
-        StartCoroutine(HoldingDownLever());
-    }
-
-    public void OnInteractEnd()
-    {
-        //Do nothing
-    }
-
-    public void OnInteractHeld(Vector3 _contactPoint)
-    {
-        //Do nothing
-    }
-
-    public void OnLookingAt()
-    {
-        //Do nothing
-    }
+  
 
 
     private void Start()
     {
-        isInteractable = true;
         m_anim = GetComponent<Animator>();
         m_audi = GetComponent<AudioSource>();
         particalMain = m_Part.GetComponent<ParticleSystem>().main;
@@ -63,28 +42,25 @@ public class AirCannonValve : MonoBehaviour, IInteractable
             m_audi.Stop();
         }
     }
-
-    private IEnumerator HoldingDownLever()
+    public void StageUp()
     {
-        while (Input.GetKey(KeyCode.Mouse0))
+        if(stage != 5)
         {
-            if (Input.GetAxis("Mouse X") < 0 && stage < 5)
-            {
-                stage++;
-                particalMain.startSize = stage;
-                PlayRandomSqueek();
-                m_anim.SetInteger("State", stage);
-                break;
-            }
-            else if (Input.GetAxis("Mouse X") > 0 && stage > 0)
-            {
-                stage--;
-                particalMain.startSize = stage;
-                PlayRandomSqueek();
-                m_anim.SetInteger("State", stage);
-                break;
-            }
-            yield return new WaitForEndOfFrame();
+            stage++;
+            particalMain.startSize = stage;
+            PlayRandomSqueek();
+            m_anim.SetInteger("State", stage);
+        }
+    }
+
+    public void StageDown()
+    {
+        if(stage != 0)
+        {
+            stage--;
+            particalMain.startSize = stage;
+            PlayRandomSqueek();
+            m_anim.SetInteger("State", stage);
         }
     }
 
