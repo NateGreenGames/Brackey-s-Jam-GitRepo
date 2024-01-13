@@ -7,7 +7,7 @@ using UnityEngine.Audio;
 public enum eSFX
 {
     //Ambience
-    lightHum, engineHum, hum, bubbles,
+    englishIntro, spanishIntro, hum, bubbles,
 
     //SFX
     buttonClick, leverPushPull, airHiss, pipeBurst, fusePop, fuseExplode, fuseClunk, lightOn, lightOff, 

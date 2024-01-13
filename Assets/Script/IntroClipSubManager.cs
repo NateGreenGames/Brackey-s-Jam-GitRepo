@@ -4,6 +4,9 @@ using UnityEngine;
 public class IntroClipSubManager : MonoBehaviour
 {
     public static IntroClipSubManager introInstance;
+    public AudioSource subSpeaker;
+    public AudioClip englishIntro;
+    public AudioClip spanishIntro;
 
     private void Awake()
     {
@@ -15,6 +18,8 @@ public class IntroClipSubManager : MonoBehaviour
         switch (SubtitleController.language)
         {
             case eSubtitleLanguage.English:
+                subSpeaker.clip = englishIntro;
+                subSpeaker.Play();
                 SubtitleController.CreateNewSubtitle("Is this thing working ?", 1.5f);
                 yield return new WaitForSeconds(1.5f);
                 SubtitleController.CreateNewSubtitle("*Ahem* We don't have much time. The submarine is the last one we have, and it's in rough shape.", 3.7f);
@@ -45,6 +50,8 @@ public class IntroClipSubManager : MonoBehaviour
                 yield return new WaitForSeconds(6f);
                 break;
             case eSubtitleLanguage.Spanish:
+                subSpeaker.clip = spanishIntro;
+                subSpeaker.Play();
                 SubtitleController.CreateNewSubtitle("¿Esto funciona?", 1.6f);
                 yield return new WaitForSeconds(1.6f);
                 SubtitleController.CreateNewSubtitle("*Ahem* No tenemos mucho tiempo.", 1.9f);

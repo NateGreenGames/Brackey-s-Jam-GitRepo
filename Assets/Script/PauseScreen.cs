@@ -13,21 +13,13 @@ public class PauseScreen : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            isPaused = !isPaused;
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-            Time.timeScale = isPaused ? 0 : 1;
-            pauseMenu.SetActive(isPaused);
+            TogglePause();
         }
     }
 
     public void OnResumeClick()
     {
-        isPaused = !isPaused;
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
-        Time.timeScale = isPaused ? 0 : 1;
-        pauseMenu.SetActive(isPaused);
+        TogglePause();
     }
 
     public void OnOptionsClick()
@@ -41,5 +33,15 @@ public class PauseScreen : MonoBehaviour
         Debug.Log("lol");
         LoadingManager.instance.ChangeScene("MainMenu");
         Time.timeScale = 1;
+    }
+
+    void TogglePause()
+    {
+        isPaused = !isPaused;
+        AudioListener.pause = isPaused;
+        Cursor.visible = isPaused;
+        Cursor.lockState = isPaused ? CursorLockMode.None : CursorLockMode.Locked;
+        Time.timeScale = isPaused ? 0 : 1;
+        pauseMenu.SetActive(isPaused);
     }
 }
