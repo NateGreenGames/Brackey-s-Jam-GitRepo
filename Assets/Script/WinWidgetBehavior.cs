@@ -13,7 +13,7 @@ public class WinWidgetBehavior : MonoBehaviour
 
     public void ContinueToCredits()
     {
-        LoadingManager.instance.ChangeScene("Credits");
+        LoadingManager.instance.ChangeScene("Credits", 3, 3);
         Time.timeScale = 1;
     }
 }

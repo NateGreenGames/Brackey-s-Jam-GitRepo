@@ -31,7 +31,7 @@ public class PauseScreen : MonoBehaviour
     public void OnQuitClick()
     {
         Debug.Log("lol");
-        LoadingManager.instance.ChangeScene("MainMenu");
+        LoadingManager.instance.ChangeScene("MainMenu", 3, 3);
         Time.timeScale = 1;
     }
 

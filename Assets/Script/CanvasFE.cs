@@ -28,7 +28,7 @@ public class CanvasFE : MonoBehaviour
 
     public void ChangeScenes(string _sceneName)
     {
-        LoadingManager.instance.ChangeScene(_sceneName);
+        LoadingManager.instance.ChangeScene(_sceneName, 1f, 3f);
     }
 
     public void CloseGame()

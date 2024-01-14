@@ -15,7 +15,6 @@ public class WormMonsterState : MonsterBaseState
     public float wardOffRate = 6;
     public float rotationLowEnd, rotationHighEnd;
     public bool isBeingWardedOff;
-    bool isAttacking;
 
     public override void EnterState(MonsterStateManager _monsterStateManager)
     {
@@ -110,10 +109,6 @@ public class WormMonsterState : MonsterBaseState
         }
 
         SubHealthManager.instance.TakeDamage(damagePerAttack * Time.deltaTime);
-        if (SubHealthManager.instance.submarineHealth <= 0)
-        {
-            isAttacking = false;
-        }
 
         if (isBeingWardedOff)
         {

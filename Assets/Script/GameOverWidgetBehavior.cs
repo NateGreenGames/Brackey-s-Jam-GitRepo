@@ -21,13 +21,13 @@ public class GameOverWidgetBehavior : MonoBehaviour
 
     public void RestartGameScene()
     {
-        LoadingManager.instance.ChangeScene("NateGreen");
+        LoadingManager.instance.ChangeScene("NateGreen", 3, 3);
         Time.timeScale = 1;
     }
 
     public void GoToFrontEnd()
     {
-        LoadingManager.instance.ChangeScene("MainMenu");
+        LoadingManager.instance.ChangeScene("MainMenu", 3, 3);
         Time.timeScale = 1;
     }
 }

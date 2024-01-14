@@ -17,6 +17,6 @@ public class CreditsSceneBehavior : MonoBehaviour
     {
         creditsAnimator.SetTrigger("Start");
         yield return new WaitForSeconds(creditsDuration);
-        LoadingManager.instance.ChangeScene("MainMenu");
+        LoadingManager.instance.ChangeScene("MainMenu", 3, 3);
     }
 }

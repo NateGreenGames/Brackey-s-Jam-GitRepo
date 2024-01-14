@@ -33,9 +33,9 @@ public class LoadingManager : MonoBehaviour
     }
 
 
-    public void ChangeScene(string _scene)
+    public void ChangeScene(string _scene, float _inDuration, float _outDuration)
     {
-        StartCoroutine(ChangeScenes(_scene, 3f, 3f));
+        StartCoroutine(ChangeScenes(_scene, _inDuration, _outDuration));
     }
     //This coroutines are split because I needed to include to yield return statements to get what I was looking for.
     //The way this is implimented in the internal functions is such: FadeToBlack => AfterFade => LoadAsync => FadeFromBlack.

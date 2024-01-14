@@ -15,7 +15,6 @@ public class EyeballState : MonsterBaseState
     public float rotationLowEnd, rotationHighEnd;
     public bool isBeingWardedOff;
     public Animator anim;
-    private bool isAttacking;
 
 
     public override void OnEnable()
@@ -109,10 +108,6 @@ public class EyeballState : MonsterBaseState
         ProgressionManager.AlterPlayerCourse((GetRandomOffset()));
 
         SubHealthManager.instance.TakeDamage(damagePerAttack);
-        if (SubHealthManager.instance.submarineHealth <= 0)
-        {
-            isAttacking = false;
-        }
 
         if (isBeingWardedOff)
         {
