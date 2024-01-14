@@ -6474,6 +6474,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 221494374}
+    - targetCorrespondingSourceObject: {fileID: -7698578106943415382, guid: 7983ce0d1081edc48bfe8835844e2dc2,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1473901295}
   m_SourcePrefab: {fileID: 100100000, guid: 7983ce0d1081edc48bfe8835844e2dc2, type: 3}
 --- !u!4 &221494372 stripped
 Transform:
@@ -14956,7 +14960,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   introState:
-    breathingRoomTimer: 30
+    breathingRoomTimer: 100
   idleState:
     attackRate: 0
     attackRateIncrease: 3
@@ -34757,6 +34761,27 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1462750341}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1473901293 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -7698578106943415382, guid: 7983ce0d1081edc48bfe8835844e2dc2,
+    type: 3}
+  m_PrefabInstance: {fileID: 221494371}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1473901295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1473901293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45e4e34c4c1023745808e6df354924b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wobbleScale: 20
+  audioSamples: 1
+  m_audi: {fileID: 221494375}
 --- !u!1 &1475236308 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7459904395352615439, guid: e9d1da98cd05b324bbd78eab156ced59,
