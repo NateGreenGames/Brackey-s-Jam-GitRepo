@@ -7,7 +7,7 @@ public class PauseScreen : MonoBehaviour
     [SerializeField] GameObject pauseMenu = null;
     [SerializeField] GameObject optionsMenu;
     bool isPaused;
-    bool inOptions;
+    bool inOptions = false;
 
     void Update()
     {
@@ -43,5 +43,10 @@ public class PauseScreen : MonoBehaviour
         Cursor.lockState = isPaused ? CursorLockMode.None : CursorLockMode.Locked;
         Time.timeScale = isPaused ? 0 : 1;
         pauseMenu.SetActive(isPaused);
+    }
+
+    public void PlayClick(AudioClip _audioToPlay)
+    {
+        AudioManager.instance.sfxSource.PlayOneShot(_audioToPlay);
     }
 }

@@ -45,4 +45,9 @@ public class OptionsMenu : MonoBehaviour
         SubtitleController.language = (eSubtitleLanguage)_languageIndex;
         Debug.Log(SubtitleController.language);
     }
+
+    public void PlayClick(AudioClip _audioToPlay)
+    {
+        AudioManager.instance.sfxSource.PlayOneShot(_audioToPlay);
+    }
 }

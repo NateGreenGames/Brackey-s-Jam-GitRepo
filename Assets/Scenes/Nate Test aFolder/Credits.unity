@@ -757,7 +757,18 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Sound Designer: Caleb Whelan
 
-    Music and Composition: Grant Johnson'
+    Music and Composition: Grant Johnson
+
+
+    Intro
+    Scene English Voiceover: Roarke Estrin
+
+    Intro Scene Spanish Voiceover: Samuel
+    J. Molina
+
+    Spanish Localization & Subtitles: Samuel J. Molina
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 10fe5f4ed9508534c9c267bc904b6a77, type: 2}
   m_sharedMaterial: {fileID: -3839689641325289035, guid: 10fe5f4ed9508534c9c267bc904b6a77,
@@ -871,7 +882,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -1776}
+  m_AnchoredPosition: {x: 0, y: -1965.9999}
   m_SizeDelta: {x: 312, y: 175}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &503039270
@@ -1232,7 +1243,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -4144}
+  m_AnchoredPosition: {x: 0, y: -4070}
   m_SizeDelta: {x: 1212, y: 149}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &966409388
@@ -1578,7 +1589,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -551}
+  m_AnchoredPosition: {x: 0, y: -741}
   m_SizeDelta: {x: 312, y: 175}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1428293089
@@ -2215,7 +2226,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -1346}
+  m_AnchoredPosition: {x: 0, y: -1535.9999}
   m_SizeDelta: {x: 912, y: 149}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2032572331
@@ -2726,7 +2737,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -2842}
+  m_AnchoredPosition: {x: 0, y: -2740}
   m_SizeDelta: {x: 7000, y: 7000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2107847157
