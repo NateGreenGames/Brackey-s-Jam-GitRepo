@@ -24,7 +24,6 @@ public class IntroState : MonsterBaseState
         {
             //Don't play the intro stuff and instead end the breathing room timer and drain the correct amount of electricity.
             //Drain power based on the default state of breathingRoomTimer;
-            ElectricityManager.ChangeElectricityAmount(-breathingRoomTimer / 4f);
             breathingRoomTimer = 0;
             Debug.Log("Intro Skipped");
         }

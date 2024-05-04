@@ -30,9 +30,13 @@ public class PauseScreen : MonoBehaviour
 
     public void OnQuitClick()
     {
-        Debug.Log("lol");
-        LoadingManager.instance.ChangeScene("MainMenu", 3, 3);
-        Time.timeScale = 1;
+        isPaused = !isPaused;
+        AudioListener.pause = isPaused;
+        Cursor.visible = isPaused;
+        Cursor.lockState = isPaused ? CursorLockMode.None : CursorLockMode.Locked;
+        Time.timeScale = isPaused ? 0 : 1;
+        pauseMenu.SetActive(isPaused);
+        StartCoroutine(LoadingManager.instance.ChangeScenes("MainMenu", 3, 3));
     }
 
     void TogglePause()
