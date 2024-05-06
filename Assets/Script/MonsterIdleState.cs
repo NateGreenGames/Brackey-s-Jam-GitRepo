@@ -9,6 +9,8 @@ public class MonsterIdleState : MonsterBaseState
     public int monsterIdx;
     public bool rigged;
 
+    private int lastMonster = 100;
+
     public override void OnEnable()
     {
         //Do nothings
@@ -33,13 +35,13 @@ public class MonsterIdleState : MonsterBaseState
             attackRate = 0;
             switch (RandomNumber())
             {
-                case 1:
+                case 0:
                     _monsterStateManager.SwitchStates(_monsterStateManager.eyeballState);
                     break;
-                case 2:
+                case 1:
                     _monsterStateManager.SwitchStates(_monsterStateManager.tentacleMonsterState);
                     break;
-                case 3:
+                case 2:
                     _monsterStateManager.SwitchStates(_monsterStateManager.wormMonsterState);
                     break;
                 default:
@@ -64,7 +66,17 @@ public class MonsterIdleState : MonsterBaseState
         {
             return monsterIdx;
         }
-        monsterIdx = Random.Range(1, 4);
-        return monsterIdx;
+
+        monsterIdx = Random.Range(0, 3);
+
+        if(monsterIdx != lastMonster)
+        {
+            lastMonster = monsterIdx;
+            return monsterIdx;
+        }
+        else
+        {
+            return RandomNumber();
+        }
     }
 }
