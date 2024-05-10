@@ -54,12 +54,12 @@ public class IntroClipSubManager : MonoBehaviour
                 subSpeaker.Play();
                 SubtitleController.CreateNewSubtitle("¿Esto funciona?", 1.6f);
                 yield return new WaitForSeconds(1.6f);
-                SubtitleController.CreateNewSubtitle("*Ahem* No tenemos mucho tiempo.", 1.9f);
-                yield return new WaitForSeconds(1.9f);
+                SubtitleController.CreateNewSubtitle("*Ahem* No tenemos mucho tiempo.", 2.4f);
+                yield return new WaitForSeconds(2.4f);
                 SubtitleController.CreateNewSubtitle("El submarino es el último que nos queda y está en mal estado", 2.6f);
                 yield return new WaitForSeconds(2.6f);
-                SubtitleController.CreateNewSubtitle("Está oxidado hasta el carajo", 1f);
-                yield return new WaitForSeconds(1f);
+                SubtitleController.CreateNewSubtitle("Está oxidado hasta el carajo", 1.5f);
+                yield return new WaitForSeconds(1.5f);
                 SubtitleController.CreateNewSubtitle("y los controles de navegación no están completamente operativos.", 2.55f);
                 yield return new WaitForSeconds(2.55f);
                 SubtitleController.CreateNewSubtitle("Aun así, eres nuestra última esperanza para que la humanidad sobreviva a esta catástrofe.", 4.6f);
@@ -98,8 +98,8 @@ public class IntroClipSubManager : MonoBehaviour
                 yield return new WaitForSeconds(2.2f);
                 SubtitleController.CreateNewSubtitle("La última cosa que necesitarás es...", 2f);
                 yield return new WaitForSeconds(2f);
-                SubtitleController.CreateNewSubtitle("oh. Mierda. ¡Mierda!", 1.5f);
-                yield return new WaitForSeconds(1.5f);
+                SubtitleController.CreateNewSubtitle("oh. Mierda. ¡Mierda!", 1.7f);
+                yield return new WaitForSeconds(1.7f);
                 SubtitleController.CreateNewSubtitle("Se me acaba el tiempo; estás por tu cuenta ahora, buena suerte y...", 2.6f);
                 yield return new WaitForSeconds(2.6f);
                 SubtitleController.CreateNewSubtitle("*EXPLOSIÓN FUERTE, luego estática*", 1.5f);

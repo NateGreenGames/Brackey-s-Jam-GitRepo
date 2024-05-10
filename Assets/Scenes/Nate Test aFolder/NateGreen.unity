@@ -15172,7 +15172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   introState:
-    breathingRoomTimer: 100
+    breathingRoomTimer: 80
   idleState:
     attackRate: 0
     attackRateIncrease: 3
