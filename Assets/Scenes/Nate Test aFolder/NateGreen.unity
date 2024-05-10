@@ -8021,12 +8021,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!23 &399309719 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: -7272329807633467709, guid: e9d1da98cd05b324bbd78eab156ced59,
-    type: 3}
-  m_PrefabInstance: {fileID: 149608783}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &410475673
 GameObject:
   m_ObjectHideFlags: 0
@@ -32413,7 +32407,7 @@ MonoBehaviour:
   - {fileID: 923293812}
   - {fileID: 1018712286}
   - {fileID: 949667967}
-  immisives: {fileID: 399309719}
+  immisives: {fileID: 1807828351}
   buttonBacking: {fileID: 702103998}
   onEmission: {r: 1, g: 0, b: 0, a: 0}
   offEmission: {r: 0, g: 0, b: 0, a: 0}
@@ -47081,6 +47075,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1798305903}
   m_CullTransparentMesh: 1
+--- !u!23 &1807828351 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -6769895539562558991, guid: e9d1da98cd05b324bbd78eab156ced59,
+    type: 3}
+  m_PrefabInstance: {fileID: 149608783}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1844811956
 PrefabInstance:
   m_ObjectHideFlags: 0

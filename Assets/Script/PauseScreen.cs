@@ -8,10 +8,11 @@ public class PauseScreen : MonoBehaviour
     [SerializeField] GameObject optionsMenu;
     bool isPaused;
     bool inOptions = false;
+    bool isQuitting = false;
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && isQuitting == false)
         {
             TogglePause();
         }
@@ -30,13 +31,15 @@ public class PauseScreen : MonoBehaviour
 
     public void OnQuitClick()
     {
-        isPaused = !isPaused;
-        AudioListener.pause = isPaused;
-        Cursor.visible = isPaused;
-        Cursor.lockState = isPaused ? CursorLockMode.None : CursorLockMode.Locked;
-        Time.timeScale = isPaused ? 0 : 1;
-        pauseMenu.SetActive(isPaused);
-        StartCoroutine(LoadingManager.instance.ChangeScenes("MainMenu", 3, 3));
+        if (!LoadingManager.instance.isLoading)
+        {
+            isQuitting = true;
+            AudioListener.pause = false;
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+            Time.timeScale = 1;
+            StartCoroutine(LoadingManager.instance.ChangeScenes("MainMenu", 0, 0));
+        }
     }
 
     void TogglePause()

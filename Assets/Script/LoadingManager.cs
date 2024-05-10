@@ -9,7 +9,7 @@ public class LoadingManager : MonoBehaviour
     [SerializeField] private CanvasGroup fadingPanelGroup;
     [SerializeField] private GameObject loadingScreenObject;
     [Range(1, 20)] [SerializeField] float minimumLoadtime;
-    private bool isLoading = false;
+    public bool isLoading = false;
     AsyncOperation operation;
 
 
@@ -62,7 +62,7 @@ public class LoadingManager : MonoBehaviour
         {
             fadingPanelGroup.alpha = Mathf.Lerp(0f, 1f, elapsedTime / _duration);
             yield return new WaitForEndOfFrame();
-            elapsedTime += Time.deltaTime;
+            elapsedTime += Time.unscaledDeltaTime;
         }
         fadingPanelGroup.alpha = 1f;
     }
@@ -74,7 +74,7 @@ public class LoadingManager : MonoBehaviour
         float elapsedTime = 0;
         while (operation.progress < 1 || elapsedTime < minimumLoadtime)
         {
-            elapsedTime += Time.deltaTime;
+            elapsedTime += Time.unscaledDeltaTime;
             yield return new WaitForEndOfFrame();
         }
         loadingScreenObject.SetActive(false);
@@ -91,7 +91,7 @@ public class LoadingManager : MonoBehaviour
         {
             fadingPanelGroup.alpha = Mathf.Lerp(1f, 0f, elapsedTime / _duration);
             yield return new WaitForEndOfFrame();
-            elapsedTime += Time.deltaTime;
+            elapsedTime += Time.unscaledDeltaTime;
         }
         fadingPanelGroup.alpha = 0f;
         isLoading = false;
