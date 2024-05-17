@@ -8,6 +8,7 @@ public class GameOverAndCompletionController : MonoBehaviour
     public GameObject playerCamera;
     public Transform canvasTransform;
     private CanvasGroup fadePanel;
+    public bool isOver = false;
 
     private void Awake()
     {
@@ -22,12 +23,14 @@ public class GameOverAndCompletionController : MonoBehaviour
 
     public void EndGame(string _gameOverDescription)
     {
+        isOver = true;
         StartCoroutine(DisplayGameOverScreen(_gameOverDescription));
         Destroy(playerCamera.GetComponent<PlayerFreelookCameraBehavior>());
     }
 
     public void WinGame()
     {
+        isOver = true;
         StartCoroutine(DisplayWinningScreen());
         Destroy(playerCamera.GetComponent<PlayerFreelookCameraBehavior>());
     }

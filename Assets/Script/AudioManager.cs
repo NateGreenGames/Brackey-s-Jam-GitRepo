@@ -12,8 +12,8 @@ public enum eSFX
     //SFX
     buttonClick, leverPushPull, airHiss, pipeBurst, fusePop, fuseExplode, fuseClunk, lightOn, lightOff, 
     engineOn, engineOff, powerWarning, waterMovement, powerOff, powerOn, hullHit, hullWane, creatureAttack, 
-    creatureFlee, creatureApproach, creatureSqueel, leverBump, crush, suffocation, hatchOpen, valvesqueek1, 
-    valvesqueek2, valvesqueek3, plungerShock, plungerLockedIn, none
+    creatureFlee, eyeIntro, creatureSqueel, leverBump, crush, suffocation, hatchOpen, valvesqueek1, 
+    valvesqueek2, valvesqueek3, plungerShock, plungerLockedIn, wormIntro, tentacleIntro, none
 }
 
 public enum eMusic { titleMusic, gameplayMusicCalm, gameplayMusicDanger, none }

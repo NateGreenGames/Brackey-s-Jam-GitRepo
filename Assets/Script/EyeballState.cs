@@ -59,7 +59,7 @@ public class EyeballState : MonsterBaseState
     {
         anim.SetTrigger("Open Eye");
         //swingTime = Random.Range(0, 60);
-        AudioManager.instance.PlaySFX(eSFX.creatureApproach, 0.55f);
+        AudioManager.instance.PlaySFX(eSFX.eyeIntro, 0.55f);
     }
 
     void AttackSequenceTimer()
@@ -104,7 +104,7 @@ public class EyeballState : MonsterBaseState
     private void TakeDamage()
     {
         CameraShake.StartScreenShake(0.001f, 1);
-        AudioManager.instance.PlaySFX(eSFX.creatureAttack, 1);
+        AudioManager.instance.PlaySFX(eSFX.eyeIntro, 1);
         ProgressionManager.AlterPlayerCourse((GetRandomOffset()));
 
         SubHealthManager.instance.TakeDamage(damagePerAttack);

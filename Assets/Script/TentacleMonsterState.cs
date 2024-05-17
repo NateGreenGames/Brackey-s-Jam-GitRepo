@@ -67,7 +67,7 @@ public class TentacleMonsterState : MonsterBaseState
     {
         anim.SetTrigger("Idle");
         swingTime = Random.Range(0, 60);
-        AudioManager.instance.PlaySFX(eSFX.creatureApproach, 0.55f);
+        AudioManager.instance.PlaySFX(eSFX.tentacleIntro, 0.55f);
     }
 
     void AttackSequenceTimer()
