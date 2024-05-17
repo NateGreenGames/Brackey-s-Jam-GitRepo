@@ -40,7 +40,7 @@ public class OxygenGuageBehavior : MonoBehaviour
         RotateDialToNewValue(oxygenPercentage + _change);
         oxygenPercentage += _change;
         m_vign.intensity.value = Mathf.Lerp(0.9f, 0.417f, Mathf.InverseLerp(0f, 33f, oxygenPercentage));
-        m_source.volume = Mathf.Lerp(0.1f, 0, Mathf.InverseLerp(0, 100, oxygenPercentage));
+        m_source.volume = Mathf.Lerp(0.3f, 0, Mathf.InverseLerp(0, 100, oxygenPercentage));
         m_source.pitch = Mathf.Lerp(2f, 1f, Mathf.InverseLerp(0, 100, oxygenPercentage));
         if (oxygenPercentage <= 0 && !dying)
         {

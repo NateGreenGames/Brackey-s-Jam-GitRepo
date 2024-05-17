@@ -21,6 +21,7 @@ public class WormMonsterState : MonsterBaseState
         audioSource.Play();
         wormMonster.transform.position = new Vector3(0, 1.355f, 1.41f);
         AudioManager.instance.StartCoroutine(AudioManager.instance.FadeIn(AudioManager.instance.musicSource2, 7));
+        AudioManager.instance.PlaySFX(eSFX.wormIntro, 0.55f);
         AudioManager.instance.PlayMusic(eMusic.gameplayMusicDanger);
         attackTimer = Random.Range(2.5f, 4);
         attackRate = 100;
@@ -58,7 +59,6 @@ public class WormMonsterState : MonsterBaseState
     void TriggerAttackSequence()
     {
         anim.SetTrigger("Attatch");
-        AudioManager.instance.PlaySFX(eSFX.wormIntro, 0.55f);
     }
 
     void AttackSequenceTimer()

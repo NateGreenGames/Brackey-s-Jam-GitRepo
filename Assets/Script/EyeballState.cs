@@ -33,6 +33,7 @@ public class EyeballState : MonsterBaseState
     {
         AudioManager.instance.StartCoroutine(AudioManager.instance.FadeIn(AudioManager.instance.musicSource2, 7));
         AudioManager.instance.PlayMusic(eMusic.gameplayMusicDanger);
+        AudioManager.instance.PlaySFX(eSFX.eyeIntro, 0.55f);
         attackTimer = Random.Range(2.5f, 4);
         attackRate = 100;
         TriggerAttackSequence();
@@ -59,7 +60,6 @@ public class EyeballState : MonsterBaseState
     {
         anim.SetTrigger("Open Eye");
         //swingTime = Random.Range(0, 60);
-        AudioManager.instance.PlaySFX(eSFX.eyeIntro, 0.55f);
     }
 
     void AttackSequenceTimer()
