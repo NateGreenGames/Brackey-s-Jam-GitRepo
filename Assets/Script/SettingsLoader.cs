@@ -13,7 +13,18 @@ public class SettingsLoader : MonoBehaviour
         bool hasSubtitles = PlayerPrefs.HasKey("SubtitlesEnabled");
         if (hasSubtitles)
         {
-            SubtitleController.hasSubtitles = hasSubtitles;
+            switch (PlayerPrefs.GetInt("SubtitlesEnabled"))
+            {
+                case 0:
+                    SubtitleController.hasSubtitles = false;
+                    break;
+                case 1:
+                    SubtitleController.hasSubtitles = true;
+                    break;
+                default:
+                    Debug.Log("Invalid language enabled save data detected.");
+                    break;
+            }
         }
 
     }

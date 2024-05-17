@@ -21,6 +21,11 @@ public class JerryBehavior : ElectricityUser
         ButtonBehavior.buttonEvent -= ChangeActiveState;
     }
 
+    private void Start()
+    {
+        lightMaterial[1].EnableKeyword("_EMISSION");
+        lightMaterial[0].DisableKeyword("_EMISSION");
+    }
     public override void ChangeActiveState(int _info, bool _state)
     {
         if(_info == 2)

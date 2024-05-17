@@ -7,7 +7,6 @@ public class EyeballState : MonsterBaseState
     [SerializeField] GameObject eyeballMonster;
     public float attackRate;
     float attackTimer;
-    public float attackRateIncrease = 3f;
     public float damagePerAttack;
     public float wardOffRate = 6;
     public float rotationLowEnd, rotationHighEnd;
@@ -59,12 +58,12 @@ public class EyeballState : MonsterBaseState
     void AttackSequenceTimer()
     {
         attackTimer -= Time.deltaTime;
-        if (attackTimer >= 0)
+        if (attackTimer > 0)
         {
             return;
         }
         TakeDamage();
-        attackTimer = Random.Range(1, 4);
+        attackTimer = Random.Range(2.5f, 4f);
     }
 
 
@@ -108,6 +107,7 @@ public class EyeballState : MonsterBaseState
         if (SubHealthManager.submarineHealth <= 0 && canAttack == true)
         {
             canAttack = false;
+            AudioManager.instance.StartCoroutine(AudioManager.instance.FadeOut(AudioManager.instance.musicSource2, 7));
             anim.SetTrigger("LookAround");
         }
     }

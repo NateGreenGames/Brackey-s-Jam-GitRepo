@@ -11,7 +11,6 @@ public class TentacleMonsterState : MonsterBaseState
     public float animTimer;
     public float attackRateIncrease = 3f;
     public float damagePerAttack;
-    public float wardOffRate = 50;
     public float rotationLowEnd, rotationHighEnd;
     public bool isBeingWardedOff;
     public bool isShocked;
@@ -98,6 +97,7 @@ public class TentacleMonsterState : MonsterBaseState
         if (SubHealthManager.submarineHealth <= 0 && canAttack == true)
         {
             canAttack = false;
+            AudioManager.instance.StartCoroutine(AudioManager.instance.FadeOut(AudioManager.instance.musicSource2, 7));
             anim.ResetTrigger("Slapped");
             anim.ResetTrigger("Idle");
             anim.SetTrigger("Idle");

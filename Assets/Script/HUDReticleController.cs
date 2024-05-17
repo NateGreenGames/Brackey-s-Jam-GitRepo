@@ -11,6 +11,8 @@ public class HUDReticleController : MonoBehaviour
     void Start()
     {
         m_anim = GetComponent<Animator>();
+        m_anim.SetBool("isHovering", false);
+        isHovering = false;
     }
 
     public void UpdateReticleState(bool _newState)

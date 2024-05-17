@@ -109,6 +109,5 @@ public class IntroClipSubManager : MonoBehaviour
             default: Debug.Log("Wtf");
                 break;
         }
-        yield return null; 
     }
 }

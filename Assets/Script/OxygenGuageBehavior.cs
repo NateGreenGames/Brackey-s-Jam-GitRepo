@@ -62,6 +62,11 @@ public class OxygenGuageBehavior : MonoBehaviour
             m_source.volume = 0f;
         }
 
+        if (GameOverAndCompletionController.instance.isOver)
+        {
+            dying = true;
+            m_source.Stop();
+        }
         if (oxygenPercentage <= 0 && !dying)
         {
             dying = true;

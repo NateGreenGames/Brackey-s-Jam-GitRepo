@@ -108,6 +108,8 @@ public class WormMonsterState : MonsterBaseState
         if(SubHealthManager.submarineHealth <= 0 && canAttack == true)
         {
             canAttack = false;
+            AudioManager.instance.StartCoroutine(AudioManager.instance.FadeOut(AudioManager.instance.musicSource2, 7));
+            audioSource.Stop();
             anim.SetTrigger("Idle");
         }
 

@@ -20,6 +20,7 @@ public class SubHealthManager : MonoBehaviour
     private void Start()
     {
         subWindow = gameObject.GetComponent<MeshRenderer>().material;
+        submarineHealth = 100f;
     }
 
 
