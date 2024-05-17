@@ -49,6 +49,10 @@ public class MonsterStateManager : MonoBehaviour
     public void Enrage()
     {
         //Make whatever creature is currently attacking crush the sub, if it's idle, make a new creature appear and have them crush it.
-        currentState.Enrage(this);
+        if (currentState == idleState) idleState.Enrage(this);
+        eyeballState.Enrage(this);
+        tentacleMonsterState.Enrage(this);
+        wormMonsterState.Enrage(this);
+
     }
 }

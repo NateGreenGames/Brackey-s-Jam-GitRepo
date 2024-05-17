@@ -8,14 +8,14 @@ public class WormMonsterState : MonsterBaseState
     public Animator anim;
     public AudioSource audioSource;
     public float attackRate;
-    float attackTimer;
-    float sfxTimer = 2.3f;
-    public float attackRateIncrease = 3f;
+    float attackTimer = 2.3f;
     public float damagePerAttack;
-    public float wardOffRate = 6;
+    private float wardOffRate = 6;
     public float rotationLowEnd, rotationHighEnd;
-    public bool isBeingWardedOff;
+    private bool isBeingWardedOff;
 
+
+    private bool canAttack = true;
     public override void EnterState(MonsterStateManager _monsterStateManager)
     {
         audioSource.Play();
@@ -23,9 +23,8 @@ public class WormMonsterState : MonsterBaseState
         AudioManager.instance.StartCoroutine(AudioManager.instance.FadeIn(AudioManager.instance.musicSource2, 7));
         AudioManager.instance.PlaySFX(eSFX.wormIntro, 0.55f);
         AudioManager.instance.PlayMusic(eMusic.gameplayMusicDanger);
-        attackTimer = Random.Range(2.5f, 4);
         attackRate = 100;
-        TriggerAttackSequence();
+        anim.SetTrigger("Attatch");
     }
 
     public override void OnDisable()
@@ -56,30 +55,19 @@ public class WormMonsterState : MonsterBaseState
     {
         damagePerAttack = 100;
     }
-    void TriggerAttackSequence()
-    {
-        anim.SetTrigger("Attatch");
-    }
 
     void AttackSequenceTimer()
     {
-        sfxTimer -= Time.deltaTime;
-        if (sfxTimer >= 0)
+        attackTimer -= Time.deltaTime;
+        if(attackTimer > 0)
         {
             return;
+        }
+        if (!audioSource.isPlaying)
+        {
+            audioSource.Play();
         }
         TakeDamage();
-    }
-
-    void SFXTimer()
-    {
-        sfxTimer -= Time.deltaTime;
-        if (sfxTimer >= 0)
-        {
-            return;
-        }
-        AudioManager.instance.PlaySFX(eSFX.creatureFlee, 0.4f);
-        sfxTimer = 6;
     }
 
     public void WardOffMonster()
@@ -94,31 +82,35 @@ public class WormMonsterState : MonsterBaseState
         {
             anim.SetTrigger("Hurt");
             anim.ResetTrigger("Idle");
+            attackRate -= wardOffRate;
         }
-        attackRate -= wardOffRate * Time.deltaTime;
-        //SFXTimer();
     }
 
     private void TakeDamage()
     {
-        //CameraShake.StartScreenShake(0.001f, 1);
-        //AudioManager.instance.PlaySFX(eSFX.creatureAttack, 1);
-        ProgressionManager.AlterPlayerCourse((GetRandomOffset() * Time.deltaTime));
-        if (!audioSource.isPlaying)
+        if (canAttack)
         {
-            audioSource.Play();
+            attackTimer = 2.3f;
+            CameraShake.StartScreenShake(0.0005f, attackTimer);
+            ProgressionManager.AlterPlayerCourse(GetRandomOffset());
+            SubHealthManager.instance.TakeDamage(damagePerAttack);
+
+            if (isBeingWardedOff)
+            {
+                return;
+            }
+            else
+            {
+                anim.SetTrigger("Idle");
+            }
         }
 
-        SubHealthManager.instance.TakeDamage(damagePerAttack * Time.deltaTime);
-
-        if (isBeingWardedOff)
+        if(SubHealthManager.submarineHealth <= 0 && canAttack == true)
         {
-            return;
-        }
-        else
-        {
+            canAttack = false;
             anim.SetTrigger("Idle");
         }
+
     }
 
     float GetRandomOffset()
@@ -131,7 +123,7 @@ public class WormMonsterState : MonsterBaseState
 
     private void AirCannonDamage(float _dmg)
     {
-        attackRate -= _dmg;
+        wardOffRate = _dmg;
         if (_dmg == 0)
         {
             isBeingWardedOff = false;

@@ -33,7 +33,7 @@ public class MonsterIdleState : MonsterBaseState
         {
             Debug.Log("Start Attack");
             attackRate = 0;
-            switch (RandomNumber())
+            switch (RandomNextMonsterIndex())
             {
                 case 0:
                     _monsterStateManager.SwitchStates(_monsterStateManager.eyeballState);
@@ -52,15 +52,27 @@ public class MonsterIdleState : MonsterBaseState
 
     public override void Enrage(MonsterStateManager _monsterStateManager)
     {
-        _monsterStateManager.SwitchStates(_monsterStateManager.tentacleMonsterState);
-        _monsterStateManager.tentacleMonsterState.Enrage(_monsterStateManager);
+        switch (RandomNextMonsterIndex())
+        {
+            case 0:
+                _monsterStateManager.SwitchStates(_monsterStateManager.eyeballState);
+                break;
+            case 1:
+                _monsterStateManager.SwitchStates(_monsterStateManager.tentacleMonsterState);
+                break;
+            case 2:
+                _monsterStateManager.SwitchStates(_monsterStateManager.wormMonsterState);
+                break;
+            default:
+                break;
+        }
     }
     public void WaitForAttackSequence()
     {
         attackRate += Time.deltaTime * attackRateIncrease;
     }
 
-    int RandomNumber()
+    int RandomNextMonsterIndex()
     {
         if (rigged)
         {
@@ -76,7 +88,7 @@ public class MonsterIdleState : MonsterBaseState
         }
         else
         {
-            return RandomNumber();
+            return RandomNextMonsterIndex();
         }
     }
 }

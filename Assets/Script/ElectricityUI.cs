@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class ElectricityUI : MonoBehaviour
 {
+    public static float electricityPercentage;
     private Slider m_slider;
 
     private void Start()
@@ -22,6 +23,10 @@ public class ElectricityUI : MonoBehaviour
         ElectricityManager.ElectricityChangeEvent -= ElectricityChangeDetected;
     }
 
+    private void Update()
+    {
+        electricityPercentage = m_slider.value;
+    }
 
     //On oxygen event invoked.
     private void ElectricityChangeDetected(float _change)

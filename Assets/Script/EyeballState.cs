@@ -6,9 +6,7 @@ public class EyeballState : MonsterBaseState
 {    
     [SerializeField] GameObject eyeballMonster;
     public float attackRate;
-    public float swingTime;
     float attackTimer;
-    float sfxTimer = 6f;
     public float attackRateIncrease = 3f;
     public float damagePerAttack;
     public float wardOffRate = 6;
@@ -16,7 +14,7 @@ public class EyeballState : MonsterBaseState
     public bool isBeingWardedOff;
     public Animator anim;
 
-
+    private bool canAttack = true;
     public override void OnEnable()
     {
         ButtonBehavior.buttonEvent += UpdateLightState;
@@ -36,7 +34,7 @@ public class EyeballState : MonsterBaseState
         AudioManager.instance.PlaySFX(eSFX.eyeIntro, 0.55f);
         attackTimer = Random.Range(2.5f, 4);
         attackRate = 100;
-        TriggerAttackSequence();
+        anim.SetTrigger("Open Eye");
     }
 
     public override void UpdateState(MonsterStateManager _monsterStateManager)
@@ -47,6 +45,7 @@ public class EyeballState : MonsterBaseState
         {
             anim.SetTrigger("Close Eye");
             anim.ResetTrigger("Squint Eye");
+            AudioManager.instance.PlaySFX(eSFX.creatureFlee, 0.4f);
             AudioManager.instance.StartCoroutine(AudioManager.instance.FadeOut(AudioManager.instance.musicSource2, 7));
             _monsterStateManager.SwitchStates(_monsterStateManager.idleState);
         }
@@ -55,11 +54,6 @@ public class EyeballState : MonsterBaseState
     public override void Enrage(MonsterStateManager _monsterStateManager)
     {
         damagePerAttack = 100;
-    }
-    void TriggerAttackSequence()
-    {
-        anim.SetTrigger("Open Eye");
-        //swingTime = Random.Range(0, 60);
     }
 
     void AttackSequenceTimer()
@@ -73,16 +67,6 @@ public class EyeballState : MonsterBaseState
         attackTimer = Random.Range(1, 4);
     }
 
-    void SFXTimer()
-    {
-        sfxTimer -= Time.deltaTime;
-        if (sfxTimer >= 0)
-        {
-            return;
-        }
-        AudioManager.instance.PlaySFX(eSFX.creatureFlee, 0.4f);
-        sfxTimer = 6;
-    }
 
     public void WardOffMonster()
     {
@@ -98,23 +82,32 @@ public class EyeballState : MonsterBaseState
             anim.ResetTrigger("LookAround");
         }
         attackRate -= wardOffRate * Time.deltaTime;
-        SFXTimer();
     }
 
     private void TakeDamage()
     {
-        CameraShake.StartScreenShake(0.001f, 1);
-        AudioManager.instance.PlaySFX(eSFX.eyeIntro, 1);
-        ProgressionManager.AlterPlayerCourse((GetRandomOffset()));
-
-        SubHealthManager.instance.TakeDamage(damagePerAttack);
-
-        if (isBeingWardedOff)
+        if (canAttack)
         {
-            return;
+            CameraShake.StartScreenShake(0.001f, 1);
+            AudioManager.instance.PlaySFX(eSFX.creatureAttack, 1);
+            ProgressionManager.AlterPlayerCourse((GetRandomOffset()));
+
+            SubHealthManager.instance.TakeDamage(damagePerAttack);
+
+
+            if (isBeingWardedOff)
+            {
+                return;
+            }
+            else
+            {
+                anim.SetTrigger("LookAround");
+            }
         }
-        else
+
+        if (SubHealthManager.submarineHealth <= 0 && canAttack == true)
         {
+            canAttack = false;
             anim.SetTrigger("LookAround");
         }
     }

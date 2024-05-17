@@ -7,8 +7,6 @@ public class TentacleMonsterState : MonsterBaseState
     [SerializeField] GameObject tentacleMonster;
     public Animator anim;
     public float attackRate;
-    public float swingTime = 0;
-    public float attackTimer;
     public float shockedTimer = 6.5f;
     public float animTimer;
     public float attackRateIncrease = 3f;
@@ -17,19 +15,22 @@ public class TentacleMonsterState : MonsterBaseState
     public float rotationLowEnd, rotationHighEnd;
     public bool isBeingWardedOff;
     public bool isShocked;
+
+
+    private bool canAttack = true;
     [SerializeField] ParticleSystem[] m_PS;
+
+    private bool inSlapLoop = false;
 
     public override void EnterState(MonsterStateManager _monsterStateManager)
     {
-        //tentacleMonster.transform.position = new Vector3(0, 0, 1.839f);
         anim.SetTrigger("Slitherin");
         AudioManager.instance.StartCoroutine(AudioManager.instance.FadeIn(AudioManager.instance.musicSource2, 7));
         AudioManager.instance.PlayMusic(eMusic.gameplayMusicDanger);
         AudioManager.instance.PlaySFX(eSFX.tentacleIntro, 0.55f);
-        animTimer = 6;
-        attackTimer = animTimer + 2.3f; 
-        attackRate = 100;
-        TriggerAttackSequence();
+        animTimer = 5.5f;
+        inSlapLoop = false;
+        attackRate = 100f;
     }
 
     public override void UpdateState(MonsterStateManager _monsterStateManager)
@@ -41,20 +42,24 @@ public class TentacleMonsterState : MonsterBaseState
             {
                 return;
             }
+            foreach (ParticleSystem system in m_PS)
+            {
+                system.Clear();
+                system.Stop();
+            }
             isShocked = false;
             anim.SetTrigger("Idle");
             shockedTimer = 6.5f;
-            animTimer = 6;
-            attackTimer = animTimer + 2.3f;
         }
-        AttackSequenceTimer();
+        else
+        {
+            AttackSequenceTimer();
+        }
+
+
         if (attackRate <= 0)
         {
             anim.SetTrigger("Slitherout");
-            foreach (ParticleSystem system in m_PS)
-            {
-                system.Stop();
-            }
             AudioManager.instance.StartCoroutine(AudioManager.instance.FadeOut(AudioManager.instance.musicSource2, 7));
             _monsterStateManager.SwitchStates(_monsterStateManager.idleState);
         }
@@ -64,40 +69,39 @@ public class TentacleMonsterState : MonsterBaseState
     {
         damagePerAttack = 100;
     }
-    void TriggerAttackSequence()
-    {
-        anim.SetTrigger("Idle");
-        swingTime = Random.Range(0, 60);
-    }
 
     void AttackSequenceTimer()
     {
-        TakeDamageAnim();
-        TakeDamage();
-    }
-    public void TakeDamageAnim()
-    {
         animTimer -= Time.deltaTime;
-        if (animTimer >= 0)
+        if(animTimer >= 0)
         {
             return;
         }
-        anim.SetTrigger("Slapped");
-        anim.SetTrigger("Idle");
-        animTimer = Random.Range(5, 7);
+        else if(!inSlapLoop)
+        {
+            anim.SetTrigger("Idle");
+            anim.SetTrigger("Slapped");
+            inSlapLoop = true;
+        }
     }
-    private void TakeDamage()
+
+    public void TakeDamage()
     {
-        attackTimer -= Time.deltaTime;
-        if (attackTimer >= 0)
+        if (canAttack)
         {
-            return;
+            CameraShake.StartScreenShake(0.001f, 1);
+            AudioManager.instance.PlaySFX(eSFX.creatureAttack, 1);
+            ProgressionManager.AlterPlayerCourse((GetRandomOffset()));
+            SubHealthManager.instance.TakeDamage(damagePerAttack);
         }
-        attackTimer = animTimer + 2.3f;
-        CameraShake.StartScreenShake(0.001f, 1);
-        AudioManager.instance.PlaySFX(eSFX.creatureAttack, 1);
-        ProgressionManager.AlterPlayerCourse((GetRandomOffset()));
-        SubHealthManager.instance.TakeDamage(damagePerAttack);
+
+        if (SubHealthManager.submarineHealth <= 0 && canAttack == true)
+        {
+            canAttack = false;
+            anim.ResetTrigger("Slapped");
+            anim.ResetTrigger("Idle");
+            anim.SetTrigger("Idle");
+        }
     }
 
     float GetRandomOffset()
@@ -121,12 +125,13 @@ public class TentacleMonsterState : MonsterBaseState
     public void IsShocked()
     {
         Debug.Log("Shocked");
+        AudioManager.instance.PlaySFX(eSFX.tentacleOutro, 2);
         foreach (ParticleSystem system in m_PS)
         {
             system.Play();
         }
         isShocked = true;
-        attackRate -= wardOffRate;
+        attackRate = 0;
         anim.SetTrigger("Shocked");
         anim.ResetTrigger("Slapped");
         anim.SetTrigger("Idle");

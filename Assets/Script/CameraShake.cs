@@ -31,18 +31,15 @@ public class CameraShake : MonoBehaviour
     private IEnumerator ShakeRoutine(float _intensity, float _length)
     {
         float elapsedTime = 0;
-        Vector3 totalMovement = Vector3.zero;
+        Vector3 startingPosition = transform.localPosition;
 
         while(elapsedTime < _length)
         {
             Vector3 randomPositon = Random.onUnitSphere * _intensity;
-            transform.localPosition += randomPositon;
-            totalMovement += randomPositon;
+            transform.localPosition += randomPositon * Mathf.Lerp(0, 1, Mathf.InverseLerp(-1, 1, Vector3.Dot(transform.localPosition - randomPositon, transform.localPosition - startingPosition)));
 
-            elapsedTime += Time.deltaTime;
+            elapsedTime += Time.unscaledDeltaTime;
             yield return new WaitForEndOfFrame();
         }
-
-        transform.position -= totalMovement;
     }
 }

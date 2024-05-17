@@ -35,11 +35,11 @@ public class ShockPlungerBehavior : ElectricityUser, IInteractable
 
     public override void OnOverload()
     {
+        if (isOn)
+        {
+            ChangeActiveState(false);
+        }
         base.OnOverload();
-        m_Anim.SetTrigger("Toggle");
-        AudioManager.instance.PlaySFX(eSFX.leverPushPull, 0.2f);
-        lightIndicator.material.SetColor("_EmissionColor", offColor);
-        isCharged = false;
     }
     public void OnInteract()
     {

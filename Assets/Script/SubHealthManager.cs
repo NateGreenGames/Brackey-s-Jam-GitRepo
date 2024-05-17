@@ -6,7 +6,7 @@ public class SubHealthManager : MonoBehaviour
 {
     public static SubHealthManager instance;
     //Sub Health Stuff
-    public float submarineHealth = 100;
+    public static float submarineHealth = 100;
 
     private Material subWindow;
     private float uncrackedBlendValue = 1;

@@ -56,7 +56,7 @@ public class Lever : MonoBehaviour, IInteractable
         {
             while (Input.GetKey(KeyCode.Mouse0))
             {
-                if (Input.GetAxis("Mouse Y") > 0)
+                if (Input.GetAxis("Mouse Y") > 0 && ElectricityUI.electricityPercentage > 0)
                 {
                     anim.SetTrigger("LeverUp");
                     FuseBox.instance.isOverloaded = false;
