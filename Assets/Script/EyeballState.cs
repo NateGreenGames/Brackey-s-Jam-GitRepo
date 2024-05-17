@@ -110,6 +110,13 @@ public class EyeballState : MonsterBaseState
             AudioManager.instance.StartCoroutine(AudioManager.instance.FadeOut(AudioManager.instance.musicSource2, 7));
             anim.SetTrigger("LookAround");
         }
+
+        if (GameOverAndCompletionController.instance.isOver)
+        {
+            canAttack = false;
+            AudioManager.instance.StartCoroutine(AudioManager.instance.FadeOut(AudioManager.instance.musicSource2, 7));
+            anim.SetTrigger("LookAround");
+        }
     }
 
     float GetRandomOffset()

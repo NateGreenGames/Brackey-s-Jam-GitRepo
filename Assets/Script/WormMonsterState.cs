@@ -113,6 +113,14 @@ public class WormMonsterState : MonsterBaseState
             anim.SetTrigger("Idle");
         }
 
+        if (GameOverAndCompletionController.instance.isOver)
+        {
+            canAttack = false;
+            AudioManager.instance.StartCoroutine(AudioManager.instance.FadeOut(AudioManager.instance.musicSource2, 7));
+            audioSource.Stop();
+            anim.SetTrigger("Idle");
+        }
+
     }
 
     float GetRandomOffset()

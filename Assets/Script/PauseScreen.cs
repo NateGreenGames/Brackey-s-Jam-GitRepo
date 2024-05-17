@@ -50,6 +50,7 @@ public class PauseScreen : MonoBehaviour
         Cursor.lockState = isPaused ? CursorLockMode.None : CursorLockMode.Locked;
         Time.timeScale = isPaused ? 0 : 1;
         pauseMenu.SetActive(isPaused);
+        if(inOptions) OnOptionsClick();
     }
 
     public void PlayClick(AudioClip _audioToPlay)

@@ -102,6 +102,15 @@ public class TentacleMonsterState : MonsterBaseState
             anim.ResetTrigger("Idle");
             anim.SetTrigger("Idle");
         }
+
+        if (GameOverAndCompletionController.instance.isOver)
+        {
+            canAttack = false;
+            AudioManager.instance.StartCoroutine(AudioManager.instance.FadeOut(AudioManager.instance.musicSource2, 7));
+            anim.ResetTrigger("Slapped");
+            anim.ResetTrigger("Idle");
+            anim.SetTrigger("Idle");
+        }
     }
 
     float GetRandomOffset()
