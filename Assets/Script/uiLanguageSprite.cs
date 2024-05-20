@@ -8,14 +8,11 @@ public class uiLanguageSprite : MonoBehaviour
     public Sprite[] sprites;
     public Image images;
     public int languageIDX;
-    private void Awake()
-    {
-        ChangeIndex();
-    }
 
     public void OnEnable()
     {
         UILanguageController.languageChanged += ChangeIndex;
+        ChangeIndex();
     }
     public void OnDisable()
     {
