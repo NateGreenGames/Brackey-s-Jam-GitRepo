@@ -5,31 +5,36 @@ using UnityEngine.UI;
 
 public class uiLanguageSprite : MonoBehaviour
 {
-    public Sprite[] sprites;
-    public Image images;
-    public int languageIDX;
+    [NamedArray(typeof(eSubtitleLanguage))] public Sprite[] sprites;
+    private Image images;
 
-    public void OnEnable()
+    private void Start()
+    {
+        images = GetComponent<Image>();
+        ChangeIndex();
+    }
+    private void OnEnable()
     {
         UILanguageController.languageChanged += ChangeIndex;
         ChangeIndex();
     }
-    public void OnDisable()
+    private void OnDisable()
     {
         UILanguageController.languageChanged -= ChangeIndex;
     }
 
-    public void ChangeIndex()
+    private void ChangeIndex()
     {
+        Debug.Log(SubtitleController.language);
         switch (SubtitleController.language)
         {
             case eSubtitleLanguage.English:
                 images.sprite = sprites[0];
-                images.GetComponent<Image>().SetNativeSize();
+                images.SetNativeSize();
                 break;
             case eSubtitleLanguage.Spanish:
                 images.sprite = sprites[1];
-                images.GetComponent<Image>().SetNativeSize();
+                images.SetNativeSize();
                 break;
             default:
                 Debug.Log("oof");
