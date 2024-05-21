@@ -33,6 +33,7 @@ public class CanvasFE : MonoBehaviour
 
     public void CloseGame()
     {
+        SteamManager.instance.DisconnectFromSteam();
         LoadingManager.instance.ExitGame();
     }
 }

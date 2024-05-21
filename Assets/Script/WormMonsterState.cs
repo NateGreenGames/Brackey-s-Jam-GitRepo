@@ -48,6 +48,7 @@ public class WormMonsterState : MonsterBaseState
             anim.ResetTrigger("Idle");
             anim.ResetTrigger("Hurt");
             AudioManager.instance.StartCoroutine(AudioManager.instance.FadeOut(AudioManager.instance.musicSource2, 7));
+            SteamManager.instance.UnlockAchievement(6);
             _monsterStateManager.SwitchStates(_monsterStateManager.idleState);
         }
     }
@@ -111,6 +112,11 @@ public class WormMonsterState : MonsterBaseState
             AudioManager.instance.StartCoroutine(AudioManager.instance.FadeOut(AudioManager.instance.musicSource2, 7));
             audioSource.Stop();
             anim.SetTrigger("Idle");
+
+            if(ElectricityUI.electricityPercentage > 0)
+            {
+                SteamManager.instance.UnlockAchievement(8);
+            }
         }
 
         if (GameOverAndCompletionController.instance.isOver)

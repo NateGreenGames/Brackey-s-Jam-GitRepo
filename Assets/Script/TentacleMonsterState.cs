@@ -60,6 +60,7 @@ public class TentacleMonsterState : MonsterBaseState
         {
             anim.SetTrigger("Slitherout");
             AudioManager.instance.StartCoroutine(AudioManager.instance.FadeOut(AudioManager.instance.musicSource2, 7));
+            SteamManager.instance.UnlockAchievement(7);
             _monsterStateManager.SwitchStates(_monsterStateManager.idleState);
         }
     }
@@ -101,6 +102,10 @@ public class TentacleMonsterState : MonsterBaseState
             anim.ResetTrigger("Slapped");
             anim.ResetTrigger("Idle");
             anim.SetTrigger("Idle");
+            if (ElectricityUI.electricityPercentage > 0)
+            {
+                SteamManager.instance.UnlockAchievement(8);
+            }
         }
 
         if (GameOverAndCompletionController.instance.isOver)

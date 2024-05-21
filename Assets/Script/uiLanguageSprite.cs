@@ -8,9 +8,13 @@ public class uiLanguageSprite : MonoBehaviour
     [NamedArray(typeof(eSubtitleLanguage))] public Sprite[] sprites;
     private Image images;
 
+    private void Awake()
+    {
+        images = gameObject.GetComponent<Image>();
+    }
+
     private void Start()
     {
-        images = GetComponent<Image>();
         ChangeIndex();
     }
     private void OnEnable()
@@ -25,7 +29,6 @@ public class uiLanguageSprite : MonoBehaviour
 
     private void ChangeIndex()
     {
-        Debug.Log(SubtitleController.language);
         switch (SubtitleController.language)
         {
             case eSubtitleLanguage.English:

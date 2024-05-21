@@ -48,6 +48,7 @@ public class IntroClipSubManager : MonoBehaviour
                 yield return new WaitForSeconds(6f);
                 SubtitleController.CreateNewSubtitle("Last thing you'll need t- oh. Shit. Shit! I'm out of time - you're on your own now, good luck and-", 7f);
                 yield return new WaitForSeconds(7f);
+                SteamManager.instance.UnlockAchievement(0);
                 break;
             case eSubtitleLanguage.Spanish:
                 subSpeaker.clip = spanishIntro;
@@ -104,7 +105,7 @@ public class IntroClipSubManager : MonoBehaviour
                 yield return new WaitForSeconds(2.6f);
                 SubtitleController.CreateNewSubtitle("*EXPLOSIÓN FUERTE, luego estática*", 1.5f);
                 yield return new WaitForSeconds(1.5f);
-
+                SteamManager.instance.UnlockAchievement(0);
                 break;
             default: Debug.Log("Wtf");
                 break;

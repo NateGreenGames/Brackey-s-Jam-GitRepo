@@ -46,6 +46,7 @@ public class EyeballState : MonsterBaseState
             anim.ResetTrigger("Squint Eye");
             AudioManager.instance.PlaySFX(eSFX.creatureFlee, 0.4f);
             AudioManager.instance.StartCoroutine(AudioManager.instance.FadeOut(AudioManager.instance.musicSource2, 7));
+            SteamManager.instance.UnlockAchievement(5);
             _monsterStateManager.SwitchStates(_monsterStateManager.idleState);
         }
     }
@@ -109,6 +110,10 @@ public class EyeballState : MonsterBaseState
             canAttack = false;
             AudioManager.instance.StartCoroutine(AudioManager.instance.FadeOut(AudioManager.instance.musicSource2, 7));
             anim.SetTrigger("LookAround");
+            if (ElectricityUI.electricityPercentage > 0)
+            {
+                SteamManager.instance.UnlockAchievement(8);
+            }
         }
 
         if (GameOverAndCompletionController.instance.isOver)

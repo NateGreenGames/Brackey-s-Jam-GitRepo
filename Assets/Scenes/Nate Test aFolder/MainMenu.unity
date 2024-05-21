@@ -536,8 +536,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 21300000, guid: 12f1a0d0d3946c94786d587e9c628179, type: 3}
   - {fileID: 21300000, guid: d73253c285c67e745a6a54b16f4ba14c, type: 3}
-  images: {fileID: 194457440}
-  languageIDX: 0
 --- !u!1001 &254431410
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1598,8 +1596,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 21300000, guid: 249f2730ba43e9549bbc50d9d71373f1, type: 3}
   - {fileID: 21300000, guid: fa807ae452aac854d90c78ed95d7bad6, type: 3}
-  images: {fileID: 470100744}
-  languageIDX: 0
 --- !u!1 &472817394
 GameObject:
   m_ObjectHideFlags: 0
@@ -2413,8 +2409,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 21300000, guid: ed92553811c52414099c0f89360d32e4, type: 3}
   - {fileID: 21300000, guid: 0c6d9befc4b78af4a876f8ea15ad10b1, type: 3}
-  images: {fileID: 621032719}
-  languageIDX: 0
 --- !u!1 &629054831
 GameObject:
   m_ObjectHideFlags: 0
@@ -4881,8 +4875,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 21300000, guid: 1052283cac237f54294c82aaf14577e3, type: 3}
   - {fileID: 21300000, guid: 6195aa00a4a407b4589f48f6ed8b60d7, type: 3}
-  images: {fileID: 899945470}
-  languageIDX: 0
 --- !u!1 &905446034
 GameObject:
   m_ObjectHideFlags: 0
@@ -17449,8 +17441,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 21300000, guid: 6f55cdfeaf92334408726884673b6871, type: 3}
   - {fileID: 21300000, guid: 2ad397fc3ed9b7f4082d8a5263df5d17, type: 3}
-  images: {fileID: 1514464052}
-  languageIDX: 0
 --- !u!1001 &1520435417
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33960,6 +33950,50 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 666876010617271328}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1924746356
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1924746357}
+  - component: {fileID: 1924746358}
+  m_Layer: 0
+  m_Name: SteamManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1924746357
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1924746356}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 389.89038, y: 273.91284, z: 57.64835}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1924746358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1924746356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab6ccc724163d3e49a14c778e4e26def, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1927711801
 GameObject:
   m_ObjectHideFlags: 0
@@ -34681,8 +34715,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 0}
   - {fileID: 0}
-  images: {fileID: 2107491649}
-  languageIDX: 0
 --- !u!1001 &2114406907
 PrefabInstance:
   m_ObjectHideFlags: 0
