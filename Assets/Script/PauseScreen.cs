@@ -38,6 +38,7 @@ public class PauseScreen : MonoBehaviour
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
             Time.timeScale = 1;
+            AudioManager.instance.StartCoroutine(AudioManager.instance.FadeOut(AudioManager.instance.musicSource2, 0));
             StartCoroutine(LoadingManager.instance.ChangeScenes("MainMenu", 0, 0));
         }
     }
