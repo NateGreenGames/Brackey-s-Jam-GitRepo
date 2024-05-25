@@ -166,7 +166,7 @@ public class AudioManager : MonoBehaviour
 
     public void ChangeMusicVolume(float _newValue)// Changes fader value of music volume
     {
-        _newValue = Mathf.Clamp(_newValue, 0.1f, 1f);
+        _newValue = Mathf.Clamp(_newValue, 0.0001f, 1f);
         musicVolume = _newValue;
         musicMixer.audioMixer.SetFloat("MusicVolume", Mathf.Log10(_newValue) * 40);// Changes as a logarithmic fade
 
@@ -174,7 +174,7 @@ public class AudioManager : MonoBehaviour
 
     public void ChangeSFXVolume(float _newValue)// Changes fader value of sfx volume
     {
-        _newValue = Mathf.Clamp(_newValue, 0.1f, 1f);
+        _newValue = Mathf.Clamp(_newValue, 0.0001f, 1f);
         sfxVolume = _newValue;
         sfxMixer.audioMixer.SetFloat("SFXVolume", Mathf.Log10(_newValue) * 40);
 
@@ -182,7 +182,7 @@ public class AudioManager : MonoBehaviour
 
     public void ChangeMasterVolume(float _newValue)// Changes fader value of master volume
     {
-        _newValue = Mathf.Clamp(_newValue, 0.1f, 1f);
+        _newValue = Mathf.Clamp(_newValue, 0.0001f, 1f);
         masterVolume = _newValue;
         masterMixer.audioMixer.SetFloat("MasterVolume", Mathf.Log10(_newValue) * 40);
 

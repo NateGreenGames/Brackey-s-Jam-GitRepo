@@ -85,6 +85,6 @@ public class OptionsMenu : MonoBehaviour
 
     public void PlayClick(AudioClip _audioToPlay)
     {
-        AudioManager.instance.sfxSource.PlayOneShot(_audioToPlay);
+        AudioManager.instance.sfxSource.PlayOneShot(_audioToPlay, 0.5f);
     }
 }

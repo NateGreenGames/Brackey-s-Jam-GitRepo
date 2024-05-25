@@ -34,7 +34,7 @@ public class ProgressionPanel : MonoBehaviour
         if (collision.gameObject.CompareTag("Finish"))
         {
             //Start end sequence.
-            SteamManager.instance.UnlockAchievement(4);
+            SteamManager.instance.UnlockAchievement(eAchievement.Win);
             AudioManager.instance.PlaySFX(eSFX.hatchOpen, 1f);
             GameOverAndCompletionController.instance.WinGame();
             if (postDebugInformation) Debug.Log($"I collided with: {collision.collider.name}. You've won!");
@@ -42,7 +42,7 @@ public class ProgressionPanel : MonoBehaviour
         else if(collision.gameObject.CompareTag("Obstacle"))
         {
             //Trigger crash failstate.
-            SteamManager.instance.UnlockAchievement(3);
+            SteamManager.instance.UnlockAchievement(eAchievement.DieToWall);
             AudioManager.instance.PlaySFX(eSFX.crush, 1f);
             GameOverAndCompletionController.instance.EndGame("You crashed into the sea floor.");
             if (postDebugInformation) Debug.Log($"I collided with: {collision.collider.name}. You've sunk.");

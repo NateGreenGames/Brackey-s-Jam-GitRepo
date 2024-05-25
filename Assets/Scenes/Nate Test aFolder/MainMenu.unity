@@ -5403,7 +5403,7 @@ MonoBehaviour:
   sfxVolume: 0
   defaultVolume: 1
   defaultMasterVolume: 1
-  defaultMusicVolume: 0.8
+  defaultMusicVolume: 0.5
   defaultSfxVolume: 1
   masterMixer: {fileID: 24300002, guid: a4aedd25dff62d74d8b9d292ed0ca5ba, type: 2}
   musicMixer: {fileID: 1672085284364151600, guid: a4aedd25dff62d74d8b9d292ed0ca5ba,
@@ -33994,6 +33994,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab6ccc724163d3e49a14c778e4e26def, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  localAchievementStates: 
 --- !u!1 &1927711801
 GameObject:
   m_ObjectHideFlags: 0

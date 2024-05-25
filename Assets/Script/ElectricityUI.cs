@@ -49,7 +49,7 @@ public class ElectricityUI : MonoBehaviour
 
     private void DeathSequence()
     {
-        SteamManager.instance.UnlockAchievement(2);
+        SteamManager.instance.UnlockAchievement(eAchievement.DieToPower);
         FuseBox.instance.RunOutOfPower();
     }
 }

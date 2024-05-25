@@ -71,7 +71,7 @@ public class OxygenGuageBehavior : MonoBehaviour
         {
             dying = true;
             m_source.Stop();
-            SteamManager.instance.UnlockAchievement(1);
+            SteamManager.instance.UnlockAchievement(eAchievement.DieToOxygen);
             AudioManager.instance.PlaySFX(eSFX.suffocation, 1f);
             GameOverAndCompletionController.instance.EndGame("You suffocated.");
         }
