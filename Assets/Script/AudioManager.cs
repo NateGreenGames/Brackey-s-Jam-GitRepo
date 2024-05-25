@@ -27,7 +27,6 @@ public class AudioManager : MonoBehaviour
     public float musicVolume;
     public float sfxVolume;
 
-    public bool defaultVolume;
 
     // Default Settings
     public float defaultMasterVolume = 1f;
@@ -65,6 +64,9 @@ public class AudioManager : MonoBehaviour
 
     AudioLowPassFilter lowPassFilter;
 
+    private const string masterKey = "MasterVolume";
+    private const string sfxKey = "SFXVolume";
+    private const string musicKey = "MusicVolume";
     // Awake Refs for making into Singleton
     /*
     private void Awake()
@@ -108,13 +110,9 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        masterVolume = PlayerPrefs.GetFloat("MasterVolume", defaultMasterVolume);
-        musicVolume = PlayerPrefs.GetFloat("MusicVolume", defaultMusicVolume);
-        sfxVolume = PlayerPrefs.GetFloat("SFXVolume", defaultSfxVolume);
-
-        ChangeMasterVolume(masterVolume);
-        ChangeMusicVolume(musicVolume);
-        ChangeSFXVolume(sfxVolume);
+        ChangeMasterVolume(PlayerPrefs.GetFloat(masterKey, defaultMasterVolume));
+        ChangeMusicVolume(PlayerPrefs.GetFloat(musicKey, defaultMusicVolume));
+        ChangeSFXVolume(PlayerPrefs.GetFloat(sfxKey, defaultSfxVolume));
     }
     // USE THIS FUNCTION TO SWITCH UP THE AUDIOCLIP FOR MUSIC
     public void ChangeMusicClip(AudioSource _source, eMusic _music)
@@ -168,7 +166,8 @@ public class AudioManager : MonoBehaviour
     {
         _newValue = Mathf.Clamp(_newValue, 0.0001f, 1f);
         musicVolume = _newValue;
-        musicMixer.audioMixer.SetFloat("MusicVolume", Mathf.Log10(_newValue) * 40);// Changes as a logarithmic fade
+        musicMixer.audioMixer.SetFloat(musicKey, Mathf.Log10(_newValue) * 40f);// Changes as a logarithmic fade
+        PlayerPrefs.SetFloat(musicKey, _newValue);
 
     }
 
@@ -176,15 +175,16 @@ public class AudioManager : MonoBehaviour
     {
         _newValue = Mathf.Clamp(_newValue, 0.0001f, 1f);
         sfxVolume = _newValue;
-        sfxMixer.audioMixer.SetFloat("SFXVolume", Mathf.Log10(_newValue) * 40);
-
+        sfxMixer.audioMixer.SetFloat(sfxKey, Mathf.Log10(_newValue) * 40f);
+        PlayerPrefs.SetFloat(sfxKey, _newValue);
     }
 
     public void ChangeMasterVolume(float _newValue)// Changes fader value of master volume
     {
         _newValue = Mathf.Clamp(_newValue, 0.0001f, 1f);
         masterVolume = _newValue;
-        masterMixer.audioMixer.SetFloat("MasterVolume", Mathf.Log10(_newValue) * 40);
+        masterMixer.audioMixer.SetFloat(masterKey, Mathf.Log10(_newValue) * 40f);
+        PlayerPrefs.SetFloat(masterKey, _newValue);
 
     }
 

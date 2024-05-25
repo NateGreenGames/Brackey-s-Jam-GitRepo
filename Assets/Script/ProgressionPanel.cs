@@ -44,7 +44,17 @@ public class ProgressionPanel : MonoBehaviour
             //Trigger crash failstate.
             SteamManager.instance.UnlockAchievement(eAchievement.DieToWall);
             AudioManager.instance.PlaySFX(eSFX.crush, 1f);
-            GameOverAndCompletionController.instance.EndGame("You crashed into the sea floor.");
+
+
+            switch (SubtitleController.language)
+            {
+                case eSubtitleLanguage.English:
+                    GameOverAndCompletionController.instance.EndGame("You crashed into the sea floor.");
+                    break;
+                case eSubtitleLanguage.Spanish:
+                    GameOverAndCompletionController.instance.EndGame("Chocaste contra el fondo del mar.");
+                    break;
+            }
             if (postDebugInformation) Debug.Log($"I collided with: {collision.collider.name}. You've sunk.");
         }
         else

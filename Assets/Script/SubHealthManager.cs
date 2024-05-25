@@ -31,7 +31,15 @@ public class SubHealthManager : MonoBehaviour
         if (submarineHealth <= 0)
         {
             AudioManager.instance.PlaySFX(eSFX.crush, 1f);
-            GameOverAndCompletionController.instance.EndGame("You were crushed and swallowed whole.");
+            switch (SubtitleController.language)
+            {
+                case eSubtitleLanguage.English:
+                    GameOverAndCompletionController.instance.EndGame("You were crushed and swallowed whole.");
+                    break;
+                case eSubtitleLanguage.Spanish:
+                    GameOverAndCompletionController.instance.EndGame("Fuiste aplastado y tragado entero.");
+                    break;
+            }
         }
     }
 }

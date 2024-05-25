@@ -5401,7 +5401,6 @@ MonoBehaviour:
   masterVolume: 0
   musicVolume: 0
   sfxVolume: 0
-  defaultVolume: 1
   defaultMasterVolume: 1
   defaultMusicVolume: 0.5
   defaultSfxVolume: 1

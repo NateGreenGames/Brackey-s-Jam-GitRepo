@@ -60,7 +60,6 @@ public class TentacleMonsterState : MonsterBaseState
         {
             anim.SetTrigger("Slitherout");
             AudioManager.instance.StartCoroutine(AudioManager.instance.FadeOut(AudioManager.instance.musicSource2, 7));
-            SteamManager.instance.UnlockAchievement(eAchievement.SurviveTentacle);
             _monsterStateManager.SwitchStates(_monsterStateManager.idleState);
         }
     }
@@ -138,16 +137,20 @@ public class TentacleMonsterState : MonsterBaseState
 
     public void IsShocked()
     {
-        Debug.Log("Shocked");
-        AudioManager.instance.PlaySFX(eSFX.tentacleOutro, 2);
-        foreach (ParticleSystem system in m_PS)
+        if(attackRate > 0)
         {
-            system.Play();
+            Debug.Log("Shocked");
+            SteamManager.instance.UnlockAchievement(eAchievement.SurviveTentacle);
+            AudioManager.instance.PlaySFX(eSFX.tentacleOutro, 2);
+            foreach (ParticleSystem system in m_PS)
+            {
+                system.Play();
+            }
+            isShocked = true;
+            attackRate = 0;
+            anim.SetTrigger("Shocked");
+            anim.ResetTrigger("Slapped");
+            anim.SetTrigger("Idle");
         }
-        isShocked = true;
-        attackRate = 0;
-        anim.SetTrigger("Shocked");
-        anim.ResetTrigger("Slapped");
-        anim.SetTrigger("Idle");
     }
 }

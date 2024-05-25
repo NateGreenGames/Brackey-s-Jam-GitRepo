@@ -73,7 +73,17 @@ public class OxygenGuageBehavior : MonoBehaviour
             m_source.Stop();
             SteamManager.instance.UnlockAchievement(eAchievement.DieToOxygen);
             AudioManager.instance.PlaySFX(eSFX.suffocation, 1f);
-            GameOverAndCompletionController.instance.EndGame("You suffocated.");
+
+
+            switch (SubtitleController.language)
+            {
+                case eSubtitleLanguage.English:
+                    GameOverAndCompletionController.instance.EndGame("You suffocated.");
+                    break;
+                case eSubtitleLanguage.Spanish:
+                    GameOverAndCompletionController.instance.EndGame("Te sofocaste.");
+                    break;
+            }
         }
     }
 

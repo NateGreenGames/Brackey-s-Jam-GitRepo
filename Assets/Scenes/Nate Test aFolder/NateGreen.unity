@@ -7967,6 +7967,8 @@ MonoBehaviour:
     spanishTranslation: '[Chillido De Criatura]'
   - englishTranslation: '[Creature Approaches]'
     spanishTranslation: '[Chillido De Criatura]'
+  - englishTranslation: '[Creature Squeels]'
+    spanishTranslation: '[Chillido De Criatura]'
   subtitlePrefab: {fileID: 521627325897994686, guid: 854e652b40f38c94e8220919a483fad6,
     type: 3}
 --- !u!114 &387262664
