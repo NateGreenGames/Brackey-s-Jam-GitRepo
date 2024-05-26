@@ -45,13 +45,16 @@ public class PauseScreen : MonoBehaviour
 
     void TogglePause()
     {
-        isPaused = !isPaused;
-        AudioListener.pause = isPaused;
-        Cursor.visible = isPaused;
-        Cursor.lockState = isPaused ? CursorLockMode.None : CursorLockMode.Locked;
-        Time.timeScale = isPaused ? 0 : 1;
-        pauseMenu.SetActive(isPaused);
-        if(inOptions) OnOptionsClick();
+        if (!GameOverAndCompletionController.instance.isOver)
+        {
+            isPaused = !isPaused;
+            AudioListener.pause = isPaused;
+            Cursor.visible = isPaused;
+            Cursor.lockState = isPaused ? CursorLockMode.None : CursorLockMode.Locked;
+            Time.timeScale = isPaused ? 0 : 1;
+            pauseMenu.SetActive(isPaused);
+            if (inOptions) OnOptionsClick();
+        }
     }
 
     public void PlayClick(AudioClip _audioToPlay)

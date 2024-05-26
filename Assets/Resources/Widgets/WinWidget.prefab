@@ -63,6 +63,7 @@ GameObject:
   - component: {fileID: 5553933355509809110}
   - component: {fileID: 3710100212880081941}
   - component: {fileID: 3219449820308257695}
+  - component: {fileID: 3039122425021673526}
   m_Layer: 5
   m_Name: Restart_Button
   m_TagString: Untagged
@@ -184,6 +185,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &3039122425021673526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2905048344709450767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dc4f0662dc43454d9b8210e5445e31e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 21300000, guid: 289c853dbfbbd9347b895cbd0df09a0c, type: 3}
+  - {fileID: 21300000, guid: e617ef55d4a3c664cb94603ee8aab067, type: 3}
 --- !u!1 &3683217069880358796
 GameObject:
   m_ObjectHideFlags: 0
@@ -195,6 +211,7 @@ GameObject:
   - component: {fileID: 8776711911394494777}
   - component: {fileID: 711394125887634030}
   - component: {fileID: 838804743976106465}
+  - component: {fileID: 128070617531578164}
   m_Layer: 5
   m_Name: GameOver_Img
   m_TagString: Untagged
@@ -260,3 +277,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &128070617531578164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3683217069880358796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dc4f0662dc43454d9b8210e5445e31e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 21300000, guid: f3f5f8ea28e05414482b2a421ab953c6, type: 3}
+  - {fileID: 21300000, guid: 271543b61971ea0438432d72bb21e7df, type: 3}
