@@ -7372,7 +7372,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: a45d366258605ab4db6af1a1009b4a94, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -15321,8 +15321,8 @@ MonoBehaviour:
   idleState:
     attackRate: 0
     attackRateIncrease: 3
-    monsterIdx: 1
-    rigged: 0
+    monsterIdx: 0
+    rigged: 1
   eyeballState:
     eyeballMonster: {fileID: 1286939076}
     attackRate: 0
@@ -15957,18 +15957,18 @@ AudioReverbZone:
   m_Enabled: 1
   m_MinDistance: 0
   m_MaxDistance: 15
-  m_ReverbPreset: 22
+  m_ReverbPreset: 23
   m_Room: -1000
-  m_RoomHF: -1000
-  m_DecayTime: 2.81
-  m_DecayHFRatio: 0.14
-  m_Reflections: 429
-  m_ReflectionsDelay: 0.014
-  m_Reverb: 1023
-  m_ReverbDelay: 0.021
+  m_RoomHF: -4000
+  m_DecayTime: 1.49
+  m_DecayHFRatio: 0.1
+  m_Reflections: -449
+  m_ReflectionsDelay: 0.007
+  m_Reverb: 1700
+  m_ReverbDelay: 0.011
   m_HFReference: 5000
-  m_Diffusion: 80
-  m_Density: 60
+  m_Diffusion: 100
+  m_Density: 100
   m_LFReference: 250
   m_RoomLF: 0
 --- !u!4 &759019161
@@ -41298,14 +41298,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1616204100}
-  m_LocalRotation: {x: 0.35355374, y: 0.07937103, z: -0.030123776, w: 0.93155384}
-  m_LocalPosition: {x: -0.0059, y: -0.3927, z: -0.3434}
+  m_LocalRotation: {x: -0, y: 0.05027566, z: -0, w: 0.99873537}
+  m_LocalPosition: {x: 0, y: -0.5, z: -0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1505980463}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 41.567, y: 9.74, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 5.764, z: 0}
 --- !u!114 &1616204102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41342,8 +41342,8 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 0.78431374, b: 0.41960785, a: 1}
   m_Intensity: 0.48
-  m_Range: 3.28
-  m_SpotAngle: 115.73529
+  m_Range: 1.83
+  m_SpotAngle: 147.86957
   m_InnerSpotAngle: 0
   m_CookieSize: 10
   m_Shadows:
@@ -48195,7 +48195,6 @@ MonoBehaviour:
   masterVolume: 0
   musicVolume: 0
   sfxVolume: 0
-  defaultVolume: 1
   defaultMasterVolume: 1
   defaultMusicVolume: 0.8
   defaultSfxVolume: 1
@@ -48380,6 +48379,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1916565413}
+  - component: {fileID: 1916565414}
   m_Layer: 0
   m_Name: SteamManager
   m_TagString: Untagged
@@ -48402,6 +48402,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1916565414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1916565412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab6ccc724163d3e49a14c778e4e26def, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localAchievementStates: 
 --- !u!1001 &1917247895
 PrefabInstance:
   m_ObjectHideFlags: 0
