@@ -66,6 +66,7 @@ public class TentacleMonsterState : MonsterBaseState
 
     public override void Enrage(MonsterStateManager _monsterStateManager)
     {
+        attackRate = 100;
         damagePerAttack = 100;
     }
 

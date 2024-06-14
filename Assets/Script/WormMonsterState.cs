@@ -54,6 +54,7 @@ public class WormMonsterState : MonsterBaseState
     }
     public override void Enrage(MonsterStateManager _monsterStateManager)
     {
+        attackRate = 100;
         damagePerAttack = 100;
     }
 

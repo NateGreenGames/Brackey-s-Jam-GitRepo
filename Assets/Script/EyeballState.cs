@@ -53,6 +53,7 @@ public class EyeballState : MonsterBaseState
 
     public override void Enrage(MonsterStateManager _monsterStateManager)
     {
+        attackRate = 100;
         damagePerAttack = 100;
     }
 

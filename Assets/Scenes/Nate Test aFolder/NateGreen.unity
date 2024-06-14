@@ -15322,7 +15322,7 @@ MonoBehaviour:
     attackRate: 0
     attackRateIncrease: 3
     monsterIdx: 0
-    rigged: 1
+    rigged: 0
   eyeballState:
     eyeballMonster: {fileID: 1286939076}
     attackRate: 0
